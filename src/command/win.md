@@ -1,6 +1,6 @@
 # Windows
 
-## chcp
+## 1. chcp
 
 ### 現在の文字コードを確認する
 
@@ -21,4 +21,18 @@
 
 ```
 > chcp {identifier_code}
+```
+
+## 2. netsh
+
+### 接続していたWiFi一覧を調べる
+
+```
+> netsh wlan show profiles
+```
+
+### PW を調べる
+
+```
+> netsh wlan show profiles name={SSID} key=clear
 ```
