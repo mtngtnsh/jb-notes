@@ -49,11 +49,11 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/src/appendix/inde.html" />
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="tips" href="intr.html" />
-    <link rel="prev" title="iTerm2" href="../settings/iterm2.html" />
+    <link rel="prev" title="tips" href="intr.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,11 +75,6 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../../_static/icon.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Yuan's notes</h1>
@@ -204,6 +199,16 @@
    midPoint
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/keycloak.html">
+   midPoint + Keycloack + GitLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/portainer.html">
+   portainer
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -214,6 +219,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../command/mac.html">
    MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/linux.html">
+   Linux
   </a>
  </li>
  <li class="toctree-l1">
@@ -270,6 +280,11 @@
    iTerm2
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/others.html">
+   Others
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -277,14 +292,14 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   useful links
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="intr.html">
    tips
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   useful links
   </a>
  </li>
 </ul>
@@ -339,6 +354,19 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mtngtnsh/jb-notes/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -386,6 +414,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ml">
+   ML
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tools-docs">
    tools docs
   </a>
@@ -425,6 +458,7 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.python.jp/">Python Japan</a></p></li>
 <li><p><a class="reference external" href="https://pkg.go.dev/std">Golang Package</a></p></li>
+<li><p><a class="reference external" href="https://spring.io/projects/spring-boot">Spring Boot</a></p></li>
 </ul>
 </div>
 <div class="section" id="db">
@@ -445,11 +479,19 @@
 <li><p><a class="reference external" href="https://www.digitalocean.com/community/tutorials">DigitalOcean Tutorials</a></p></li>
 </ul>
 </div>
+<div class="section" id="ml">
+<h2>ML<a class="headerlink" href="#ml" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://chokkan.github.io/mlnote/">mlnote</a></p></li>
+</ul>
+</div>
 <div class="section" id="tools-docs">
 <h2>tools docs<a class="headerlink" href="#tools-docs" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.docker.com/desktop/">Docker Docs</a></p></li>
 <li><p><a class="reference external" href="https://circleci.com/docs/ja/2.0/about-circleci/">circleci Docs</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/home/">Kubernetes Docs</a></p></li>
+<li><p><a class="reference external" href="https://readpaper.com/">ReadPaper</a></p></li>
 </ul>
 </div>
 <div class="section" id="search-engine">
@@ -485,19 +527,12 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../settings/iterm2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="intr.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">iTerm2</p>
+            <p class="prev-next-title">tips</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="intr.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">tips</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
         
@@ -509,7 +544,7 @@
         
           By The Jupyter Book community<br/>
         
-            &copy; Copyright 2021 by Yuan Zhang.<br/>
+            &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
       </p>
     </div>
   </footer>

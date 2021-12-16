@@ -49,10 +49,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/src/appendix/intr.html" />
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="useful links" href="inde.html" />
+    <link rel="next" title="useful links" href="inde.html" />
+    <link rel="prev" title="Others" href="../settings/others.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -74,11 +76,6 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../../_static/icon.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Yuan's notes</h1>
@@ -203,6 +200,16 @@
    midPoint
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/keycloak.html">
+   midPoint + Keycloack + GitLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/portainer.html">
+   portainer
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -213,6 +220,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../command/mac.html">
    MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/linux.html">
+   Linux
   </a>
  </li>
  <li class="toctree-l1">
@@ -269,6 +281,11 @@
    iTerm2
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/others.html">
+   Others
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -276,14 +293,14 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="inde.html">
-   useful links
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    tips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="inde.html">
+   useful links
   </a>
  </li>
 </ul>
@@ -338,6 +355,19 @@
 
             <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mtngtnsh/jb-notes/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -368,23 +398,13 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#vps">
-       (1) VPSを購入して構築する
+      <a class="reference internal nav-link" href="#id1">
+       (1)ノートや記事を用意する
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#ssl">
-       (2)ドメインを購入してSSL証明書を取得する
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#vuepress">
-       (3)ノートや記事を用意する(VuePress)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#web">
-       (4) Webサーバに配置する
+      <a class="reference internal nav-link" href="#ghp-import-release">
+       (2) ghp-import で release する
       </a>
      </li>
     </ul>
@@ -407,73 +427,40 @@
 <div class="section" id="how-to-create-this-note">
 <h2>How to create this note?<a class="headerlink" href="#how-to-create-this-note" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>Rent a VPS and setup your VPS with</p>
-<ul class="simple">
-<li><p>Linux(Ubuntu or others)</p></li>
-<li><p>Nginx</p></li>
-<li><p>Docker</p></li>
-</ul>
-</li>
-<li><p>Buy a Domain.</p></li>
 <li><p>Write articles by markdown.</p></li>
-<li><p>Go to <a class="reference external" href="https://github.com/mtngtnsh/self-notes">github</a> repository to read the README please.</p></li>
+<li><p>Publish your book online.</p></li>
 </ol>
 <div class="section" id="tl-dr-ja">
 <h3>TL;DR(ja)<a class="headerlink" href="#tl-dr-ja" title="Permalink to this headline">¶</a></h3>
 <p>以下のステップで実現できる。</p>
 <ul class="simple">
-<li><p>VPSを購入して構築する(<a class="reference external" href="https://www.digitalocean.com/">DigitalOcean</a>)</p></li>
-<li><p>ドメインを購入してSSL証明書を取得する</p></li>
 <li><p>ノートや記事を用意する(Markdownで書く)</p></li>
-<li><p>Webサーバに配置する</p></li>
+<li><p>ghp-import で release する</p></li>
 </ul>
-<div class="section" id="vps">
-<h4>(1) VPSを購入して構築する<a class="headerlink" href="#vps" title="Permalink to this headline">¶</a></h4>
-<p>DigitalOceanというシンプルで安いクラウドを選択。<br />
-VPS構成(DigitalOceanの世界でいうと、VPSはDroplets):<br />
-*<strong>DigitalOceanでのDroplets作成方法を省略。</strong></p>
-<ul class="simple">
-<li><p>Nginx(Ubuntu:20.04)  —&gt;&gt;&gt;  <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04">How To Install Nginx on Ubuntu 20.04</a></p></li>
-<li><p>Git</p></li>
-<li><p>Docker  —&gt;&gt;&gt;  <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04">How To Install and Use Docker on Ubuntu 20.04</a></p></li>
-</ul>
-</div>
-<div class="section" id="ssl">
-<h4>(2)ドメインを購入してSSL証明書を取得する<a class="headerlink" href="#ssl" title="Permalink to this headline">¶</a></h4>
-<ul class="simple">
-<li><p>ドメインを購入する  —&gt;&gt;&gt;  <a class="reference external" href="https://www.namecheap.com/">namecheap</a></p></li>
-<li><p>SSL証明書を取得する  —&gt;&gt;&gt;  <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04">How To Secure Nginx with Let’s Encrypt on Ubuntu 20.04</a></p></li>
-</ul>
-</div>
-<div class="section" id="vuepress">
-<h4>(3)ノートや記事を用意する(VuePress)<a class="headerlink" href="#vuepress" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id1">
+<h4>(1)ノートや記事を用意する<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <ul>
-<li><p>VuePressを導入(ローカル端末)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├─ docs
-│  ├─ .vuepress
-│  │  └─ config.js
-│  └─ README.md
-├─ .gitignore
-└─ package.json
-</pre></div>
-</div>
-</li>
-<li><p>依存をインスール(yarnの例)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yarn</span>
-</pre></div>
-</div>
-<p>*依存ファイル<code class="docutils literal notranslate"><span class="pre">yarn.lock</span></code>が生成される。</p>
-</li>
-<li><p>開発環境で確認</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">yarn</span> <span class="n">dev</span>
+<li><p>ディレクトリ構成</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├─ src
+│  ├─ index.md
+│  └─ ..
+├─ _config.yml
+└─ _toc.yml
 </pre></div>
 </div>
 </li>
 </ul>
 </div>
-<div class="section" id="web">
-<h4>(4) Webサーバに配置する<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h4>
-<p>個人用GitHubの<a class="reference external" href="https://github.com/mtngtnsh/self-notes#readme">README.md</a>に記載している。</p>
+<div class="section" id="ghp-import-release">
+<h4>(2) ghp-import で release する<a class="headerlink" href="#ghp-import-release" title="Permalink to this headline">¶</a></h4>
+<p><em>if home directory was jb-notes</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ../
+$ jb build --all jb-notes            # _build will be generated
+$ cd jb-notes
+$ ghp-import -n -p -f _build/html
+</pre></div>
+</div>
+<p><a class="reference external" href="https://jupyterbook.org/start/publish.html#publish-your-book-online">Reference</a></p>
 </div>
 </div>
 </div>
@@ -504,12 +491,19 @@ VPS構成(DigitalOceanの世界でいうと、VPSはDroplets):<br />
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="inde.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../settings/others.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">useful links</p>
+            <p class="prev-next-title">Others</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="inde.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">useful links</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
         
@@ -521,7 +515,7 @@ VPS構成(DigitalOceanの世界でいうと、VPSはDroplets):<br />
         
           By The Jupyter Book community<br/>
         
-            &copy; Copyright 2021 by Yuan Zhang.<br/>
+            &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
       </p>
     </div>
   </footer>

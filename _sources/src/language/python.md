@@ -40,3 +40,10 @@ def _format_strtime(st):
     """
     return datetime.datetime.strptime(st, '%Y-%m-%d %H:%M:%S') + datetime.timedelta(hours=9)
 ```
+
+## remove all installed modules with pip
+
+```
+$ pip freeze > piplist.txt
+$ pip uninstall -r piplist.txt -y
+```

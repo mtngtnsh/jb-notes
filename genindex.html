@@ -42,6 +42,7 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/genindex.html" />
     <link rel="shortcut icon" href="_static/icon.png"/>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
@@ -66,11 +67,6 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="_static/icon.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Yuan's notes</h1>
@@ -195,6 +191,16 @@
    midPoint
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="src/oss/keycloak.html">
+   midPoint + Keycloack + GitLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="src/oss/portainer.html">
+   portainer
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -205,6 +211,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="src/command/mac.html">
    MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="src/command/linux.html">
+   Linux
   </a>
  </li>
  <li class="toctree-l1">
@@ -261,6 +272,11 @@
    iTerm2
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="src/settings/others.html">
+   Others
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -269,13 +285,13 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="src/appendix/inde.html">
-   useful links
+  <a class="reference internal" href="src/appendix/intr.html">
+   tips
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="src/appendix/intr.html">
-   tips
+  <a class="reference internal" href="src/appendix/inde.html">
+   useful links
   </a>
  </li>
 </ul>
@@ -312,6 +328,19 @@
             
             
             <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mtngtnsh/jb-notes/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
 
@@ -358,7 +387,7 @@
         
           By The Jupyter Book community<br/>
         
-            &copy; Copyright 2021 by Yuan Zhang.<br/>
+            &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
       </p>
     </div>
   </footer>
