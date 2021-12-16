@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="AWS" href="aws.html" />
+    <link rel="prev" title="Python" href="../language/python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/cloud/azure01.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-azure-batch">
+   デモ1(Python): Azure Batch サービスクライアントを作成する
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python">
+   デモ2(Python): プールを再作成する(定期的に実行可)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     1. オートスケールで設定しているプールに対して、オートスケールを無効にする
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     2. 稼働しているプールをリサイズする(プール数を0に指定してリサイズ)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#steady">
+     3. 割り当て状態が steady になるまで待つ
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4. プールを削除する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     5-1. プールの作成: プール定義ファイルの値を取得して整形する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     5-2. プールの作成: 複数プールをまとめて作成する
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="azure">
+<h1>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python-azure-batch">
+<h2>デモ1(Python): Azure Batch サービスクライアントを作成する<a class="headerlink" href="#python-azure-batch" title="Permalink to this headline">¶</a></h2>
+<p>環境:</p>
+<ul class="simple">
+<li><p>Python 3.8.x 以降</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">adal</span>
+<span class="kn">import</span> <span class="nn">cryptography.x509</span>
+<span class="kn">import</span> <span class="nn">cryptography.hazmat.primitives</span>
+<span class="kn">import</span> <span class="nn">binascii</span>
+
+<span class="kn">import</span> <span class="nn">msrestazure.azure_active_directory</span>
+<span class="kn">import</span> <span class="nn">azure.batch</span>
+<span class="kn">import</span> <span class="nn">azure.identity</span>
+<span class="kn">import</span> <span class="nn">azure.mgmt.batch</span>
+
+
+<span class="k">def</span> <span class="nf">create_batch_service</span><span class="p">(</span><span class="n">tenant_id</span><span class="p">,</span> <span class="n">client_id</span><span class="p">,</span> <span class="n">cert_path</span><span class="p">,</span> <span class="n">batch_url</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;azure.batch.BatchServiceClientを作成する</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tenant_id: str</span>
+<span class="sd">        テナントID</span>
+<span class="sd">    client_id: str</span>
+<span class="sd">        サービスプリンシパルのクライアントID</span>
+<span class="sd">    cert_path: str</span>
+<span class="sd">        証明書ファイルのパス</span>
+<span class="sd">    batch_url: str</span>
+<span class="sd">        Azure BatchのエンドポイントURL</span>
+<span class="sd">    proxies: str</span>
+<span class="sd">        プロキシサーバのURL</span>
+<span class="sd">    </span>
+<span class="sd">    Ruturns</span>
+<span class="sd">    ----------</span>
+<span class="sd">    BatchServiceClient</span>
+<span class="sd">        Azure Batch サービスアクセス用クライアント</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># AzureActiveDirectoryの認証コンテキスト取得</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">adal</span><span class="o">.</span><span class="n">AuthenticationContext</span><span class="p">(</span><span class="s1">&#39;https://login.microsoftonline.com/&#39;</span> <span class="o">+</span> <span class="n">tenant_id</span><span class="p">,</span> <span class="n">proxies</span><span class="o">=</span><span class="n">proxies</span><span class="p">)</span>
+
+    <span class="c1"># 秘密鍵と証明書が格納されたファイルを読み込み</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cert_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">key_cert</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    
+    <span class="c1"># 証明書からSHA1フィンガープリントを16進文字列で取得</span>
+    <span class="n">certificate</span> <span class="o">=</span> <span class="n">cryptography</span><span class="o">.</span><span class="n">x509</span><span class="o">.</span><span class="n">load_pem_x509_certificate</span><span class="p">(</span><span class="n">key_cert</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+    <span class="n">finger_print</span> <span class="o">=</span> <span class="n">certificate</span><span class="o">.</span><span class="n">fingerprint</span><span class="p">(</span><span class="n">cryptography</span><span class="o">.</span><span class="n">hazmat</span><span class="o">.</span><span class="n">primitives</span><span class="o">.</span><span class="n">hashes</span><span class="o">.</span><span class="n">SHA1</span><span class="p">())</span>
+    <span class="n">finger_print_hex</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">binascii</span><span class="o">.</span><span class="n">hexlify</span><span class="p">(</span><span class="n">finger_print</span><span class="p">),</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+    <span class="c1"># 秘密鍵とフィンガプリントでAzureActiveDirectoryから認証トークンを取得</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">acquire_token_with_client_certificate</span><span class="p">(</span>
+        <span class="n">resource</span><span class="o">=</span><span class="s1">&#39;https://batch.core.windows.net/&#39;</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+        <span class="n">certificate</span><span class="o">=</span><span class="n">key_cert</span><span class="p">,</span>
+        <span class="n">thumbprint</span><span class="o">=</span><span class="n">finger_print_hex</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 認証トークンをベースにクレデンシャルを作成</span>
+    <span class="n">credential</span> <span class="o">=</span>  <span class="n">msrestazure</span><span class="o">.</span><span class="n">azure_active_directory</span><span class="o">.</span><span class="n">AADTokenCredentials</span><span class="p">(</span>
+        <span class="n">token</span><span class="o">=</span><span class="n">token</span><span class="p">,</span>
+        <span class="n">client_id</span><span class="o">=</span><span class="n">client_id</span>
+    <span class="p">)</span>
+
+    <span class="c1"># BatchServiceClient作成</span>
+    <span class="k">return</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">BatchServiceClient</span><span class="p">(</span><span class="n">credential</span><span class="p">,</span> <span class="n">batch_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="python">
+<h2>デモ2(Python): プールを再作成する(定期的に実行可)<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>前提としては、再作成プールの定義ファイルは別途で用意すること。*.jsonや *.j2でも可。
+本でもの場合、.jsonを使用。</p>
+<p><strong>&lt;&lt;フロー&gt;&gt;</strong></p>
+<ol class="simple">
+<li><p>オートスケールで設定しているプールに対して、オートスケールを無効にする</p></li>
+<li><p>稼働しているプールをリサイズする(プール数を0に指定してリサイズ)</p></li>
+<li><p>割り当て状態が steady になるまで待つ</p></li>
+<li><p>プールを削除する</p></li>
+<li><p>プールを作成する</p></li>
+</ol>
+<div class="section" id="id1">
+<h3>1. オートスケールで設定しているプールに対して、オートスケールを無効にする<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
+<span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_disable_auto_scale</span><span class="p">(</span><span class="n">batch_service</span><span class="p">,</span> <span class="n">target_pool_dict</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;オートスケールを無効にする</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">p_id</span> <span class="ow">in</span> <span class="n">target_pool_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c1"># 現在のオートスケールフラグを確認</span>
+        <span class="n">auto_scale_flag</span> <span class="o">=</span> <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p_id</span><span class="p">)</span><span class="o">.</span><span class="n">enable_auto_scale</span>
+
+        <span class="c1"># オートスケールが無効化されている場合は処理しない</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">auto_scale_flag</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># オートスケールを無効化</span>
+        <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">disable_auto_scale</span><span class="p">(</span><span class="n">p_id</span><span class="p">)</span>
+ 
+        <span class="c1"># 再度オートスケールフラグを確認</span>
+        <span class="n">auto_scale_flag</span> <span class="o">=</span> <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p_id</span><span class="p">)</span><span class="o">.</span><span class="n">enable_auto_scale</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>2. 稼働しているプールをリサイズする(プール数を0に指定してリサイズ)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
+<span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
+<span class="n">RESIZE_NODE_NUM</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">RESIZE_TIMEOUT</span> <span class="o">=</span> <span class="mi">30</span>
+
+<span class="k">def</span> <span class="nf">_resize_pools</span><span class="p">(</span><span class="n">batch_service</span><span class="p">,</span> <span class="n">target_pool_dict</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;プールをリサイズする</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">p_id</span> <span class="ow">in</span> <span class="n">target_pool_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">p_allocation_state</span> <span class="o">=</span> <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p_id</span><span class="p">)</span><span class="o">.</span><span class="n">allocation_state</span>
+
+        <span class="c1"># リサイズする前、resizing である場合、resizing を停止する</span>
+        <span class="k">if</span> <span class="n">p_allocation_state</span> <span class="o">==</span> <span class="s1">&#39;resizing&#39;</span><span class="p">:</span>
+            <span class="o">...</span>
+            <span class="o">...</span>
+
+        <span class="n">resize_option</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">PoolResizeParameter</span><span class="p">(</span>
+            <span class="n">target_dedicated_nodes</span><span class="o">=</span><span class="n">RESIZE_NODE_NUM</span><span class="p">,</span>
+            <span class="n">node_deallocation_option</span><span class="o">=</span><span class="s1">&#39;taskCompletion&#39;</span><span class="p">,</span>
+            <span class="n">resize_timeout</span><span class="o">=</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">RESIZE_TIMEOUT</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">p_id</span><span class="p">,</span> <span class="n">resize_option</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="steady">
+<h3>3. 割り当て状態が steady になるまで待つ<a class="headerlink" href="#steady" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
+<span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
+<span class="n">POLLING_COUNT</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">WAITING_TIME</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">def</span> <span class="nf">_resize_until_steady</span><span class="p">(</span><span class="n">batch_service</span><span class="p">,</span> <span class="n">target_pool_dict</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;プールごとに割り当て状態が steady になるまでまつ</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">p_id</span> <span class="ow">in</span> <span class="n">target_pool_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">POLLING_COUNT</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">p_allocation_state</span> <span class="o">=</span> <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p_id</span><span class="p">)</span><span class="o">.</span><span class="n">allocation_state</span>
+            
+            <span class="k">if</span> <span class="n">p_allocation_state</span> <span class="o">==</span> <span class="s1">&#39;steady&#39;</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">sleep</span><span class="p">(</span><span class="n">WAITING_TIME</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>4. プールを削除する<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
+<span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_delete_pools</span><span class="p">(</span><span class="n">batch_service</span><span class="p">,</span> <span class="n">target_pool_dict</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;プールを削除する</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">p_id</span><span class="p">,</span> <span class="n">p_error</span> <span class="ow">in</span> <span class="n">target_pool_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c1"># プール削除処理</span>
+        <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">p_id</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>5-1. プールの作成: プール定義ファイルの値を取得して整形する<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
+<span class="c1"># 共通の定義を&#39;common-config&#39;に定義、異なる部分は、プール名で分けて定義する</span>
+<span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_format_pools_config</span><span class="p">(</span><span class="n">target_pool_dict</span><span class="p">,</span> <span class="n">pool_config</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;プール設定JSONファイルから値を取得して整形する</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">target_pool_config</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">for</span> <span class="n">p_id</span> <span class="ow">in</span> <span class="n">target_pool_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c1"># 対象プールの設定情報を取得する</span>
+        <span class="n">p_config</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="n">p_id</span><span class="p">]</span>
+
+        <span class="c1"># environment settings を整形する</span>
+        <span class="n">environment_settings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;environmentSettings&#39;</span><span class="p">])):</span>
+            <span class="n">environment_settings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;environmentSettings&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;value&#39;</span><span class="p">:</span><span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;environmentSettings&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;value&#39;</span><span class="p">],</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+        <span class="c1"># オートスケール対象のプールかどうかに応じてターゲットノード数を設定する</span>
+        <span class="k">if</span> <span class="n">p_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;enableAutoScale&#39;</span><span class="p">):</span>
+            <span class="n">target_dedicated_nodes</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">enable_auto_scale</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;enableAutoScale&#39;</span><span class="p">]</span>
+            <span class="n">auto_scale_formula</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;autoScaleFormula&#39;</span><span class="p">]</span>
+            <span class="n">auto_scale_evaluation_interval</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;autoScaleEvaluationInterval&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">target_dedicated_nodes</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;targetDedicatedNodes&#39;</span><span class="p">]</span>
+            <span class="n">enable_auto_scale</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;enableAutoScale&#39;</span><span class="p">]</span>
+            <span class="n">auto_scale_formula</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">auto_scale_evaluation_interval</span> <span class="o">=</span> <span class="kc">None</span>
+        
+        <span class="c1"># プール情報を取得する</span>
+        <span class="n">new_pool</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">PoolAddParameter</span><span class="p">(</span>
+            <span class="nb">id</span> <span class="o">=</span> <span class="n">p_id</span><span class="p">,</span>
+            <span class="n">display_name</span> <span class="o">=</span> <span class="n">p_id</span><span class="p">,</span>
+            <span class="n">virtual_machine_configuration</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">VirtualMachineConfiguration</span><span class="p">(</span>
+                <span class="n">image_reference</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ImageReference</span><span class="p">(</span>
+                    <span class="n">publisher</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;imageReference&#39;</span><span class="p">][</span><span class="s1">&#39;publisher&#39;</span><span class="p">],</span>
+                    <span class="n">offer</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;imageReference&#39;</span><span class="p">][</span><span class="s1">&#39;offer&#39;</span><span class="p">],</span>
+                    <span class="n">sku</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;imageReference&#39;</span><span class="p">][</span><span class="s1">&#39;sku&#39;</span><span class="p">],</span>
+                    <span class="n">version</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;imageReference&#39;</span><span class="p">][</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
+                <span class="p">),</span>
+                <span class="n">node_agent_sku_id</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;nodeAgentSKUId&#39;</span><span class="p">],</span>
+                <span class="n">container_configuration</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ContainerConfiguration</span><span class="p">(</span>
+                    <span class="nb">type</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;containerConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">],</span>
+                    <span class="n">container_registries</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">ContainerRegistry</span><span class="p">(</span>
+                            <span class="n">registry_server</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;containerConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;containerRegistries&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;registryServer&#39;</span><span class="p">],</span>
+                            <span class="n">user_name</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;containerConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;containerRegistries&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+                            <span class="n">password</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;containerConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;containerRegistries&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]</span>
+                        <span class="p">)</span>
+                    <span class="p">]</span>
+                <span class="p">),</span>
+                <span class="n">disk_encryption_configuration</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">DiskEncryptionConfiguration</span><span class="p">(</span>
+                    <span class="n">target</span> <span class="o">=</span> <span class="p">[</span>
+                        <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;diskEncryptionConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;targets&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;virtualMachineConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;diskEncryptionConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;targets&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="p">]</span>
+                <span class="p">)</span>                
+            <span class="p">),</span>
+            <span class="n">vm_size</span> <span class="o">=</span> <span class="n">p_config</span><span class="p">[</span><span class="s1">&#39;vmSize&#39;</span><span class="p">],</span>
+            <span class="c1"># オートスケーリングの設定が異なる</span>
+            <span class="n">target_dedicated_nodes</span> <span class="o">=</span> <span class="n">target_dedicated_nodes</span><span class="p">,</span>
+            <span class="c1"># 隔離 vnet 外に作成されないため追加する</span>
+            <span class="n">network_configuration</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">NetworkConfiguration</span><span class="p">(</span>
+                <span class="n">subnet_id</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;networkConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;subnetId&#39;</span><span class="p">],</span>
+                <span class="n">dynamic_vnet_assignment_scope</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">DynamicVNetAssignmentScope</span><span class="p">(</span>
+                    <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;networkConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;dynamicCNetAssignmentScope&#39;</span><span class="p">]</span>
+                <span class="p">),</span>
+                <span class="n">public_ip_address_configuration</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">PublicIPAddressConfiguration</span><span class="p">(</span>
+                    <span class="n">provision</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;networkConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;publicIPAddressConfiguration&#39;</span><span class="p">][</span><span class="s1">&#39;provision&#39;</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="c1"># 開始タスクを設定</span>
+            <span class="n">start_task</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">StartTask</span><span class="p">(</span>
+                <span class="n">command_line</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;commandLine&#39;</span><span class="p">],</span>
+                <span class="n">environment_settings</span> <span class="o">=</span> <span class="n">environment_settings</span><span class="p">,</span>
+                <span class="n">user_identity</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">UserIdentity</span><span class="p">(</span>
+                    <span class="n">auto_user</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">AutoUserSpecification</span><span class="p">(</span>
+                        <span class="n">scope</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;userIdentity&#39;</span><span class="p">][</span><span class="s1">&#39;autoUser&#39;</span><span class="p">][</span><span class="s1">&#39;scope&#39;</span><span class="p">],</span>
+                        <span class="n">elevation_level</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;userIdentity&#39;</span><span class="p">][</span><span class="s1">&#39;autoUser&#39;</span><span class="p">][</span><span class="s1">&#39;elevationLevel&#39;</span><span class="p">]</span>
+                    <span class="p">)</span>
+                <span class="p">),</span>
+                <span class="n">max_task_retry_count</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;maxTaskRetryCount&#39;</span><span class="p">],</span>
+                <span class="n">wait_for_success</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;startTask&#39;</span><span class="p">][</span><span class="s1">&#39;waitForSuccess&#39;</span><span class="p">]</span>
+            <span class="p">),</span>
+            <span class="n">task_slots_per_node</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;taskSlotsPerNode&#39;</span><span class="p">],</span>
+            <span class="n">task_scheduling_policy</span> <span class="o">=</span> <span class="n">azure</span><span class="o">.</span><span class="n">batch</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">TaskSchedulingPolicy</span><span class="p">(</span>
+                <span class="n">node_fill_type</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="s1">&#39;common-config&#39;</span><span class="p">][</span><span class="s1">&#39;taskSchedulingPolicy&#39;</span><span class="p">][</span><span class="s1">&#39;nodeFillType&#39;</span><span class="p">]</span>
+            <span class="p">),</span>
+            <span class="c1"># オートスケール評価即時開始の対応</span>
+            <span class="n">enable_auto_scale</span> <span class="o">=</span> <span class="n">enable_auto_scale</span><span class="p">,</span>
+            <span class="n">auto_scale_formula</span> <span class="o">=</span> <span class="n">auto_scale_formula</span><span class="p">,</span>
+            <span class="n">auto_scale_evaluation_interval</span> <span class="o">=</span> <span class="n">auto_scale_evaluation_interval</span>
+        <span class="p">)</span>
+        <span class="n">target_pool_config</span><span class="p">[</span><span class="n">p_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_pool</span>
+    <span class="k">return</span> <span class="n">target_pool_config</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>5-2. プールの作成: 複数プールをまとめて作成する<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
+<span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_create_pools</span><span class="p">(</span><span class="n">batch_service</span><span class="p">,</span> <span class="n">target_pool_dict</span><span class="p">,</span> <span class="n">target_pool_config</span><span class="p">,</span> <span class="n">pool_config</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;プールを作成する</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">p_id</span> <span class="ow">in</span> <span class="n">target_pool_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c1"># 対象プールのせってい情報を取得</span>
+        <span class="n">p_config</span> <span class="o">=</span> <span class="n">pool_config</span><span class="p">[</span><span class="n">p_id</span><span class="p">]</span>
+
+        <span class="c1"># プールを作成</span>
+        <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">target_pool_config</span><span class="p">[</span><span class="n">p_id</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/cloud"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../language/python.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="aws.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">AWS</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

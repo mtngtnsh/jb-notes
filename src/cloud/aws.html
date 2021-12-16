@@ -1,0 +1,599 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWS &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DigitalOcean" href="digitalocean01.html" />
+    <link rel="prev" title="Azure" href="azure01.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/cloud/aws.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aws-s3">
+   1. AWS S3 だけで静的コンテンツを配信する
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-s3">
+     a. S3 バケットを作成する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-self-notes-dist-s3-public">
+     b. self-notes の dist の内容を S3 バケットに配置する(public 状態に変更)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c">
+     c. アクセスする
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#d-cloudfront-route53-s3">
+     d. おまけ: CloudFront + Route53 + S3で独自ドメインを追加して配信する方法も試した
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aws-cli">
+   2. AWS CLI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#retrieve-solution-stack-names-from-listavailablesolutionstacks-api">
+     * retrieve solution stack names from ListAvailableSolutionStacks API
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="aws">
+<h1>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aws-s3">
+<h2>1. AWS S3 だけで静的コンテンツを配信する<a class="headerlink" href="#aws-s3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-s3">
+<h3>a. S3 バケットを作成する<a class="headerlink" href="#a-s3" title="Permalink to this headline">¶</a></h3>
+<p>selfnotessというバケットを作成した。<br />
+..省略..</p>
+</div>
+<div class="section" id="b-self-notes-dist-s3-public">
+<h3>b. self-notes の dist の内容を S3 バケットに配置する(public 状態に変更)<a class="headerlink" href="#b-self-notes-dist-s3-public" title="Permalink to this headline">¶</a></h3>
+<p><img alt="s3 bucket directory" src="../../_images/cloud-publicly_accessible_suituation.png" /></p>
+</div>
+<div class="section" id="c">
+<h3>c. アクセスする<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+<p><img alt="access succeeded" src="../../_images/cloud-success.png" /></p>
+</div>
+<div class="section" id="d-cloudfront-route53-s3">
+<h3>d. おまけ: CloudFront + Route53 + S3で独自ドメインを追加して配信する方法も試した<a class="headerlink" href="#d-cloudfront-route53-s3" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://us-west-2.console.aws.amazon.com/acm/home?region=us-west-2#/firstrun/">AWS Certificate Manager</a></p>
+</div>
+</div>
+<div class="section" id="aws-cli">
+<h2>2. AWS CLI<a class="headerlink" href="#aws-cli" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="retrieve-solution-stack-names-from-listavailablesolutionstacks-api">
+<h3>* retrieve solution stack names from ListAvailableSolutionStacks API<a class="headerlink" href="#retrieve-solution-stack-names-from-listavailablesolutionstacks-api" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">elasticbeanstalk</span> <span class="nb">list</span><span class="o">-</span><span class="n">available</span><span class="o">-</span><span class="n">solution</span><span class="o">-</span><span class="n">stacks</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Output - Example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;SolutionStacks&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v4.17.10 running Node.js&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.22 running PHP 7.2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.22 running PHP 7.3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.11 running PHP 5.4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.11 running PHP 5.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.11 running PHP 5.6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.11 running PHP 7.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.11 running PHP 7.1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.10.5 running Python 3.6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.15 running Python 3.4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.15 running Python&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.9.15 running Python 2.7&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.6 (Puma)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.5 (Puma)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.4 (Puma)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.6 (Passenger Standalone)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.5 (Passenger Standalone)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.11 running Ruby 2.4 (Passenger Standalone)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Passenger Standalone)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Passenger Standalone)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Passenger Standalone)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Passenger Standalone)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 1.9.3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.3 (Puma)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.2 (Puma)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.1 (Puma)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.12.0 running Ruby 2.0 (Puma)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v3.4.11 running Tomcat 8.5 Java 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v3.4.11 running Tomcat 7 Java 7&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 8 Java 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v3.4.0 running Tomcat 7 Java 6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server Core 2019 v2.7.1 running IIS 10.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2019 v2.7.1 running IIS 10.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server Core 2016 v2.7.1 running IIS 10.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2016 v2.7.1 running IIS 10.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server Core 2012 R2 v2.7.1 running IIS 8.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2012 R2 v2.7.1 running IIS 8.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server Core 2016 v1.2.0 running IIS 10.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2016 v1.2.0 running IIS 10.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server Core 2012 R2 v1.2.0 running IIS 8.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2012 R2 v1.2.0 running IIS 8.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2012 v1.2.0 running IIS 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server Core 2012 R2 running IIS 8.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2012 R2 running IIS 8.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Windows Server 2012 running IIS 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.17.0 running Docker 20.10.7-ce&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.27.0 running Multi-container Docker 20.10.7-ce (Generic)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Debian jessie v2.16.0 running Go 1.4 (Preconfigured - Docker)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Debian jessie v2.16.0 running Go 1.3 (Preconfigured - Docker)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Debian jessie v2.16.0 running Python 3.4 (Preconfigured - Docker)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.4.7 running Docker&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v4.2.6 running Tomcat 7 Corretto 11&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v4.2.6 running Tomcat 7 Corretto 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running PHP 8.0&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running PHP 7.4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running PHP 7.3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running PHP 7.2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v5.4.6 running Node.js 14&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v5.4.6 running Node.js 12&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v5.4.6 running Node.js 10&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.2.6 running Corretto 11&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running Python 3.8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.4.1 running Go 1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running Python 3.7&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.2.6 running Corretto 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running Ruby 2.7&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running Ruby 2.6&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v3.3.6 running Ruby 2.5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2 v2.2.6 running .NET Core&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.11.12 running Java 8&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.11.12 running Java 7&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.18.7 running Go 1.16&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.6.33 running Packer 1.0.3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;64bit Amazon Linux 2018.03 v2.17.0 running GlassFish 5.0 Java 8 (Preconfigured - Docker)&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;SolutionStackDetails&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="o">...</span>
+      <span class="p">},</span>
+      <span class="o">...</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><a class="reference external" href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Ref: Elastic Beanstalk supported platforms</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/cloud"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="azure01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Azure</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="digitalocean01.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">DigitalOcean</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MongoDB - Sharding &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MySQL" href="mysql.html" />
+    <link rel="prev" title="MongoDB - Replication" href="mongodb03.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/db/mongodb04.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   背景
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   はじめに
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     ◆目標
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     ◆ アーキテクチャ図①
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     ◆ 環境
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     ◆ アーキテクチャ図②
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     ◆ 手順
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   セットアップ手順
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vmhosts">
+     1. 各VMにhosts設定を追加
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     2. ディレクトリを用意
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     3. 1つ目のシャードを設定
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#config">
+     4. configサーバを設定
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mongos">
+     5. mongosを設定
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     6. 大量なデータを作成
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     7. 2つ目のシャードを設定
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     8. 2つ目のシャードをmongosに追加
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mongodb-sharding">
+<h1>MongoDB - Sharding<a class="headerlink" href="#mongodb-sharding" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>背景<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>​　前編にてレプリケーションについて学習した。それは、3つのフォルダに1つのDBを同様に配置すると理解してもらってもいいと思った。このようなイメージになる。</p>
+<p><img alt="mongodb04-arch01" src="../../_images/mongodb04-arch01.jpg" /></p>
+<p>シャーディングは、レプリカセットをさらにカットしてDBを分割し、別のマシンに配置すると自分が理解しております。
+<img alt="mongodb04-arch04" src="../../_images/mongodb04-arch04.jpg" /></p>
+<p>ところで、以下の内容を理解していただいてから、シャーティングをセットアップするのがおすすめです。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.mongodb.com/manual/core/sharded-cluster-components/#sharded-cluster-components">Sharded Cluster Components(構築要素): Shards, Config Servers, Router(mongos)</a></p></li>
+<li><p><a class="reference external" href="https://docs.mongodb.com/manual/core/sharding-shard-key/#shard-keys">Shard Keys(インデックス)</a></p></li>
+<li><p><a class="reference external" href="https://docs.mongodb.com/manual/core/sharding-data-partitioning/#data-partitioning-with-chunks">Data Partitioning with Chunks(ShardのデータはChunksで分割)</a></p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>はじめに<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>◆目標<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>​シャード(Shard)が2つあるシャーディングデモを構築する。</p>
+</div>
+<div class="section" id="id4">
+<h3>◆ アーキテクチャ図①<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>​下記の3つのVM(yuantst01, yuantst02, yuantst03)にShard、Config サーバ、Router(mongos)を配置するイメージは、こちら↓↓↓<br />
+(mongos は yuantst01 のみに配置していると見えるが、yuantst02, yuantst03へのアクセスもできる次の「アーキテクチャ図②」に反映)
+<img alt="mongodb04-arch03" src="../../_images/mongodb04-arch03.png" /></p>
+</div>
+<div class="section" id="id5">
+<h3>◆ 環境<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>VM: ubuntu 20.04(LTS) 3台、メモリ4GB/ディスク20GB</p>
+<ul>
+<li><p>yuantst01 (139.59.190.209)</p></li>
+<li><p>yuantst02 (139.59.182.250)</p></li>
+<li><p>yuantst03 (139.59.178.240)</p></li>
+</ul>
+</li>
+<li><p>MongoDB: 5.0.2 (各VMにインストール)</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>◆ アーキテクチャ図②<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>​　レプリケーションと異なり、今回は、1つのシャードのポート番号をさらに分割しない。DBを3つのVMに配置することを前提とし、ドメイン指定で、シャードを分割する。アーキテクチャ図①を表で書くと、ドメインは下記のように設定する。
+　レプリカセットには、メンバー(1つのPrimary, 2つのSecondary)がある。そのコンセプトを使って、下図のmember1,member3,member5をshard1(レプリカセットのようなもの)の3つメンバーとして作成する、member2,member4,member6をshard2の3つメンバーとして作成するのを理解してもいい。</p>
+<p><img alt="mongodb04-arch02" src="../../_images/mongodb04-arch02.jpg" /></p>
+</div>
+<div class="section" id="id7">
+<h3>◆ 手順<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>ドメイン設定(hosts追加)</p></li>
+<li><p>Shardingディレクトリを用意</p></li>
+<li><p>1つ目のShardを作成して初期化</p></li>
+<li><p>Config サーバのレプリカセットを作成して初期化</p></li>
+<li><p>Router(mongos)を設定</p></li>
+<li><p>大量データを作成(Shardキーを<code class="docutils literal notranslate"><span class="pre">hashed</span></code>で設定)</p></li>
+<li><p>2つ目のShardを追加</p></li>
+<li><p>Router(mongos)に配置</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>セットアップ手順<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vmhosts">
+<h3>1. 各VMにhosts設定を追加<a class="headerlink" href="#vmhosts" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;139.59.190.209 yuantst01 member1.example.com member2.example.com&quot;</span> &gt;&gt; /etc/hosts
+<span class="nb">echo</span> <span class="s2">&quot;139.59.182.250 yuantst02 member3.example.com member4.example.com&quot;</span> &gt;&gt; /etc/hosts
+<span class="nb">echo</span> <span class="s2">&quot;139.59.178.240 yuantst03 member5.example.com member6.example.com&quot;</span> &gt;&gt; /etc/hosts
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>2. ディレクトリを用意<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p /data/shard1/
+mkdir -p /data/config/
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p /data/shard2/
+mkdir -p /data/mongos/
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>3. 1つ目のシャードを設定<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongod --bind_ip <span class="m">0</span>.0.0.0 <span class="se">\</span>
+  --replSet shard1 <span class="se">\</span>
+  --dbpath /data/shard1 <span class="se">\</span>
+  --logpath /data/shard1/mongod.log <span class="se">\</span>
+  --port <span class="m">27010</span> <span class="se">\</span>
+  --fork <span class="se">\</span>
+  --shardsvr <span class="se">\</span>
+  --wiredTigerCacheSizeGB <span class="m">1</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">--shardsvr</span> <span class="pre">--wiredTigerCacheSizeGB</span> <span class="pre">1</span></code>は内部キャッシュの最大値を少なめに(1GB)設定する。
+メモリ4GBのVMに対して、デフォルトのキャッシュ値は1.5GBになる。
+参考: <a class="reference external" href="https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB"><em>storage.wiredTiger.engineConfig.cacheSizeGB</em></a></p>
+<p><img alt="mongodb04-yuantst01-shard1_setting01" src="../../_images/mongodb04-yuantst01-shard1_setting01.png" /></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongo member1.example.com:27010 --quiet
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rs.initiate<span class="o">({</span> <span class="se">\</span>
+  _id: <span class="s2">&quot;shard1&quot;</span>, <span class="se">\</span>
+  members: <span class="o">[</span> <span class="se">\</span>
+    <span class="o">{</span> _id: <span class="m">0</span>, host: <span class="s2">&quot;member1.example.com:27010&quot;</span><span class="o">}</span>,<span class="se">\</span>
+    <span class="o">{</span>_id: <span class="m">1</span>, host: <span class="s2">&quot;member3.example.com:27010&quot;</span><span class="o">}</span>,<span class="se">\</span>
+    <span class="o">{</span>_id: <span class="m">2</span>,host:<span class="s2">&quot;member5.example.com:27010&quot;</span><span class="o">}]})</span>
+</pre></div>
+</div>
+<p><img alt="mongodb04-yuantst01-shard1_setting02" src="../../_images/mongodb04-yuantst01-shard1_setting02.png" /></p>
+</div>
+<div class="section" id="config">
+<h3>4. configサーバを設定<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongod --bind_ip <span class="m">0</span>.0.0.0 --replSet config --dbpath /data/config --logpath /data/config/mongod.log --port <span class="m">27019</span> --fork --configsvr --wiredTigerCacheSizeGB <span class="m">1</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongo member1.example.com:27019 --quiet
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rs.initiate<span class="o">({</span> <span class="se">\</span>
+  _id: <span class="s2">&quot;config&quot;</span>, <span class="se">\</span>
+  members: <span class="o">[</span> <span class="se">\</span>
+    <span class="o">{</span> _id: <span class="m">0</span>, host: <span class="s2">&quot;member1.example.com:27019&quot;</span><span class="o">}</span>,<span class="se">\</span>
+    <span class="o">{</span>_id: <span class="m">1</span>, host: <span class="s2">&quot;member3.example.com:27019&quot;</span><span class="o">}</span>,<span class="se">\</span>
+    <span class="o">{</span>_id: <span class="m">2</span>,host:<span class="s2">&quot;member5.example.com:27019&quot;</span><span class="o">}]})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mongos">
+<h3>5. mongosを設定<a class="headerlink" href="#mongos" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongos --bind_ip <span class="m">0</span>.0.0.0 --logpath /data/mongos/mongos.log --port <span class="m">27017</span> --fork --configdb config/member1.example.com:27019,member3.example.com:27019,member5.example.com:27019
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongo member1.example.com:27017 --quiet
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sh.addShard<span class="o">(</span><span class="s2">&quot;shard1/member1.example.com:27010,member3.example.com:27010,member5.example.com:27010&quot;</span><span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>追加してから、詳細を確認する。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sh.status<span class="o">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>6. 大量なデータを作成<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>シャード(foo)用のCollection(bar)をデフォルトフィールドの<code class="docutils literal notranslate"><span class="pre">_id</span></code>をhashedというShard Keysとして作成する。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sh.enableSharding<span class="o">(</span><span class="s2">&quot;foo&quot;</span><span class="o">)</span><span class="p">;</span>
+sh.shardCollection<span class="o">(</span><span class="s2">&quot;foo.bar&quot;</span>,<span class="o">{</span>_id: <span class="s1">&#39;hashed&#39;</span><span class="o">})</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><img alt="mongodb04-yuantst01-enable_shard1" src="../../_images/mongodb04-yuantst01-enable_shard1.png" />
+10000件のデータを作成する。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>use foo
+<span class="k">for</span> <span class="o">(</span>var <span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span> i&lt;<span class="m">10000</span><span class="p">;</span> i++<span class="o">)</span> <span class="o">{</span>
+    db.bar.insert<span class="o">({</span>i: i<span class="o">})</span><span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><img alt="mongodb04-yuantst01-shard1_insert_data" src="../../_images/mongodb04-yuantst01-shard1_insert_data.png" /></p>
+<p>作成したCollectionの状況を確認する。
+<img alt="mongodb04-yuantst01-shard1_collection" src="../../_images/mongodb04-yuantst01-shard1_collection.png" />
+上図から、<code class="docutils literal notranslate"><span class="pre">chunks:</span> <span class="pre">shard1</span> <span class="pre">2...</span></code>と返されている。それは、barというコレクションは、2つのChunkで分割されていることを示している。
+どのように分割されているのかは、<code class="docutils literal notranslate"><span class="pre">{&quot;_id&quot;</span> <span class="pre">:</span> <span class="pre">{&quot;$minKey&quot;</span> <span class="pre">:</span> <span class="pre">1</span> <span class="pre">}}</span> <span class="pre">--&gt;&gt;</span> <span class="pre">{&quot;_id&quot;</span> <span class="pre">:</span> <span class="pre">NumberLong(0)</span> <span class="pre">}</span> <span class="pre">on</span> <span class="pre">:</span> <span class="pre">shard1</span> <span class="pre">Timestamp(1,</span> <span class="pre">0)...</span></code>と2つの形だと分かれている。</p>
+<p>データの範囲を使ってShard キー指定する方法もあるが、<code class="docutils literal notranslate"><span class="pre">hashed</span></code> という形で試したかったから、デフォルトの<code class="docutils literal notranslate"><span class="pre">_id</span></code>フィールドで指定していた。目でデータを確認するとき、分かりづらいと思われがちだが、推奨されている方法である。</p>
+<blockquote>
+<div><p>The field you choose as your hashed shard key should have a good cardinality, or large number of different values. Hashed keys are ideal for shard keys with fields that change monotonically like ObjectId values or timestamps. A good example of this is the default <code class="docutils literal notranslate"><span class="pre">_id</span></code> field, assuming it only contains ObjectId values.</p>
+</div></blockquote>
+<p><em>出典: <a class="reference external" href="https://docs.mongodb.com/manual/core/hashed-sharding/#hashed-sharding-shard-key">Hashed Sharding Shard Key</a></em>
+直訳すると、
+<em>“ハッシュされたシャードキーとして選択するフィールドは、適切なcardinality、または多数の異なる値を持っている必要がある。ハッシュキーは、ObjectIdやタイムスタンプのように単調に変化するフィールドを持つシャードキーに最適。良い例は、ObjectIdのみが含まれていると仮定した場合のデフォルト<code class="docutils literal notranslate"><span class="pre">_id</span></code>フィールドです。”</em></p>
+</div>
+<div class="section" id="id12">
+<h3>7. 2つ目のシャードを設定<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>1つ目のシャードを作成する方法と同様に、2つ目のシャードを設定する。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongod --bind_ip <span class="m">0</span>.0.0.0 --replSet shard2 --dbpath /data/shard2 --logpath /data/shard2/mongod.log --port <span class="m">27011</span> --fork --shardsvr --wiredTigerCacheSizeGB <span class="m">1</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongo member2.example.com:27011 --quiet
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rs.initiate<span class="o">({</span> <span class="se">\</span>
+  _id: <span class="s2">&quot;shard2&quot;</span>, <span class="se">\</span>
+  members: <span class="o">[</span> <span class="se">\</span>
+    <span class="o">{</span> _id: <span class="m">0</span>, host: <span class="s2">&quot;member2.example.com:27011&quot;</span><span class="o">}</span>,<span class="se">\</span>
+    <span class="o">{</span>_id: <span class="m">1</span>, host: <span class="s2">&quot;member4.example.com:27011&quot;</span><span class="o">}</span>,<span class="se">\</span>
+    <span class="o">{</span>_id: <span class="m">2</span>,host:<span class="s2">&quot;member6.example.com:27011&quot;</span><span class="o">}]})</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>8. 2つ目のシャードをmongosに追加<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongo member1.example.com:27017 --quiet
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sh.addShard<span class="o">(</span><span class="s2">&quot;shard2/member2.example.com:27011,member4.example.com:27011,member6.example.com:27011&quot;</span><span class="o">)</span><span class="p">;</span>
+sh.status<span class="o">()</span>
+</pre></div>
+</div>
+<p>シャードfooのCollection(bar)を確認する。
+<img alt="mongodb04-yuantst01-shard1&amp;2_confirm" src="../../_images/mongodb04-yuantst01-shard1_2_confirm.png" /></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sh.status<span class="o">()</span>
+</pre></div>
+</div>
+<p>別のVMでもシャーディングの状況も確認できる。yuantst02では、
+<img alt="mongodb04-yuantst02_shard1&amp;2_confirm.png" src="../../_images/mongodb04-yuantst02_shard1_2_confirm.png" /></p>
+<p>実際、Collection(bar)のデータはどのように分割されているのかをGUI(Compass)で確認してみよう。
+Shard1は、10000件データのうち、4996件がこちらに格納されている。</p>
+<p><img alt="mongodb04-arch02" src="../../_images/mongodb04-yuantst01-shard1_compass.png" /></p>
+<p>Shard2は、10000件データのうち、5004件がこちらに格納されている。</p>
+<p><img alt="mongodb04-arch02" src="../../_images/mongodb04-yuantst01-shard2_compass.png" />
+無事にシャーディングで分割しました。
+以上。</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/db"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="mongodb03.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MongoDB - Replication</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="mysql.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MySQL</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

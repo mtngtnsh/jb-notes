@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Golang &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Python" href="python.html" />
+    <link rel="prev" title="落穂拾い" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/language/golang01.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#golang-go">
+   1. Golang(Go)とは?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   2.公式ドキュメントを読んで学ぶ
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#go">
+   3. Goをダウンロード
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   4. Go環境を構築
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   5. ソースコードファイルの構成
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   6. プログラムの構成要素
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   7. パッケージの使い方
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   8. コマンドラインからGoを実行
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   9. 開発ツール: コードの書式を揃える
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   10. 開発ツール: コードの品質を保つ
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goenv-git">
+   11. バージョン管理ツールgoenv(Git)を導入
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#go-playground">
+   12. Go Playground
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   13. その他
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="golang">
+<h1>Golang<a class="headerlink" href="#golang" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="golang-go">
+<h2>1. Golang(Go)とは?<a class="headerlink" href="#golang-go" title="Permalink to this headline">¶</a></h2>
+<p>これらの記事がある。</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://udemy.benesse.co.jp/development/system/golang.html">Go言語(golang)とは？人気が高まっている理由を言語の特徴を踏まえて解説！</a></p></li>
+<li><p><a class="reference external" href="https://itpropartners.com/blog/10984/">go言語（golang）の特徴って？メリットとデメリットをまとめてみた</a></p></li>
+</ul>
+<p>まとめると、</p>
+<ul class="simple">
+<li><p>シンプルなスクリプト言語</p></li>
+<li><p>曖昧な記述はできない</p></li>
+<li><p>機能を増やすことで言語を拡張していくことはない</p></li>
+<li><p>並行プログラミング: 関数fを別のゴールーチンで呼び出すと、goキーワードを付けて<code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">f()</span></code>でいける</p></li>
+<li><p>豊富な標準ライブラリ群</p></li>
+<li><p>…(省略)…</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>2.公式ドキュメントを読んで学ぶ<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><a class="reference external" href="https://golang.org/ref/spec">言語仕様</a><br />
+コンパクトな言語仕様なので簡単に読める</p></li>
+<li><p><a class="reference external" href="https://github.com/golang/go/wiki/CodeReviewComments">CodeReviewComments</a><br />
+Goらしい書き方が学べる</p></li>
+<li><p><a class="reference external" href="https://golang.org/pkg/">パッケージドキュメント</a><br />
+ドキュメントをしっかり読む</p></li>
+<li><p><a class="reference external" href="https://blog.golang.org/">公式ブログ</a><br />
+最新の情報が記載される</p>
+<p>※公式入門教材は<a class="reference external" href="https://go-tour-jp.appspot.com/welcome/1">A Tour of Go</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="go">
+<h2>3. <a class="reference external" href="https://golang.org/">Go</a>をダウンロード<a class="headerlink" href="#go" title="Permalink to this headline">¶</a></h2>
+<p>※ Go1の間は言語の後方互換が保たれる。言い換えると、Go1.0で書いたコードはGo1.13でもビルドできる。</p>
+</div>
+<div class="section" id="id2">
+<h2>4. Go環境を構築<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>インストールしてからバージョン確認してみる。<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">go</span> <span class="pre">version</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>5. ソースコードファイルの構成<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span>   <span class="kn">package</span> <span class="nx">main</span>
+   
+   <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// 行コメント</span>
+      <span class="nb">println</span><span class="p">(</span><span class="s">&quot;Hello, world.&quot;</span><span class="p">)</span>
+      <span class="cm">/*</span>
+<span class="cm">      ブロックコメント</span>
+<span class="cm">      */</span>
+   <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>6. プログラムの構成要素<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>パッケージ</p></li>
+<li><p>型</p></li>
+<li><p>関数</p></li>
+<li><p>変数</p></li>
+<li><p>定数</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>7. パッケージの使い方<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&quot;fmt&quot;</span> <span class="c1">// fmtパッケージのインポート</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;hello, world.&quot;</span><span class="p">)</span> <span class="c1">// fmtパッケージのPrintln関数を呼び出す</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>8. コマンドラインからGoを実行<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>プログラムが実行されるまでの流れは下記のようなイメージ
+<strong>Goのコード</strong>(コーディング)
+↓
+<strong>コンパイル可能なファイルを生成</strong>(go build)
+↓
+<strong>コンパイルおよび実行</strong>(go run)</p></li>
+<li><p>コンパイルと実行のイメージ</p>
+<ul>
+<li><p>go build コマンド<br />
+コンパイルして実行可能なファイル(バイナリ)を生成<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">go</span> <span class="pre">build</span> <span class="pre">main.go</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">go</span> <span class="pre">build</span> <span class="pre">.</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">go</span> <span class="pre">build</span> <span class="pre">pkgname</span></code></p></li>
+<li><p>go run コマンド
+コンパイルから実行まで行う<br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">go</span> <span class="pre">run</span> <span class="pre">main.go</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">go</span> <span class="pre">run</span> <span class="pre">.</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">go</span> <span class="pre">run</span> <span class="pre">pkgname</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>9. 開発ツール: コードの書式を揃える<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>gofmt</p>
+<ul>
+<li><p>標準のフォーマッタ</p></li>
+<li><p>絶対に使う</p></li>
+<li><p>-s オプションで冗長な書き方をシンプルにできる</p></li>
+</ul>
+</li>
+<li><p>goimports</p>
+<ul>
+<li><p>import文を追加/削除してくれる</p></li>
+<li><p>未使用パッケージのimportはエラーなので必須</p></li>
+<li><p>フォーマットもかける</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>10. 開発ツール: コードの品質を保つ<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>静的解析ツール</p>
+<ul>
+<li><p>golint: Goらしくないコードを検出</p></li>
+<li><p>go test: コンパイラでは発見できないバグを検出(Go1.10以降)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="goenv-git">
+<h2>11. バージョン管理ツール<a class="reference external" href="https://github.com/syndbg/goenv">goenv(Git)</a>を導入<a class="headerlink" href="#goenv-git" title="Permalink to this headline">¶</a></h2>
+<p>※必須ではないからスキップしてよい</p>
+<blockquote>
+<div><p>Homebrewでもインストールが可能ですが、brewの場合はバージョンが少し古いです（2020/5/4時点で1.23）。
+最新バージョンのGoを使いたい場合は下記コマンドで最新のgoenvを指定する必要があります。<br />
+$ brew install –HEAD goenv</p>
+</div></blockquote>
+<p>引用: <a class="reference external" href="https://hodalog.com/research-a-version-manager-of-go/">Goのバージョン管理ツールに関する調査</a></p>
+<!--仕事しながら勉強もできる観点では、goenvを使うとより便利だと思われる。-->
+</div>
+<div class="section" id="go-playground">
+<h2>12. <a class="reference external" href="https://play.golang.org/">Go Playground</a><a class="headerlink" href="#go-playground" title="Permalink to this headline">¶</a></h2>
+<p>Go環境を構築せず、Go Playgroudを活かして自分で作成した簡単なコードを実行するのもあり</p>
+</div>
+<div class="section" id="id9">
+<h2>13. その他<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Javaで開発した経験がある方には、こちらの記事「<a class="reference external" href="https://future-architect.github.io/articles/20200311/">JavaプログラマーのためのGo言語入門</a>」をおすすめ。</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/language"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">落穂拾い</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="python.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

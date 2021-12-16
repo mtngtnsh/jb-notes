@@ -1,0 +1,1154 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dict-ja &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="VSCode" href="../settings/VSCode01.html" />
+    <link rel="prev" title="Dict-en" href="en.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/dict/ja.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aws">
+   AWS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-api-gateway">
+     Amazon API Gateway
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-athena">
+     Amazon Athena
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-aurora">
+     Amazon Aurora
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-cloudfront">
+     Amazon CloudFront
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-cloudsearch">
+     Amazon CloudSearch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-cloudwatch">
+     Amazon CloudWatch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-cloudwatchevents">
+     Amazon CloudWatchEvents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-cloudwatch-logs">
+     Amazon CloudWatch Logs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-cognito">
+     Amazon Cognito
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-documentdb">
+     Amazon DocumentDB
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-dynamodb">
+     Amazon DynamoDB
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-dynamodb-streams">
+     Amazon DynamoDB Streams
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-elastic-block-dtore-amazon-ebs">
+     Amazon Elastic Block Dtore (Amazon EBS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-elastic-container-service-amazon-ecs">
+     Amazon Elastic Container Service (Amazon ECS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-elastic-compute-cloud-amazon-ec2">
+     Amazon Elastic Compute Cloud (Amazon EC2)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-elastic-file-system">
+     Amazon Elastic File System
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-emr">
+     Amazon EMR
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-elasticcache">
+     Amazon ElasticCache
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-elasticsearch-service-amazon-es">
+     Amazon Elasticsearch Service (Amazon ES)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-guardduty">
+     Amazon GuardDuty
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-inspector">
+     Amazon Inspector
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-kinesis">
+     Amazon Kinesis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-kinesis-data-firehose">
+     Amazon Kinesis Data Firehose
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ami">
+     AMI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-ml">
+     Amazon ML
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-macie">
+     Amazon Macie
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amzon-managed-blockchain">
+     Amzon Managed Blockchain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-mq">
+     Amazon MQ
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-neptune">
+     Amazon Neptune
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-quicksight">
+     Amazon QuickSight
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-redshift">
+     Amazon Redshift
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-relational-database-service-amazon-rds">
+     Amazon Relational Database Service (Amazon RDS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-route53">
+     Amazon Route53
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-s3-glacier">
+     Amazon S3 Glacier
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-sagemaker">
+     Amazon SageMaker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-simple-email-service-amazon-ses">
+     Amazon Simple Email Service (Amazon SES)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-simple-notification-service-amazon-sns">
+     Amazon Simple Notification Service (Amazon SNS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-simple-queue-service-amazon-sqs">
+     Amazon Simple Queue Service (Amazon SQS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-simple-storage-service-amazon-s3">
+     Amazon Simple Storage Service (Amazon S3)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-simple-workflow-service-amazon-swf">
+     Amazon Simple Workflow Service (Amazon SWF)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#amazon-virtual-private-cloud-amazon-vpc">
+     Amazon Virtual Private Cloud (Amazon VPC)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#application-auto-scaling">
+     Application Auto Scaling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-auto-scaling">
+     AWS Auto Scaling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-backup">
+     AWS Backup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-batch">
+     AWS Batch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-certificate-manager-acm">
+     AWS Certificate Manager (ACM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#awd-cloud9">
+     AWD Cloud9
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-cloudformation">
+     AWS CloudFormation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-cloudhsm">
+     AWS CloudHSM
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-cloud-trail">
+     AWS Cloud Trail
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-codebuild">
+     AWS CodeBuild
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-codecommit">
+     AWS CodeCommit
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-codedeploy">
+     AWS CodeDeploy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-codepipeline">
+     AWS CodePipeline
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-command-line-interface-aws-cli">
+     AWS Command Line Interface (AWS CLI)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-config">
+     AWS Config
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-data-pipeline">
+     AWS Data Pipeline
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-direct-connect">
+     AWS Direct Connect
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-directory-service">
+     AWS Directory Service
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-elastic-beanstalk">
+     AWS Elastic Beanstalk
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-glue">
+     AWS Glue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-idenetity-and-access-management-iam">
+     AWS Idenetity and Access Management (IAM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-key-management-service-aws-kms">
+     AWS Key Management Service (AWS KMS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-lambda">
+     AWS Lambda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     AWS マネジメントコンソール
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-opsworks">
+     AWS OpsWorks
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-organizations">
+     AWS Organizations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-security-token-service-aws-sts">
+     AWS Security Token Service (AWS STS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-shield">
+     AWS Shield
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-sso">
+     AWS シングルサインオン (SSO)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-step-functions">
+     AWS Step Functions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-snowball">
+     AWS Snowball
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-storage-gateway">
+     AWS Storage Gateway
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-trusted-advisor">
+     AWS Trusted Advisor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-waf">
+     AWS WAF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   その他
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tl-dr-tldr">
+     TL;DR (TLDR)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#federation">
+     フェデレーション（英：federation）
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="dict-ja">
+<h1>Dict-ja<a class="headerlink" href="#dict-ja" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aws">
+<h2>AWS<a class="headerlink" href="#aws" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="amazon-api-gateway">
+<h3>Amazon API Gateway<a class="headerlink" href="#amazon-api-gateway" title="Permalink to this headline">¶</a></h3>
+<p>どのような規模のシステムであっても、開発者が簡単に API の作成、配布、保守、監視、保護を行えるフルマネージドサービス。(e.g: API Gateway + Lambda)</p>
+</div>
+<div class="section" id="amazon-athena">
+<h3>Amazon Athena<a class="headerlink" href="#amazon-athena" title="Permalink to this headline">¶</a></h3>
+<p>標準 SQL を使用し Amazon S3 のデータ分析を簡易化するインタラクティブなクエリサービス。サーバレスであり、自動的にスケーリングする。数秒以内にデータセットの分析を開始可能。</p>
+</div>
+<div class="section" id="amazon-aurora">
+<h3>Amazon Aurora<a class="headerlink" href="#amazon-aurora" title="Permalink to this headline">¶</a></h3>
+<p>オープンソースデータベースのシンプルさとコスト効率性を持つとともに、商用データベースのパフォーマンスと可用性を持つ DB 。フルマネージド型 MySQL および PostgreSQL と互換性のある RDB エンジン。</p>
+</div>
+<div class="section" id="amazon-cloudfront">
+<h3>Amazon CloudFront<a class="headerlink" href="#amazon-cloudfront" title="Permalink to this headline">¶</a></h3>
+<p>低レイテンシーの高速転送によって、世界中のユーザに安全にコンテンツ配信できる高速のコンテンツ配信ネットワーク(CDN)サービス。Web サイトやアプリのパフォーマス、信頼性、可用性を向上。</p>
+</div>
+<div class="section" id="amazon-cloudsearch">
+<h3>Amazon CloudSearch<a class="headerlink" href="#amazon-cloudsearch" title="Permalink to this headline">¶</a></h3>
+<p>website またはアプリ向けの検索容易かつコスト効率よく設定できるフルマネージドサービス。</p>
+</div>
+<div class="section" id="amazon-cloudwatch">
+<h3>Amazon CloudWatch<a class="headerlink" href="#amazon-cloudwatch" title="Permalink to this headline">¶</a></h3>
+<p>アプリを監視し、システムの使用率の最適化を図る統合的なリソース管理サービス。メトリクスに基づいてアラームのアクションを設定可能。</p>
+</div>
+<div class="section" id="amazon-cloudwatchevents">
+<h3>Amazon CloudWatchEvents<a class="headerlink" href="#amazon-cloudwatchevents" title="Permalink to this headline">¶</a></h3>
+<p>AWS リソースでの変更を示すシステムイベントをほぼリアルタイムで AWS Lambda 関数、Amazon Kinesis Data Streams に提供できるストリーム、Amazon Simple Notification Service トピック、またはその他ターゲットに振り分けることができる Web サービス。</p>
+</div>
+<div class="section" id="amazon-cloudwatch-logs">
+<h3>Amazon CloudWatch Logs<a class="headerlink" href="#amazon-cloudwatch-logs" title="Permalink to this headline">¶</a></h3>
+<p>運用上の問題をトラブルシューティング可能にするサービス。既存のシステム、アプリおよびカスタムログファイルから、システムとアプリをモニタリングし、とラブルシューティング可能なサービス。既存のログファイルを CloudWatch Logs に送信し、送信したログをほぼリアルタイムにモニタリング可。</p>
+</div>
+<div class="section" id="amazon-cognito">
+<h3>Amazon Cognito<a class="headerlink" href="#amazon-cognito" title="Permalink to this headline">¶</a></h3>
+<p>モバイルアプリやウェブアプリにユーザのサインアップやアクセス認証機能を簡単に追加できるサービス。バックエンドコードの記述やインフラの管理は必要ない。モバイルアイデンティティ管理や複数のデバイス間の同期が可能。</p>
+</div>
+<div class="section" id="amazon-documentdb">
+<h3>Amazon DocumentDB<a class="headerlink" href="#amazon-documentdb" title="Permalink to this headline">¶</a></h3>
+<p>高速でスケーラブルかつ高可用性のフルマネージド型のドキュメントベースサービス。MongoDB のワークロードをサポート。</p>
+</div>
+<div class="section" id="amazon-dynamodb">
+<h3>Amazon DynamoDB<a class="headerlink" href="#amazon-dynamodb" title="Permalink to this headline">¶</a></h3>
+<p>フルマネージドの NoSQL データベースサービスで数ミリ秒のレイテンシーを実現できるパフォーマンスとどんな規模にも対応可能な拡張性を持つDB。</p>
+</div>
+<div class="section" id="amazon-dynamodb-streams">
+<h3>Amazon DynamoDB Streams<a class="headerlink" href="#amazon-dynamodb-streams" title="Permalink to this headline">¶</a></h3>
+<p>DynamoDB テーブル内の項目に加えられた変更に関する順序つけられた情報。テーブルでストリームを有効にすると、データの変更情報をキャプチャーし、この情報を最大24時間ログに保存するAWSサービス。アプリは、このログにアクセスすることでデータをほぼリアルタイム参照可。</p>
+</div>
+<div class="section" id="amazon-elastic-block-dtore-amazon-ebs">
+<h3>Amazon Elastic Block Dtore (Amazon EBS)<a class="headerlink" href="#amazon-elastic-block-dtore-amazon-ebs" title="Permalink to this headline">¶</a></h3>
+<p>EC2インスタンスのクラスターにあるDockerコンテナを簡単に実行、停止、管理できるようにする、拡張性が高く、高速なコンテナ管理サービス。</p>
+</div>
+<div class="section" id="amazon-elastic-container-service-amazon-ecs">
+<h3><a class="reference external" href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html">Amazon Elastic Container Service (Amazon ECS)</a><a class="headerlink" href="#amazon-elastic-container-service-amazon-ecs" title="Permalink to this headline">¶</a></h3>
+<p>Linux/UNIX および Windows サーバのインスタンスを起動して管理できるサービス。</p>
+</div>
+<div class="section" id="amazon-elastic-compute-cloud-amazon-ec2">
+<h3>Amazon Elastic Compute Cloud (Amazon EC2)<a class="headerlink" href="#amazon-elastic-compute-cloud-amazon-ec2" title="Permalink to this headline">¶</a></h3>
+<p>ユーザ定義のポリシー、シケジュールおよびヘルスチェックに基づいてインスタンスを自動的に起動または終了するように設計された Web サービス。</p>
+</div>
+<div class="section" id="amazon-elastic-file-system">
+<h3>Amazon Elastic File System<a class="headerlink" href="#amazon-elastic-file-system" title="Permalink to this headline">¶</a></h3>
+<p>AWSでのネットワークファイルシステム(NFS)。ファイルシステムを作成し、設定する簡単なインターフェースを提供。ストレージ容量はファイルの追加や削除に伴い、大会伸縮自在性がある。</p>
+</div>
+<div class="section" id="amazon-emr">
+<h3>Amazon EMR<a class="headerlink" href="#amazon-emr" title="Permalink to this headline">¶</a></h3>
+<p>大量のデータを効率的かつ簡単に処理するためのデータ分析に適したサービス。Hadoop 処理とさまざまなサービスを組み合わせることによって、ウェブインデックス作成、データマイニング、ログファイル分析、機械学習、価格シミュレーション、DWH といった分析タスクを実施可。</p>
+</div>
+<div class="section" id="amazon-elasticcache">
+<h3><a class="reference external" href="https://docs.aws.amazon.com/elasticache/index.html">Amazon ElasticCache</a><a class="headerlink" href="#amazon-elasticcache" title="Permalink to this headline">¶</a></h3>
+<p>クラウドのメモリ内キャッシュのデプロイ、運用、スケーリングを単純化する Web サービス。</p>
+</div>
+<div class="section" id="amazon-elasticsearch-service-amazon-es">
+<h3>Amazon Elasticsearch Service (Amazon ES)<a class="headerlink" href="#amazon-elasticsearch-service-amazon-es" title="Permalink to this headline">¶</a></h3>
+<p>フルマネージドでスケーラブルな Elasticsearch サービス。</p>
+</div>
+<div class="section" id="amazon-guardduty">
+<h3>Amazon GuardDuty<a class="headerlink" href="#amazon-guardduty" title="Permalink to this headline">¶</a></h3>
+<p>未然にセキュリティの脅威を検出し、継続的にモニタリングするセキュリティサービス。</p>
+</div>
+<div class="section" id="amazon-inspector">
+<h3><a class="reference external" href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html">Amazon Inspector</a><a class="headerlink" href="#amazon-inspector" title="Permalink to this headline">¶</a></h3>
+<p>アプリのセキュリティとコンプライアンスを向上させるための自動化されたセキュリティ評価サービス。自動的にアプリを評価し、脆弱性やベストプラクティスからの逸脱を判定。評価の実行後には、修復に必要なステップを優先順位に従ってリスト化したものを含む詳細なレポートを作成。</p>
+</div>
+<div class="section" id="amazon-kinesis">
+<h3><a class="reference external" href="https://docs.aws.amazon.com/kinesis/index.html">Amazon Kinesis</a><a class="headerlink" href="#amazon-kinesis" title="Permalink to this headline">¶</a></h3>
+<p>動画やログデータなどのストリーミングデータを収集、処理、分析するためのプラットフォーム。ストリーミングのデータの読み込みと分析を簡略化できる。</p>
+</div>
+<div class="section" id="amazon-kinesis-data-firehose">
+<h3><a class="reference external" href="https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html">Amazon Kinesis Data Firehose</a><a class="headerlink" href="#amazon-kinesis-data-firehose" title="Permalink to this headline">¶</a></h3>
+<p>ストリーミングデータの読み込み用のフルマネージドサービス。Amazon S3 および Amazon Redshift にストリーミングデータをキャプチャし、自動的に収集する ETL サービスのようなもの。また既存のビジネスインテリジェンスツールとダッシュボードでぼほリアルタイムに分析。データのスループットに合わせ自動的にスケールし、継続的な管理作業は不要。</p>
+</div>
+<div class="section" id="ami">
+<h3>AMI<a class="headerlink" href="#ami" title="Permalink to this headline">¶</a></h3>
+<p>Amazon Elastic Block Store (Amazon EBS)または Amazon Simple Storage Service に格納される暗号化されたマシンイメージ。</p>
+</div>
+<div class="section" id="amazon-ml">
+<h3>Amazon ML<a class="headerlink" href="#amazon-ml" title="Permalink to this headline">¶</a></h3>
+<p>データのパターンを検出して機械学習モデルを作成し、そのモデルを使用して新規データを処理し、予測を生成するクラウドベースのサービス。ML サービスとして、 <a class="reference external" href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html">SageMaker</a> がある。</p>
+</div>
+<div class="section" id="amazon-macie">
+<h3><a class="reference external" href="https://docs.aws.amazon.com/macie/?id=docs_gateway">Amazon Macie</a><a class="headerlink" href="#amazon-macie" title="Permalink to this headline">¶</a></h3>
+<p>機械学習によって AWS 内の機密データを自動的に検出、分類、保護するセキュリティサービス。</p>
+</div>
+<div class="section" id="amzon-managed-blockchain">
+<h3>Amzon Managed Blockchain<a class="headerlink" href="#amzon-managed-blockchain" title="Permalink to this headline">¶</a></h3>
+<p>Hyperledger や Etherium といった一般的なオープンソースのフレームワークを使用して、スケーラブルなブロックチェーンネットワークを作成および管理するためのフルマネージドサービス。</p>
+</div>
+<div class="section" id="amazon-mq">
+<h3>Amazon MQ<a class="headerlink" href="#amazon-mq" title="Permalink to this headline">¶</a></h3>
+<p>AWS 上でメッセージブローカーを容易に設定および運用できる Apache ActiveMQ 向けのマネージド型メッセージブローカーサービス。</p>
+</div>
+<div class="section" id="amazon-neptune">
+<h3>Amazon Neptune<a class="headerlink" href="#amazon-neptune" title="Permalink to this headline">¶</a></h3>
+<p>マネージド型のグラフデータベースサービス。人気の高いグラフクエリ言語 Apache TinkerPop Gremlin と W3C の SPARQL をサポートしているため、高度に接続されたデータセットを効率的にナビゲートできるクエリが作成可能。</p>
+</div>
+<div class="section" id="amazon-quicksight">
+<h3>Amazon QuickSight<a class="headerlink" href="#amazon-quicksight" title="Permalink to this headline">¶</a></h3>
+<p>クラウド型の高速な BI サービス。データの視覚化と分析を容易に行うダッシュボードが構築でき、ビジネス上の洞察を素早く得ることが可能。</p>
+</div>
+<div class="section" id="amazon-redshift">
+<h3>Amazon Redshift<a class="headerlink" href="#amazon-redshift" title="Permalink to this headline">¶</a></h3>
+<p>クラウド内でのフルマネージド型でペタバイト規模 DWH サービス。既存の BI ツールを使用してデータを分析可能。</p>
+</div>
+<div class="section" id="amazon-relational-database-service-amazon-rds">
+<h3>Amazon Relational Database Service (Amazon RDS)<a class="headerlink" href="#amazon-relational-database-service-amazon-rds" title="Permalink to this headline">¶</a></h3>
+<p>クラウドでリレーショナルデータベースを簡単に設定、運用および拡張することができるサービス。業界標準のリレーショナルデータベース向けに、費用対効果に優れた拡張機能を備え、データベースワークロードを管理。</p>
+</div>
+<div class="section" id="amazon-route53">
+<h3>Amazon Route53<a class="headerlink" href="#amazon-route53" title="Permalink to this headline">¶</a></h3>
+<p>新しい DNS サービスを作成し、クラウドに既存の DNS サービスを移行するために使用するウェブサービス。</p>
+</div>
+<div class="section" id="amazon-s3-glacier">
+<h3>Amazon S3 Glacier<a class="headerlink" href="#amazon-s3-glacier" title="Permalink to this headline">¶</a></h3>
+<p>データのアーカイブおよび長期バックアップを行うための安全性と耐久性に優れた低コストのストレージサービス。アクセス頻度が低く、数時間内の取り出し回数が適切なデータに最適化。迅速取り出しオプションを利用すると、数分での取り出しも可能。</p>
+</div>
+<div class="section" id="amazon-sagemaker">
+<h3>Amazon SageMaker<a class="headerlink" href="#amazon-sagemaker" title="Permalink to this headline">¶</a></h3>
+<p>機械学習のワークフロー全体をカバーするフルマネージドサービス。機械学習モデルの構築、トレーニング、デプロイ手段を提供。データをラベル付けして準備し、アルゴリズムを選択肢て、モデルのトレーニングを行い、デプロイのための調整と最適化を実施。機械学習モデルをより少ない労力と費用で、本番稼働させることが可能。</p>
+</div>
+<div class="section" id="amazon-simple-email-service-amazon-ses">
+<h3>Amazon Simple Email Service (Amazon SES)<a class="headerlink" href="#amazon-simple-email-service-amazon-ses" title="Permalink to this headline">¶</a></h3>
+<p>簡単に利用でき、費用対効果の高いＥメールソリューション。</p>
+</div>
+<div class="section" id="amazon-simple-notification-service-amazon-sns">
+<h3><a class="reference external" href="https://docs.aws.amazon.com/sns/latest/dg/welcome.html">Amazon Simple Notification Service (Amazon SNS)</a><a class="headerlink" href="#amazon-simple-notification-service-amazon-sns" title="Permalink to this headline">¶</a></h3>
+<p>アプリ、ユーザ、およびデバイスでクラウドからすぐに通知を送受信できるようにする pub/sub 型の古まーじどのメッセージングサービス。</p>
+</div>
+<div class="section" id="amazon-simple-queue-service-amazon-sqs">
+<h3>Amazon Simple Queue Service (Amazon SQS)<a class="headerlink" href="#amazon-simple-queue-service-amazon-sqs" title="Permalink to this headline">¶</a></h3>
+<p>コンピュータ館で送受信されるメッセージを格納するための、信頼性の高いスケーラブルメッセージングサービス。</p>
+</div>
+<div class="section" id="amazon-simple-storage-service-amazon-s3">
+<h3>Amazon Simple Storage Service (Amazon S3)<a class="headerlink" href="#amazon-simple-storage-service-amazon-s3" title="Permalink to this headline">¶</a></h3>
+<p>インターネット用のストレージ。</p>
+</div>
+<div class="section" id="amazon-simple-workflow-service-amazon-swf">
+<h3>Amazon Simple Workflow Service (Amazon SWF)<a class="headerlink" href="#amazon-simple-workflow-service-amazon-swf" title="Permalink to this headline">¶</a></h3>
+<p>並行したステップや連続したステップのあるバッククラウドジョブを構築、実行、拡張するのを支援するフルマネージドサービス。クラウド内で、ステータストラッカーや、タスクコーディネーターのような役割を実施。</p>
+</div>
+<div class="section" id="amazon-virtual-private-cloud-amazon-vpc">
+<h3>Amazon Virtual Private Cloud (Amazon VPC)<a class="headerlink" href="#amazon-virtual-private-cloud-amazon-vpc" title="Permalink to this headline">¶</a></h3>
+<p>AWS クラウドの論理的に隔離された仮想ネットワークを構築するサービス。独自のＩＰアドレス範囲の選択、サブネットの作成、ルートテーブル、ネットワークゲートウェイの設定など、仮想ネットワーク環境をコントロール可能。</p>
+</div>
+<div class="section" id="application-auto-scaling">
+<h3>Application Auto Scaling<a class="headerlink" href="#application-auto-scaling" title="Permalink to this headline">¶</a></h3>
+<p>Amazon ECS サービス、Amazon EMR クラスター、DynamoDBテーブルなど、EC2の枠を超えた AWS リソースの自動スケーリングを設定する。</p>
+</div>
+<div class="section" id="aws-auto-scaling">
+<h3>AWS Auto Scaling<a class="headerlink" href="#aws-auto-scaling" title="Permalink to this headline">¶</a></h3>
+<p>複数の AWS リソースを簡単かつ安全にスケーリングするサービス。インフラのコスト削減とアプリのパフォーマンスを最適化可能。複数のサービスにまたがる複数のリソースのスケーリングの場合、個別のスケーリングではなく、AWS Auto Scaling が良い。</p>
+</div>
+<div class="section" id="aws-backup">
+<h3>AWS Backup<a class="headerlink" href="#aws-backup" title="Permalink to this headline">¶</a></h3>
+<p>マネージド型のバックアップサービス。クラウド内およびオンプレミスの AWS のサービス間でデータのバックアップを簡単に一元化及び自動化可能。</p>
+</div>
+<div class="section" id="aws-batch">
+<h3>AWS Batch<a class="headerlink" href="#aws-batch" title="Permalink to this headline">¶</a></h3>
+<p>フルマネージドのバッチ処理サービス。数十万件のバッチ処理が可能で分析系ワークロードの用途に強い。</p>
+</div>
+<div class="section" id="aws-certificate-manager-acm">
+<h3>AWS Certificate Manager (ACM)<a class="headerlink" href="#aws-certificate-manager-acm" title="Permalink to this headline">¶</a></h3>
+<p>Secure Sockets Layer/Transport Layer Security(SSL/TLS)証明書を AWS で使用するためのサービスで、プロビジョニング、デプロイ、管理を実施する。</p>
+</div>
+<div class="section" id="awd-cloud9">
+<h3>AWD Cloud9<a class="headerlink" href="#awd-cloud9" title="Permalink to this headline">¶</a></h3>
+<p>コードの記述、実行、デバッグに使用する AWS 上の統合開発環境(IDE)。</p>
+</div>
+<div class="section" id="aws-cloudformation">
+<h3>AWS CloudFormation<a class="headerlink" href="#aws-cloudformation" title="Permalink to this headline">¶</a></h3>
+<p>インフラを記述してプロビジョニングするためのテンプレートサービス。追加料金なしで利用可能。</p>
+</div>
+<div class="section" id="aws-cloudhsm">
+<h3>AWS CloudHSM<a class="headerlink" href="#aws-cloudhsm" title="Permalink to this headline">¶</a></h3>
+<p>専用ハードウェアセキュリティモジュール(HSM) アプライアンスを AWS クラウド内で使用できるサービス。データセキュリティに対する社会、契約上、または法令で定められた要件の遵守を支援する。</p>
+</div>
+<div class="section" id="aws-cloud-trail">
+<h3>AWS Cloud Trail<a class="headerlink" href="#aws-cloud-trail" title="Permalink to this headline">¶</a></h3>
+<p>お客様のアカウントの AWS API コールを記録し、ログファイルをお客様に送信するユーザアクティビティと API 使用状況を追跡するサービス。記録される情報には、 API 呼び出し元の ID、API 呼び出しの時刻、API 呼び出し元のソース IP アドレス、リクエストパラメータおよび AWS サービスから返された応答の情報がある。</p>
+</div>
+<div class="section" id="aws-codebuild">
+<h3>AWS CodeBuild<a class="headerlink" href="#aws-codebuild" title="Permalink to this headline">¶</a></h3>
+<p>フルマネージド型の継続的インテグレーションサービスであり、ソースコードをコンパイルし、テストを実行し、デプロイ可能なソフトウェアパッケージを作成可。</p>
+</div>
+<div class="section" id="aws-codecommit">
+<h3>AWS CodeCommit<a class="headerlink" href="#aws-codecommit" title="Permalink to this headline">¶</a></h3>
+<p>プライベート Git リポジトリとして、フルマネージドのソースコントロールを行うサービス。安全で極めて拡張性の高いプライベート Git リポジトリを簡単にホスティング可。</p>
+</div>
+<div class="section" id="aws-codedeploy">
+<h3>AWS CodeDeploy<a class="headerlink" href="#aws-codedeploy" title="Permalink to this headline">¶</a></h3>
+<p>オンプレミスで実行中の EC2 インスタンスなど、インスタンスへのコードのデプロイを自動化することでデプロイにおけるダウンタイムを最小化するサービス。</p>
+</div>
+<div class="section" id="aws-codepipeline">
+<h3>AWS CodePipeline<a class="headerlink" href="#aws-codepipeline" title="Permalink to this headline">¶</a></h3>
+<p>アプリの更新をスピードと信頼性を維持する継続的デリバリーサービス。</p>
+</div>
+<div class="section" id="aws-command-line-interface-aws-cli">
+<h3>AWS Command Line Interface (AWS CLI)<a class="headerlink" href="#aws-command-line-interface-aws-cli" title="Permalink to this headline">¶</a></h3>
+<p>AWS サービスを管理するための、ダウンロードおよび設定が可能な統合ツール。複数の AWS サービスをコマンドラインから制御、スクリプトで自動化。</p>
+</div>
+<div class="section" id="aws-config">
+<h3>AWS Config<a class="headerlink" href="#aws-config" title="Permalink to this headline">¶</a></h3>
+<p>AWS リソースの設定を記録し、評価することができるサービス。セキュリティや管理面を向上するため、AWS リソース在庫、設定履歴、設定変更の通知を提供する完全マネージド型サービス。</p>
+</div>
+<div class="section" id="aws-data-pipeline">
+<h3>AWS Data Pipeline<a class="headerlink" href="#aws-data-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>AWS の異なるサービス間や、オンプレミスのデータソース間でデータの移動を信頼性高く実行できるサービス。</p>
+</div>
+<div class="section" id="aws-direct-connect">
+<h3>AWS Direct Connect<a class="headerlink" href="#aws-direct-connect" title="Permalink to this headline">¶</a></h3>
+<p>オンプレミスから AWS への専用ネットワーク接続を確立する。AWS と顧客のデータセンター、オフィス、またはコロケーション環境との間にプライベート接続を確立可能。</p>
+</div>
+<div class="section" id="aws-directory-service">
+<h3>AWS Directory Service<a class="headerlink" href="#aws-directory-service" title="Permalink to this headline">¶</a></h3>
+<p>AWS でのマネージド型の Microsoft Active Directory。AWS リソースを既存のオンプレミス Microsoft Active Directory に接続するか、AWS クラウドに新規のスタンドアロンディレクトリを設定して運用する AWS でのマネージド型の Microsoft Active Directory。</p>
+</div>
+<div class="section" id="aws-elastic-beanstalk">
+<h3>AWS Elastic Beanstalk<a class="headerlink" href="#aws-elastic-beanstalk" title="Permalink to this headline">¶</a></h3>
+<p>Java、.NET、PHP、Node.js、Python、Ruby、Go および Docker を使用して開発された web アプリを Apache、Nginx、Passenger、IIS など使い慣れたサーバでデプロイおよびスケーリングするサービス。</p>
+</div>
+<div class="section" id="aws-glue">
+<h3>AWS Glue<a class="headerlink" href="#aws-glue" title="Permalink to this headline">¶</a></h3>
+<p>完全マネージド型の抽出、変換、ロード(ETL)サービス。データを検出し、ソースをターゲットに変換するためのスクリプトを開発して、サーバレス環境で ETL ジョブをスケジュールして実行可。</p>
+</div>
+<div class="section" id="aws-idenetity-and-access-management-iam">
+<h3>AWS Idenetity and Access Management (IAM)<a class="headerlink" href="#aws-idenetity-and-access-management-iam" title="Permalink to this headline">¶</a></h3>
+<p>利用者が、AWS 内でユーザとユーザアクセス許可を管理できる認証と認可を管理するサービス。</p>
+</div>
+<div class="section" id="aws-key-management-service-aws-kms">
+<h3>AWS Key Management Service (AWS KMS)<a class="headerlink" href="#aws-key-management-service-aws-kms" title="Permalink to this headline">¶</a></h3>
+<p>データの暗号化に使用される暗号化キーの作成と管理を容易にするとともに、証跡を残して可視化するマネージド型サービス。</p>
+</div>
+<div class="section" id="aws-lambda">
+<h3>AWS Lambda<a class="headerlink" href="#aws-lambda" title="Permalink to this headline">¶</a></h3>
+<p>サーバの管理なしにコードを実行できるコンピューティングサービス。実質どのようなタイプのアプリやバックエンドサービスでも、管理なしでコードを実行可。コードは AWS の他のサービスから自動的にトリガするか、ウェブやモバイルアプリから直接呼び出すように設定可能。</p>
+</div>
+<div class="section" id="id1">
+<h3>AWS マネジメントコンソール<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>コンピューティング、ストレージ、およびその他の AWS のリソースを1つのウェブのインターフェイスから管理できるグラフィカルな画面インターフェイス。</p>
+</div>
+<div class="section" id="aws-opsworks">
+<h3>AWS OpsWorks<a class="headerlink" href="#aws-opsworks" title="Permalink to this headline">¶</a></h3>
+<p>Chef や Puppet を使って運用を自動化する構成管理サービス。インスタンスおよびアプリのグループを構成。パッケージのインストール、ソフトウェア設定およびストレージなどのリソースを含む、各コンポーネントのアプリのアーキテクチャおよび使用を定義可。</p>
+</div>
+<div class="section" id="aws-organizations">
+<h3>AWS Organizations<a class="headerlink" href="#aws-organizations" title="Permalink to this headline">¶</a></h3>
+<p>アカウント全体を一元管理するサービス。作成して一元管理する組織に、複数の AWS アカウントを統合するためのアカウント管理サービス。</p>
+</div>
+<div class="section" id="aws-security-token-service-aws-sts">
+<h3>AWS Security Token Service (AWS STS)<a class="headerlink" href="#aws-security-token-service-aws-sts" title="Permalink to this headline">¶</a></h3>
+<p>一時的なリクエスト、AWS Identity adn Access Management(IAM) ユーザまたは認証するユーザの権限制限の認証情報(フェデレーションユーザ)のためのサービス。</p>
+</div>
+<div class="section" id="aws-shield">
+<h3>AWS Shield<a class="headerlink" href="#aws-shield" title="Permalink to this headline">¶</a></h3>
+<p>マネージド型の分散サービス妨害(DDos)攻撃に対する保護サービス。Amazon EC2 インスタンス、Elastic Load Balancing ロードバランサー、Amazon CloudFront ディストリビューション、Route53 ホストゾーンなどのリソースを DDos 攻撃から保護するのに役立つサービス。追加料金なしで自動的に含まれる。AWS WAF と他の AWS のサービスに対して支払い済みの金額を超えて支払い不要。</p>
+</div>
+<div class="section" id="aws-sso">
+<h3>AWS シングルサインオン (SSO)<a class="headerlink" href="#aws-sso" title="Permalink to this headline">¶</a></h3>
+<p>複数の AWS アカウントおよびビジネスアプリへの SSO アクセスの管理を簡単にするクラウドベースのサービス。AWS Organizations では、全ての AWS アカウントの SSO アクセスとユーザアクセス許可を管理可能。</p>
+</div>
+<div class="section" id="aws-step-functions">
+<h3>AWS Step Functions<a class="headerlink" href="#aws-step-functions" title="Permalink to this headline">¶</a></h3>
+<p>分散アプリのコンポーネントを視覚的なワークフローを一連のステップとして管理するワークフロー実行サービス。</p>
+</div>
+<div class="section" id="aws-snowball">
+<h3>AWS Snowball<a class="headerlink" href="#aws-snowball" title="Permalink to this headline">¶</a></h3>
+<p>AWS クラウドとの大容量データ転送を安全に行うように設計されたトランクのような物理的なデバイスを使用したペタバイト規模のデータ転送ソリューション。</p>
+</div>
+<div class="section" id="aws-storage-gateway">
+<h3>AWS Storage Gateway<a class="headerlink" href="#aws-storage-gateway" title="Permalink to this headline">¶</a></h3>
+<p>オンプレミスのソフトアプライアンスとクラウドベースのストレージとを接続するストレージサービス。オンプレミス IT 環境と AWS のストレージインフラとを、シームレスに、セキュリティを維持しながら統合。</p>
+</div>
+<div class="section" id="aws-trusted-advisor">
+<h3>AWS Trusted Advisor<a class="headerlink" href="#aws-trusted-advisor" title="Permalink to this headline">¶</a></h3>
+<p>AWS 環境を調査し、コストの削減、システムの可用性とパフォーマンスの向上に関するガイダンスを作成。セキュリティのギャップを埋める支援を行うサービス。</p>
+</div>
+<div class="section" id="aws-waf">
+<h3>AWS WAF<a class="headerlink" href="#aws-waf" title="Permalink to this headline">¶</a></h3>
+<p>AWS によるウェブアプリケーションファイアウォールサービス。例えば、リクエストの送信元のヘッダー値または IP アドレスに基づいて、アクセスをフィルター可能。アプリの可用性低下、セキュリティの侵害、リソースの過剰消費に影響を与える一般的なウェブエクスプロイトからウェブアプリケーションを保護。ユーザ指定の基準をもとに、ウェブコンテンツへのアクセスをコントロールする。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>その他<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tl-dr-tldr">
+<h3>TL;DR (TLDR)<a class="headerlink" href="#tl-dr-tldr" title="Permalink to this headline">¶</a></h3>
+<p>TL;DRもしくはTLDRとは、「Too Long, Didn’t Read」の略で、「文章が長すぎて、読んでいません」という意味の英語の略語、インターネットスラングのこと。文章が長くて文句を言ったり「長文ウザい」と小馬鹿にしたりといった、ネガティブで非難するニュアンスを含むケースが多い。自らの冗長な文章への自虐的な弁明の場合もある。</p>
+<p>エンジニア界隈では、そこから転じて「（長すぎて読めない人のための）要約」の意味でも用いられる。</p>
+<p>「;（セミコロン）」は接続詞省略で、「だから」の意味を表す。「tl;dr」など小文字表記も見られる。</p>
+<p>*出典: <a class="reference external" href="https://makitani.net/shimauma/tldr">シマウマ用語集</a></p>
+</div>
+<div class="section" id="federation">
+<h3>フェデレーション（英：federation）<a class="headerlink" href="#federation" title="Permalink to this headline">¶</a></h3>
+<p>一度認証を通れば、その認証情報を使って、許可されているすべてのサービスを使えるようにする仕組み。</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/dict"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="en.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Dict-en</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../settings/VSCode01.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">VSCode</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,873 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iTerm2 &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="useful links" href="../appendix/inde.html" />
+    <link rel="prev" title="PowerShell" href="PowerShell01.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../db/mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/settings/iterm2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preferences">
+   Preferences
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="iterm2">
+<h1>iTerm2<a class="headerlink" href="#iterm2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preferences">
+<h2>Preferences<a class="headerlink" href="#preferences" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;Custom Directory&quot;</span> <span class="p">:</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Working Directory&quot;</span> <span class="p">:</span> <span class="s2">&quot;\/Users\/mtngtnsh&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Prompt Before Closing 2&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Selected Text Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.8780597448348999</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.87804841995239258</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.87803351879119873</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Rows&quot;</span> <span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 11 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.99454373121261597</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.49358806014060974</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.74323266744613647</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Use Italic Font&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Foreground Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.83137254901960789</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;sRGB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.039215686274509803</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.5725490196078431</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Right Option Key Sends&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;Character Encoding&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="nt">&quot;Selection Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.7321934700012207</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;sRGB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.0093701402415717894</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.52810217487674638</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Mouse Reporting&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 4 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.35994330048561096</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.99871313571929932</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.62262850999832153</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Non-ASCII Anti Aliased&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Sync Title&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Disable Window Resizing&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Description&quot;</span> <span class="p">:</span> <span class="s2">&quot;Default&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Close Sessions On End&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Jobs to Ignore&quot;</span> <span class="p">:</span> <span class="p">[</span>
+    <span class="s2">&quot;rlogin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ssh&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;slogin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;telnet&quot;</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;Scrollback Lines&quot;</span> <span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+  <span class="nt">&quot;Brighten Bold Text&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Flashing Bell&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Cursor Guide Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.14865921437740326</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.82989299297332764</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;BM Growl&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;AWDS Window Directory&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 3 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.99310135841369629</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.35100504755973816</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.66525256633758545</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Use Non-ASCII Font&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Link Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.055476372221164638</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;sRGB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.81575512414217621</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.93679451942443848</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Shortcut&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Background Image Location&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Bold Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.019607843137254902</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;sRGB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.51372549019607838</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.43137254901960786</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Use Cursor Guide&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Unlimited Scrollback&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Custom Command&quot;</span> <span class="p">:</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;AWDS Tab Option&quot;</span> <span class="p">:</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Keyboard Map&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;0xf700-0x260000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;6A&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x37-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1f&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x32-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x00&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf709-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[17;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf70c-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[20;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf729-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2H&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf72b-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;5F&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf705-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2Q&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf703-0x260000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;6C&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf700-0x220000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2A&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf701-0x280000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1b 0x1b 0x5b 0x42&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x38-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x7f&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x33-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1b&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf703-0x220000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2C&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf701-0x240000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;5B&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf70d-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[21;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf702-0x260000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;6D&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf729-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;5H&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf706-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2R&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x34-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1c&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf700-0x280000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1b 0x1b 0x5b 0x41&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x2d-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1f&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf70e-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[23;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf702-0x220000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2D&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf703-0x280000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1b 0x1b 0x5b 0x43&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf700-0x240000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;5A&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf707-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2S&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf70a-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[18;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x35-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1d&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf70f-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[24;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf703-0x240000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;5C&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf701-0x260000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;6B&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf702-0x280000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1b 0x1b 0x5b 0x44&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf72b-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2F&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0x36-0x40000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;0x1e&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">11</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf708-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[15;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf701-0x220000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2B&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf70b-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[19;2~&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf702-0x240000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;5D&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;0xf704-0x20000&quot;</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Text&quot;</span> <span class="p">:</span> <span class="s2">&quot;[1;2P&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;Action&quot;</span> <span class="p">:</span> <span class="mi">10</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Ansi 14 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.14865921437740326</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.82989299297332764</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Ansi 2 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.14805346727371216</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.82991856336593628</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Send Code When Idle&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;ASCII Anti Aliased&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Tags&quot;</span> <span class="p">:</span> <span class="p">[</span>
+
+  <span class="p">],</span>
+  <span class="nt">&quot;Ansi 9 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.98614990711212158</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.35388326644897461</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.020856760442256927</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Use Bold Font&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Silence Bell&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 12 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.33359432220458984</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.99875175952911377</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.68011558055877686</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Window Type&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;Use Bright Bold&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Cursor Text Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.97647058823529409</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;sRGB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.23921568627450981</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.75294117647058822</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Default Bookmark&quot;</span> <span class="p">:</span> <span class="s2">&quot;No&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Cursor Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.94117647058823528</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;sRGB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.27450980392156865</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.75294117647058822</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Ansi 1 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.98614990711212158</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.35388326644897461</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.020856760442256927</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Name&quot;</span> <span class="p">:</span> <span class="s2">&quot;panda&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Blinking Cursor&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;Guid&quot;</span> <span class="p">:</span> <span class="s2">&quot;8301F835-B001-4AAF-93A0-1D7A83CFA4CF&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Idle Code&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 10 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.14805346727371216</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.82991856336593628</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Ansi 8 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.36078432202339172</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.43921568989753723</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.38823530077934265</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Badge Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.98614990711212158</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.35388326644897461</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.020856760442256927</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Smart Cursor Color&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Ambiguous Double Width&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Blur Radius&quot;</span> <span class="p">:</span> <span class="mf">3.4913134860009261</span><span class="p">,</span>
+  <span class="nt">&quot;Cursor Type&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 0 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.12057839334011078</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.12636999785900116</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.12339203059673309</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;AWDS Pane Directory&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Blur&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Vertical Spacing&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;Normal Font&quot;</span> <span class="p">:</span> <span class="s2">&quot;JetBrainsMonoNerdFontCompleteM-Regular 14&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 7 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.94097667932510376</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.9409644603729248</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.940948486328125</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;AWDS Tab Directory&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;AWDS Pane Option&quot;</span> <span class="p">:</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Command&quot;</span> <span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Terminal Type&quot;</span> <span class="p">:</span> <span class="s2">&quot;xterm-256color&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Horizontal Spacing&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nt">&quot;Tab Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.68458080291748047</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.062073707580566406</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mi">0</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Option Key Sends&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;Minimum Contrast&quot;</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 15 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.94097667932510376</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.9409644603729248</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.940948486328125</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Ansi 6 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.14865921437740326</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.82989299297332764</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Transparency&quot;</span> <span class="p">:</span> <span class="mf">0.029999999999999999</span><span class="p">,</span>
+  <span class="nt">&quot;Background Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.058823529411764705</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;sRGB&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.35294117647058826</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.21568627450980393</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Screen&quot;</span> <span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+  <span class="nt">&quot;AWDS Window Option&quot;</span> <span class="p">:</span> <span class="s2">&quot;Yes&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Bound Hosts&quot;</span> <span class="p">:</span> <span class="p">[</span>
+
+  <span class="p">],</span>
+  <span class="nt">&quot;Non Ascii Font&quot;</span> <span class="p">:</span> <span class="s2">&quot;Monaco 12&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 13 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.99126648902893066</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.81628024578094482</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.58417999744415283</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;Columns&quot;</span> <span class="p">:</span> <span class="mi">160</span><span class="p">,</span>
+  <span class="nt">&quot;Use Tab Color&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Visual Bell&quot;</span> <span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;ASCII Ligatures&quot;</span> <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="nt">&quot;Thin Strokes&quot;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+  <span class="nt">&quot;Ansi 5 Color&quot;</span> <span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;Red Component&quot;</span> <span class="p">:</span> <span class="mf">0.98811757564544678</span><span class="p">,</span>
+    <span class="nt">&quot;Color Space&quot;</span> <span class="p">:</span> <span class="s2">&quot;Calibrated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;Blue Component&quot;</span> <span class="p">:</span> <span class="mf">0.65158092975616455</span><span class="p">,</span>
+    <span class="nt">&quot;Alpha Component&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;Green Component&quot;</span> <span class="p">:</span> <span class="mf">0.35074537992477417</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/settings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="PowerShell01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">PowerShell</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../appendix/inde.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">useful links</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MongoDB - Replication &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="MongoDB - Sharding" href="mongodb04.html" />
+    <link rel="prev" title="MongoDB - Usage" href="mongodb02.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/db/mongodb03.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mongodb3">
+   ローカル環境にMongoDBを3つ起動してレプリケーションをセットアップする
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   1. データファイルを格納するためのフォルダを作成
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mongod-conf">
+   2. 設定ファイル(mongod.conf)を作成
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     ディレクトリ構成
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     ポート番号
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     設定ファイルにの内容
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   3. 設定ファイルを適用
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   4. インスタンスに接続
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rs-initiate">
+     1) rs.initiate()でレプリカセットのメンバーを追加
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     2) メンバーの追加状況を確認
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   5. レプリカセットの稼働状況を確認
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#db2">
+     メンバー db2 にアクセスする
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#db1-kill-db2">
+     db1 を kill してから db2 が昇格
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#db1">
+     おまけ - db1を再起動したら、どうなるのか?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mongodb-replication">
+<h1>MongoDB - Replication<a class="headerlink" href="#mongodb-replication" title="Permalink to this headline">¶</a></h1>
+<p>なぜレプリケーションをセットするのかを、本メモでは割愛する。
+インターネット上、同じようなセットアップに関連する情報は多々存在しているが、実際に手を動かしてみて、少し異なるところがあったので、自分がやりやすい方法をまとめる。</p>
+<div class="section" id="mongodb3">
+<h2>ローカル環境にMongoDBを3つ起動してレプリケーションをセットアップする<a class="headerlink" href="#mongodb3" title="Permalink to this headline">¶</a></h2>
+<p>環境:<br />
+MongoDB: 5.0.2<br />
+MacOS: Big Sur 11.5.2</p>
+</div>
+<div class="section" id="id1">
+<h2>1. データファイルを格納するためのフォルダを作成<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>データファイル格納用フォルダ用に data フォルダーを作成し、さらにその配下に3つインスタンス用のデータファイル格納用フォルダ(db1, db2, db3)を作成する。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir -p db<span class="o">{</span><span class="m">1</span>,2,3<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mongod-conf">
+<h2>2. 設定ファイル(mongod.conf)を作成<a class="headerlink" href="#mongod-conf" title="Permalink to this headline">¶</a></h2>
+<p>MongoDBの設定ファイル(mongod.conf)のオプションについては、<a class="reference external" href="https://docs.mongodb.com/manual/reference/configuration-options/">MongoDBの公式ドキュメント</a>を参照。
+db1, db2, db3はそれぞれ作成するのが必要。</p>
+<div class="section" id="id2">
+<h3>ディレクトリ構成<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-tex notranslate"><div class="highlight"><pre><span></span>|data
+|--db1
+|  |--mongod.conf
+|--db2
+|  |--mongod.conf
+|--db3
+|  |--mongod.conf  
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>ポート番号<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>下記で設定する。</p>
+<ul class="simple">
+<li><p>db1: 28017</p></li>
+<li><p>db2: 28018</p></li>
+<li><p>db3: 28019</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>設定ファイルにの内容<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>db1用のmongod.confはこの内容で設定している。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">systemLog</span><span class="p">:</span>
+    <span class="n">destination</span><span class="p">:</span> <span class="n">file</span>
+    <span class="n">path</span><span class="p">:</span> <span class="p">{</span><span class="n">usr</span><span class="p">}</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">db1</span><span class="o">/</span><span class="n">mongod</span><span class="o">.</span><span class="n">log</span>
+    <span class="n">logAppend</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">storage</span><span class="p">:</span>
+    <span class="n">dbPath</span><span class="p">:</span> <span class="p">{</span><span class="n">usr</span><span class="p">}</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">db1</span>
+<span class="n">net</span><span class="p">:</span>
+    <span class="n">bindIp</span><span class="p">:</span> <span class="mf">0.0.0.0</span>
+    <span class="n">port</span><span class="p">:</span> <span class="mi">28017</span>        <span class="c1"># ポート番号</span>
+<span class="n">replication</span><span class="p">:</span>
+    <span class="n">replSetName</span><span class="p">:</span> <span class="n">rs0</span>   <span class="c1"># レプリカセット名:rs0</span>
+<span class="n">processManagement</span><span class="p">:</span>
+    <span class="n">fork</span><span class="p">:</span> <span class="n">true</span>
+</pre></div>
+</div>
+<p>db2, db3 は上記の設定を各自のフォルダにコピーして、<code class="docutils literal notranslate"><span class="pre">path</span></code>、<code class="docutils literal notranslate"><span class="pre">dbPath</span></code>、<code class="docutils literal notranslate"><span class="pre">port</span></code>をそれぞれ修正する。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3. 設定ファイルを適用<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>下記のコマンドで設定ファイルを適用する。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongod -f <span class="o">{</span>DBディレクトリ名<span class="o">}</span>/mongod.conf
+</pre></div>
+</div>
+<p>db1のmongod.confを適用する。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongod -f db1/mongod.conf
+</pre></div>
+</div>
+<p>設定ファイルの適用ができた場合、下記のようなメッセージが表示される。</p>
+<div class="highlight-tex notranslate"><div class="highlight"><pre><span></span>about to fork child process, waiting until server is ready for connections.
+forked process: 87472
+child process started successfully, parent exiting
+</pre></div>
+</div>
+<p>db2, db3 も同様に適用する。
+適用してから、稼働状況をさらに確認したいなら、<code class="docutils literal notranslate"><span class="pre">ps</span></code>コマンドでも見てみよう。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ps -ef <span class="p">|</span> grep mongod
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>4. インスタンスに接続<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>設定ファイルが適用できたら、下記のコマンドで db1 にアクセスする。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongod --port <span class="m">28017</span> --quiet
+</pre></div>
+</div>
+<p>※ <code class="docutils literal notranslate"><span class="pre">--quiet</span></code>は、接続情報を簡潔に表示されるオプション。</p>
+<div class="section" id="rs-initiate">
+<h3>1) rs.initiate()でレプリカセットのメンバーを追加<a class="headerlink" href="#rs-initiate" title="Permalink to this headline">¶</a></h3>
+<p>参照：<a class="reference external" href="https://docs.mongodb.com/manual/reference/method/rs.initiate/">rs.initiate()について</a>
+rs.initiate()は、新しいレプリカセットの設定時、初期化するメソッド。
+rs.add()でも使えるが、便利のため、rs.initiate()でセットするとき、db1, db2, db3のホスト情報を``members`という設定フィルドに追加した。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rs.initiate<span class="o">({</span> _id: <span class="s2">&quot;rs0&quot;</span>, members: <span class="o">[{</span> _id: <span class="m">0</span>, host: <span class="s2">&quot;localhost:28017&quot;</span><span class="o">}</span>,<span class="o">{</span>_id: <span class="m">1</span>, host: <span class="s2">&quot;localhost:28018&quot;</span><span class="o">}</span>,<span class="o">{</span>_id: <span class="m">2</span>,host:<span class="s2">&quot;localhost:28019&quot;</span><span class="o">}]})</span>
+</pre></div>
+</div>
+<p>上記のコマンド叩いた結果、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;ok&quot;</span> <span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><img alt="mongodb03-rs_initiate01" src="../../_images/mongodb03-rs_initiate01.png" />
+上図から、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rs0</span><span class="p">:</span><span class="n">SECONDARY</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>になっている。
+もう一回<code class="docutils literal notranslate"><span class="pre">Enter</span></code>すると、</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rs0</span><span class="p">:</span><span class="n">PRIMARY</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>に切り替える。
+ここまでに進んできて、すでに”rs0”というレプリカセットのメンバー(db1)にアクセスできた。
+<img alt="mongodb03-rs_initiate02" src="../../_images/mongodb03-rs_initiate02.png" />
+<code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code>や<code class="docutils literal notranslate"><span class="pre">SECONDARY</span></code>は何ものかは、こちらのページ<a class="reference external" href="https://docs.mongodb.com/manual/core/replica-set-members/">「Replica Set Members」</a>を参照。</p>
+<blockquote>
+<div><p>The replica set can have at most one primary. If the current primary becomes unavailable, an election determines the new primary.</p>
+</div></blockquote>
+<p>初期化されてから、デフォルトの設定で <code class="docutils literal notranslate"><span class="pre">SECONDARY</span></code>と認められる。上記の説明から、現在のレプリカセットは、<code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code>(1つ)、<code class="docutils literal notranslate"><span class="pre">SECONDARY</span></code>(2つ)があると明らかにした。</p>
+<p>次の動作を検証するため、もう一回<code class="docutils literal notranslate"><span class="pre">Enter</span></code>すると、db1を<code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code>に変更した。
+そのため、現時点で、db1が<code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code>として設定していて、まだログインしていないdb2, db3は<code class="docutils literal notranslate"><span class="pre">SECONDARY</span></code>になった。次のステップで、各メンバーの<code class="docutils literal notranslate"><span class="pre">stateStr</span></code>で確認できる。無論、db1 が一時的に死んでしまった場合、db2, db3のどれかが<code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code>に変更される。</p>
+</div>
+<div class="section" id="id7">
+<h3>2) メンバーの追加状況を確認<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>こちらのコマンド確認する。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rs.status<span class="o">()</span>
+</pre></div>
+</div>
+<p>上図で、db1 の<code class="docutils literal notranslate"><span class="pre">stateStr</span></code>が”PRIMARY”になっているのがわかった。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>5. レプリカセットの稼働状況を確認<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>db1 が “PRIMARY”である限りなり、書き込みと読み込みができるので、db1 にデータを挿入してみて、db2 側から様子を確認する。
+本メモは、”Arbiter”というメンバーをスキップしている。
+※時間がある時こちらのドキュメントをチェックする→<a class="reference external" href="https://docs.mongodb.com/manual/core/replica-set-members/#arbiter">”Arbiter”について</a></p>
+<div class="section" id="db2">
+<h3>メンバー db2 にアクセスする<a class="headerlink" href="#db2" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mongo localhost:28018 --quiet
+</pre></div>
+</div>
+<p>上記のコマンドでdb2 にアクセスしてから、db1の内容が見れるのかを、下記のコマンドで試す。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>db.test.find<span class="o">()</span>
+</pre></div>
+</div>
+<p>しかし、</p>
+<div class="highlight-tex notranslate"><div class="highlight"><pre><span></span>&quot;errmsg&quot; : &quot;not master and slaveOk=false&quot;,
+</pre></div>
+</div>
+<p>というエラーメッセージが返された。
+そのメッセージは、まだ db1 の slave(奴隷) になってないよ、db1とは知らない人っと理解してもいいから、両方の関係を築き上げよう。
+最初は、<code class="docutils literal notranslate"><span class="pre">rs.slaveOk()</span></code>で試していた。次のリリースで削除されるそうなので、推奨の<code class="docutils literal notranslate"><span class="pre">rs.secondaryOk()</span></code>で設定できた。
+<img alt="mongodb03-secondaryOk" src="../../_images/mongodb03-secondaryOk.png" /></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>db.test.find<span class="o">()</span>
+</pre></div>
+</div>
+<p>で　もう一回確認してみて問題が解決した。</p>
+<p>メンバー db1 にデータを追加して、db2 から確認する。
+db1にデータをinsertする。</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>db.test.insert<span class="o">({</span>a:0<span class="o">})</span>
+</pre></div>
+</div>
+<p><img alt="mongodb03-insert01" src="../../_images/mongodb03-insert01.png" /></p>
+<p>即座に、db2 側で確認する。</p>
+<p><img alt="mongodb03-find01" src="../../_images/mongodb03-find01.png" /></p>
+<p>db1 で insert した<code class="docutils literal notranslate"><span class="pre">{a:</span> <span class="pre">0}</span></code>が db2 側で見れた！
+ローカル環境だから、迅速と感じだが、レプリカセットのメンバーが遠距離であっても、数十ミリ秒程度の遅延しか出ない噂がある。。</p>
+</div>
+<div class="section" id="db1-kill-db2">
+<h3>db1 を kill してから db2 が昇格<a class="headerlink" href="#db1-kill-db2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ps</span></code>で db1 のプロセス番号を確認し、kill しよう。
+今回は <code class="docutils literal notranslate"><span class="pre">aux</span></code>を使ってみる。  ※<code class="docutils literal notranslate"><span class="pre">ef</span></code>派と<code class="docutils literal notranslate"><span class="pre">aux</span></code>派がこれからもpeace&amp;loveで暮らしていくように。余談→<a class="reference external" href="https://ten-snapon.com/archives/2646">あなたはPS -EF派なのか、AUXF派なのかをちょっとだけまとめてみた</a></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ps aux <span class="p">|</span> grep mongod
+<span class="nb">kill</span> <span class="o">{</span>process_id<span class="o">}</span>
+</pre></div>
+</div>
+<p>しばらく待ってから、db1 が稼働していないことが確認できる。
+db2が<code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code>に昇格されることも確認できる。
+<img alt="mongodb03-db2_primary" src="../../_images/mongodb03-db2_primary.png" /></p>
+</div>
+<div class="section" id="db1">
+<h3>おまけ - db1を再起動したら、どうなるのか?<a class="headerlink" href="#db1" title="Permalink to this headline">¶</a></h3>
+<p>db1がまた<code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code>に昇格されるか、そのまま<code class="docutils literal notranslate"><span class="pre">SECONDARY</span></code>としているのか？
+db2が 死んでいない限り、db1 が <code class="docutils literal notranslate"><span class="pre">SECONDARY</span></code>として生きていくはず。。
+以上はレプリケーションをセットアップする方法。</p>
+<p>次は、MongoDBのシャーディングを学習する予定なので、ネットから調べてきた1台の物理マシンにポートを分けて数台のサーバを立ち上げるパターンではなく、数台のVM(シャード)を作成してシャーディングしてみたい。</p>
+<blockquote>
+<div><p>Sharding is a method for distributing data across  <strong>multiple machines</strong> .</p>
+</div></blockquote>
+<p><em>出典:<a class="reference external" href="https://docs.mongodb.com/manual/sharding/#sharding">Sharding</a></em></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/db"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="mongodb02.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MongoDB - Usage</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="mongodb04.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">MongoDB - Sharding</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

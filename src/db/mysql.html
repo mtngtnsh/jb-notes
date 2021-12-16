@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySQL &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Kasm" href="../oss/kasm.html" />
+    <link rel="prev" title="MongoDB - Sharding" href="mongodb04.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/icon.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../command/docker.html">
+   Docker
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/intr.html">
+   tips
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/src/db/mysql.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   背景
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   要望
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   方法
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#no-1-jstutc9">
+     No.1 JSTはUTCより
+     <strong>
+      9時間
+     </strong>
+     進んでいることはさきに知っておけば、この方法が分かりやすくなると思われる
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#no-2-00-00-utc-09-00-asia-tokyo">
+     No.2 時差は調べたくない場合は、
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       '+00:00'
+      </span>
+     </code>
+     を
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       'UTC'
+      </span>
+     </code>
+     に、
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       '+09:00'
+      </span>
+     </code>
+     を
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       'Asia/Tokyo'
+      </span>
+     </code>
+     に書き換えられる。ただし、適切に設定する必要がある
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#no-3-00-00-00current-date-now-no-1">
+     No.3 指定時刻は
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       00:00:00
+      </span>
+     </code>
+     であり、
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CURRENT_DATE()
+      </span>
+     </code>
+     と
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       NOW()
+      </span>
+     </code>
+     をさらに詳しく理解されている場合、No.1をこのような形に変更できる
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   終わりに
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   参考記事
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mysql">
+<h1>MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>背景<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>以下の条件でテストデータを作成する。</p>
+<ul class="simple">
+<li><p>Database Version: <strong>MySQL5.7</strong></p></li>
+<li><p>System Timezone: UTC(変更不可)</p></li>
+<li><p>Local Timezone: JST</p></li>
+<li><p>Volume：<strong>数百</strong>レコード</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>要望<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>INSERTする時、つねに当日(JST)、または当日から数日、数ヶ月前の指定時刻(<code class="docutils literal notranslate"><span class="pre">yyyy-MM-dd</span> <span class="pre">00:00:00</span></code>)の<code class="docutils literal notranslate"><span class="pre">TIMESTAMP</span></code>型の日付でカラム(UTC)を更新する。つまり、</p>
+<ol class="simple">
+<li><p>(UTC)実行時の当日日付(e.g.<code class="docutils literal notranslate"><span class="pre">yyyy-MM-02</span> <span class="pre">12:59:59</span> <span class="pre">UTC</span></code>)をDBから取得して、</p></li>
+<li><p>(JST)指定時刻の当日日付<code class="docutils literal notranslate"><span class="pre">yyyy-MM-02</span> <span class="pre">00:00:00</span> <span class="pre">JST</span></code>へ変換し、</p></li>
+<li><p>(UTC)日付を変換して<code class="docutils literal notranslate"><span class="pre">yyyy-MM-01</span> <span class="pre">15:00:00</span> <span class="pre">UTC</span></code>でDBにINSERTする</p></li>
+</ol>
+<p>こと。</p>
+</div>
+<div class="section" id="id3">
+<h2>方法<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="no-1-jstutc9">
+<h3>No.1 JSTはUTCより<strong>9時間</strong>進んでいることはさきに知っておけば、この方法が分かりやすくなると思われる<a class="headerlink" href="#no-1-jstutc9" title="Permalink to this headline">¶</a></h3>
+<p><strong>当日</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INSERT INTO `table_name` (colume_name) \
+VALUES (TIMESTAMPADD(HOUR,-9,CONCAT(DATE(TIMESTAMPADD(HOUR,9,NOW())),&#39; 00:00:00&#39;)));
+</pre></div>
+</div>
+<p><strong>数日前、数か月前</strong><br />
+開始日付から減算される間隔値を指定する式は、<code class="docutils literal notranslate"><span class="pre">DAY</span></code>や<code class="docutils literal notranslate"><span class="pre">MONTH</span></code>などを使用する。1日前を例として挙げる。下の方法も同様。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INSERT INTO `table_name` (colume_name) \
+VALUES (TIMESTAMPADD(HOUR,-9,CONCAT(DATE(DATE_SUB(TIMESTAMPADD(HOUR,9,NOW()),INTERVAL 1 DAY)),&#39; 00:00:00&#39;)));
+</pre></div>
+</div>
+</div>
+<div class="section" id="no-2-00-00-utc-09-00-asia-tokyo">
+<h3>No.2 時差は調べたくない場合は、<code class="docutils literal notranslate"><span class="pre">'+00:00'</span></code>を<code class="docutils literal notranslate"><span class="pre">'UTC'</span></code>に、<code class="docutils literal notranslate"><span class="pre">'+09:00'</span></code>を<code class="docutils literal notranslate"><span class="pre">'Asia/Tokyo'</span></code>に書き換えられる。ただし、<a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/time-zone-support.html">適切に設定する</a>必要がある<a class="headerlink" href="#no-2-00-00-utc-09-00-asia-tokyo" title="Permalink to this headline">¶</a></h3>
+<p><strong>当日</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INSERT INTO `table_name` (colume_name) \
+VALUES (CONVERT_TZ(CONCAT(DATE(CONVERT_TZ(NOW(),&#39;+00:00&#39;,&#39;+09:00&#39;)),&#39; 00:00:00&#39;),&#39;+09:00&#39;,&#39;+00:00&#39;));
+</pre></div>
+</div>
+<p><strong>数日前、数か月前</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INSERT INTO `table_name` (colume_name) \
+VALUES (CONVERT_TZ(CONCAT(DATE(DATE_SUB(CONVERT_TZ(NOW(),&#39;+00:00&#39;,&#39;+09:00&#39;),INTERVAL 1 DAY)),&#39; 00:00:00&#39;),&#39;+09:00&#39;,&#39;+00:00&#39;));
+</pre></div>
+</div>
+</div>
+<div class="section" id="no-3-00-00-00current-date-now-no-1">
+<h3>No.3 指定時刻は<code class="docutils literal notranslate"><span class="pre">00:00:00</span></code>であり、<code class="docutils literal notranslate"><span class="pre">CURRENT_DATE()</span></code>と<code class="docutils literal notranslate"><span class="pre">NOW()</span></code>をさらに詳しく理解されている場合、No.1をこのような形に変更できる<a class="headerlink" href="#no-3-00-00-00current-date-now-no-1" title="Permalink to this headline">¶</a></h3>
+<p><strong>当日</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INSERT INTO `table_name` (colume_name) \
+VALUES (TIMESTAMPADD(HOUR,-9,DATE(TIMESTAMPADD(HOUR,9,CURRENT_DATE()))));
+</pre></div>
+</div>
+<p><strong>数日前、数か月前</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INSERT INTO `table_name` (colume_name) \
+VALUES (TIMESTAMPADD(HOUR,-9,DATE(DATE_SUB(TIMESTAMPADD(HOUR,9,CURRENT_DATE()),INTERVAL 1 DAY))));
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>終わりに<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>ある案件の要望だが、上記いずれの方法でテストデータを作成すると、いつになっても、データを一々直さなく、指定した日付のものをINSERTできると考えられた。</p>
+</div>
+<div class="section" id="id5">
+<h2>参考記事<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html">MySQL5.7 Reference Manual / Functions and Operators / Date and Time Functions</a></p></li>
+<li><p><a class="reference external" href="https://www.jisakeisan.com">世界のタイムゾーンと主要都市の時差を計算</a></p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/db"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="mongodb04.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MongoDB - Sharding</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../oss/kasm.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Kasm</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021 by Yuan Zhang.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
