@@ -1,0 +1,56 @@
+# In _toc.yml
+format: jb-book
+root: src/index
+
+parts:
+  - caption: Language
+    numbered: False
+    chapters:
+      - file: src/language/golang01
+      - file: src/language/python
+  - caption: Cloud
+    numbered: False
+    chapters: 
+      - file: src/cloud/azure01
+      - file: src/cloud/aws
+      - file: src/cloud/digitalocean01
+      - file: src/cloud/gcp01
+      - file: src/cloud/gcp02
+      - file: src/cloud/cheatsheet/awsDeveloper
+      - file: src/mindmap/m01-aws
+  - caption: DB
+    numbered: False
+    chapters:
+      - file: src/db/mongodb01
+      - file: src/db/mongodb02
+      - file: src/db/mongodb03
+      - file: src/db/mongodb04
+      - file: src/db/mysql
+  - caption: OSS
+    numbered: False
+    chapters:
+      - file: src/oss/kasm
+      - file: src/oss/midpoint
+  - caption: Command
+    numbered: False
+    chapters:
+      - file: src/command/mac
+      - file: src/command/win
+      - file: src/command/git
+      - file: src/command/docker
+  - caption: Dictionary
+    numbered: False
+    chapters:
+      - file: src/dict/en
+      - file: src/dict/ja
+  - caption: Settings
+    numbered: False
+    chapters:
+      - file: src/settings/VSCode01
+      - file: src/settings/PowerShell01
+      - file: src/settings/iterm2
+  - caption: Appendix
+    numbered: False
+    chapters:
+      - file: src/appendix/inde
+      - file: src/appendix/intr

@@ -1,0 +1,10 @@
+# in _config.yml
+title: "Yuan's notes"
+logo: src/public/icon.png
+execute:
+  execute_notebooks: "off"
+copyright: "2021 by Yuan Zhang"
+only_build_toc_files: true
+
+html:
+  favicon: "src/public/icon.png"
