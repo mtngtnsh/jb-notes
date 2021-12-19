@@ -25,4 +25,13 @@
 
 #### (2) ghp-import で release する
 
+*if home directory was jb-notes*
+
+```
+$ cd ../
+$ jb build --all jb-notes            # _build will be generated
+$ cd jb-notes
+$ ghp-import -n -p -f _build/html
+```
+
 [Reference](https://jupyterbook.org/start/publish.html#publish-your-book-online)

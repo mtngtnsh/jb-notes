@@ -52,5 +52,5 @@ parts:
   - caption: Appendix
     numbered: False
     chapters:
-      - file: src/appendix/inde
       - file: src/appendix/intr
+      - file: src/appendix/inde
