@@ -36,6 +36,7 @@ parts:
     numbered: False
     chapters:
       - file: src/command/mac
+      - file: src/command/linux
       - file: src/command/win
       - file: src/command/git
       - file: src/command/docker
@@ -50,6 +51,7 @@ parts:
       - file: src/settings/VSCode01
       - file: src/settings/PowerShell01
       - file: src/settings/iterm2
+      - file: src/settings/others
   - caption: Appendix
     numbered: False
     chapters:
