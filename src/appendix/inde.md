@@ -29,6 +29,10 @@
 - [AWS Docs](https://docs.aws.amazon.com/index.html?nc2=h_ql_doc_do)
 - [DigitalOcean Tutorials](https://www.digitalocean.com/community/tutorials)
 
+## ML
+
+- [mlnote](https://chokkan.github.io/mlnote/)
+
 ## tools docs
 
 - [Docker Docs](https://docs.docker.com/desktop/)

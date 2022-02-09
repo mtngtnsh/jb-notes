@@ -3,7 +3,7 @@ title: "Yuan's notes"
 # logo: src/public/icon.png
 execute:
   execute_notebooks: "off"
-copyright: "2021 by Yuan Zhang"
+copyright: "2021-2022 by Yuan Zhang"
 only_build_toc_files: true
 
 html:

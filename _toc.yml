@@ -32,6 +32,7 @@ parts:
       - file: src/oss/kasm
       - file: src/oss/midpoint
       - file: src/oss/keycloak
+      - file: src/oss/portainer
   - caption: Command
     numbered: False
     chapters:
