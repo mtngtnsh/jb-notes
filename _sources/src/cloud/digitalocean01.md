@@ -6,49 +6,56 @@
 
 - [How To Secure Nginx with Let's Encrypt on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04)
 
-  - http → https へリダイレクトする時、下記のようにセットアップする。
+### 1. delete these files
+
+```
+/etc/nginx/sites-available/default
+/etc/nginx/sites-enabled/default
+```
+
+### 2. set up /etc/nginx/sites-available/{server_name}
   
-    ```
-    # ここに追記(元の設定の上) 
-    server {
-        listen 80;
-        listen [::]:80;
+```
+# ここに追記(元の設定の上) 
+server {
+    listen 80;
+    listen [::]:80;
 
-        server_name hangyuz.com;
-        return 301 https://$server_name;
-    }
-    # 以下は元の設定
-    server {
-        listen 80;
-        ...
-    }
-    ```
+    server_name hangyuz.com;
+    return 301 https://$server_name;
+}
+# 以下は元の設定
+server {
+    listen 80;
+    ...
+}
+```
 
-    ::: {warning}
-    元の設定の下に追記してみたが、なぜかリダイレクトできなかった。
+::: {warning}
+元の設定の下に追記してみたが、なぜかリダイレクトできなかった。
 
-    ```
-    # 以下は元の設定
-    server {
-        listen 80;
-        ...
-    }
-    server {
-        listen 80;
-        listen [::]:80;
+```
+# 以下は元の設定
+server {
+    listen 80;
+    ...
+}
+server {
+    listen 80;
+    listen [::]:80;
 
-        server_name hangyuz.com;
-        return 301 https://$server_name;
-    }
-    ```
+    server_name hangyuz.com;
+    return 301 https://$server_name;
+}
+```
 
-    :::
+:::
 
-  - reload nginx
+### 3. reload nginx
 
-    ```sh
-    $ sudo systemctl reload nginx
-    ```
+```sh
+$ sudo systemctl reload nginx
+```
 
 - [How To Install and Use Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)  
 **ドメイン名取得を省略*

@@ -391,6 +391,23 @@
   <a class="reference internal nav-link" href="#nginxssl">
    nginxサーバ構築からSSL証明書を取得するまでのリンク
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delete-these-files">
+     1. delete these files
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-up-etc-nginx-sites-available-server-name">
+     2. set up /etc/nginx/sites-available/{server_name}
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reload-nginx">
+     3. reload nginx
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -407,11 +424,19 @@
 <h1>DigitalOcean<a class="headerlink" href="#digitalocean" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="nginxssl">
 <h2>nginxサーバ構築からSSL証明書を取得するまでのリンク<a class="headerlink" href="#nginxssl" title="Permalink to this headline">¶</a></h2>
-<ul>
+<ul class="simple">
 <li><p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04">How To Install Nginx on Ubuntu 20.04</a></p></li>
-<li><p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04">How To Secure Nginx with Let’s Encrypt on Ubuntu 20.04</a></p>
-<ul>
-<li><p>http → https へリダイレクトする時、下記のようにセットアップする。</p>
+<li><p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-20-04">How To Secure Nginx with Let’s Encrypt on Ubuntu 20.04</a></p></li>
+</ul>
+<div class="section" id="delete-these-files">
+<h3>1. delete these files<a class="headerlink" href="#delete-these-files" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">available</span><span class="o">/</span><span class="n">default</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="o">/</span><span class="n">default</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-up-etc-nginx-sites-available-server-name">
+<h3>2. set up /etc/nginx/sites-available/{server_name}<a class="headerlink" href="#set-up-etc-nginx-sites-available-server-name" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># ここに追記(元の設定の上) 
 server {
     listen 80;
@@ -445,17 +470,17 @@ server {
 </pre></div>
 </div>
 </div>
-</li>
-<li><p>reload nginx</p>
+</div>
+<div class="section" id="reload-nginx">
+<h3>3. reload nginx<a class="headerlink" href="#reload-nginx" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo systemctl reload nginx
 </pre></div>
 </div>
-</li>
-</ul>
-</li>
+<ul class="simple">
 <li><p><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04">How To Install and Use Docker on Ubuntu 20.04</a><br />
 *<em>ドメイン名取得を省略</em></p></li>
 </ul>
+</div>
 </div>
 </div>
 
