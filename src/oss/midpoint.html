@@ -397,6 +397,35 @@
    Docs
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tips">
+   Tips
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-extend-your-schema">
+     How to extend your schema? (どうやってスキーマを定義するの？)
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-xsd-file-to-add-your-attributes-xsd">
+       1. create XSD file to add your attributes. (XSD ファイルでスキーマ属性を定義する)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#copy-the-file-to-midpoint-directory-midpoint">
+       2. copy the file to midpoint directory. (そのファイルをmidpointディレクトリにコピーする)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#restart-midpoint-server-midpoint">
+       3. restart midpoint server. (midpointサーバを再起動する)
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -427,6 +456,59 @@
 <li><p><a class="reference external" href="https://docs.evolveum.com/midpoint/">Evolveum Docs</a></p></li>
 <li><p><a class="reference external" href="https://docs.evolveum.com/book/practical-identity-management-with-midpoint.html">Practical Identity Management With MidPoint</a></p></li>
 </ul>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-extend-your-schema">
+<h3>How to extend your schema? (どうやってスキーマを定義するの？)<a class="headerlink" href="#how-to-extend-your-schema" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="create-xsd-file-to-add-your-attributes-xsd">
+<h4>1. create XSD file to add your attributes. (XSD ファイルでスキーマ属性を定義する)<a class="headerlink" href="#create-xsd-file-to-add-your-attributes-xsd" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>たとえば、gitlab と連携する際、sshKeys という属性を追加しようとすると、以下のように定義ファイルを作成する。</p></li>
+</ul>
+<div class="highlight-xsd notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+
+&lt;xsd:schema elementFormDefault=&quot;qualified&quot;
+            targetNamespace=&quot;http://midpoint.evolveum.com/xml/ns/story/orgsync/ext&quot;
+            xmlns:c=&quot;http://midpoint.evolveum.com/xml/ns/public/common/common-3&quot;
+            xmlns:a=&quot;http://prism.evolveum.com/xml/ns/public/annotation-3&quot;
+            xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+
+    &lt;!-- user extension --&gt;
+    &lt;xsd:complexType name=&quot;UserTypeExtensionType&quot;&gt;
+        &lt;xsd:annotation&gt;
+            &lt;xsd:appinfo&gt;
+                &lt;a:extension ref=&quot;c:UserType&quot;/&gt;
+            &lt;/xsd:appinfo&gt;
+        &lt;/xsd:annotation&gt;
+        &lt;xsd:sequence&gt;
+            &lt;xsd:element name=&quot;sshKeys&quot; type=&quot;xsd:string&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;
+                &lt;xsd:annotation&gt;
+                        &lt;xsd:appinfo&gt;
+                            &lt;a:indexed&gt;false&lt;/a:indexed&gt;
+                        &lt;/xsd:appinfo&gt;
+                &lt;/xsd:annotation&gt;
+            &lt;/xsd:element&gt;
+        &lt;/xsd:sequence&gt;
+    &lt;/xsd:complexType&gt;
+&lt;/xsd:schema&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="copy-the-file-to-midpoint-directory-midpoint">
+<h4>2. copy the file to midpoint directory. (そのファイルをmidpointディレクトリにコピーする)<a class="headerlink" href="#copy-the-file-to-midpoint-directory-midpoint" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>ファイルを /opt/midpoint/var/schema にコピーする。</p></li>
+</ul>
+</div>
+<div class="section" id="restart-midpoint-server-midpoint">
+<h4>3. restart midpoint server. (midpointサーバを再起動する)<a class="headerlink" href="#restart-midpoint-server-midpoint" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>再起動できたら、正しく追加された属性が確認できると思われます。</p></li>
+</ul>
+<p>Ref: <a class="reference external" href="https://www.youtube.com/watch?v=9ipACsFmmyc">MidPoint Tutorial, Chapter VI: Schema</a></p>
+</div>
+</div>
 </div>
 </div>
 
