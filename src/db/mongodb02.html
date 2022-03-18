@@ -37,17 +37,19 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/src/db/mongodb02.html" />
     <link rel="shortcut icon" href="../../_static/icon.png"/>
@@ -349,7 +351,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -380,7 +382,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -439,7 +441,69 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>MongoDB - Usage</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mongodb-python-ver3-9-6">
+   デモ: MongoDB+Python(現時点で ver3.9.6)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pymongo">
+     1. pymongoモジュールを導入
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     2. アクセス方法(ローカルサーバ)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     3. 作成
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4. 更新
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     所感
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mongodb-go-ver1-16-5">
+   おまけ - MongoDB+Go(現時点で ver1.16.5)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     ローカルサーバにアクセスする方法
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="mongodb-usage">
@@ -519,42 +583,42 @@ DB(eshop)、コレクション(user)、ドキュメントがローカルサー�
 <h3>ローカルサーバにアクセスする方法<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>上記のPythonデモと同様、GoでMongoDBのローカルサーバに接続するとき、ソースコードはどのようになるのかをみてみよう。
 参照：<a class="reference external" href="https://docs.mongodb.com/drivers/go/#mongodb-go-driver">MongoDB Go Driver</a></p>
-<div class="highlight-go notranslate"><div class="highlight"><pre><span></span>   <span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w"></span>
 
-   <span class="kn">import</span> <span class="p">(</span>
-      <span class="s">&quot;context&quot;</span>
-      <span class="s">&quot;fmt&quot;</span>
-      <span class="s">&quot;time&quot;</span>
+<span class="w">   </span><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">      </span><span class="s">&quot;context&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="s">&quot;fmt&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="s">&quot;time&quot;</span><span class="w"></span>
 
-      <span class="s">&quot;go.mongodb.org/mongo-driver/mongo&quot;</span>
-      <span class="s">&quot;go.mongodb.org/mongo-driver/mongo/options&quot;</span>
-      <span class="s">&quot;go.mongodb.org/mongo-driver/mongo/readpref&quot;</span>
-   <span class="p">)</span>
+<span class="w">      </span><span class="s">&quot;go.mongodb.org/mongo-driver/mongo&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="s">&quot;go.mongodb.org/mongo-driver/mongo/options&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="s">&quot;go.mongodb.org/mongo-driver/mongo/readpref&quot;</span><span class="w"></span>
+<span class="w">   </span><span class="p">)</span><span class="w"></span>
 
-   <span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-       <span class="c1">// Replace the uri string with your MongoDB deployment&#39;s connection string.</span>
-       <span class="nx">uri</span> <span class="o">:=</span> <span class="s">&quot;mongodb://localhost:27017&quot;</span>
-       <span class="nx">ctx</span><span class="p">,</span> <span class="nx">cancel</span> <span class="o">:=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span> <span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-       <span class="k">defer</span> <span class="nx">cancel</span><span class="p">()</span>
+<span class="w">   </span><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="c1">// Replace the uri string with your MongoDB deployment&#39;s connection string.</span><span class="w"></span>
+<span class="w">       </span><span class="nx">uri</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;mongodb://localhost:27017&quot;</span><span class="w"></span>
+<span class="w">       </span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">cancel</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="k">defer</span><span class="w"> </span><span class="nx">cancel</span><span class="p">()</span><span class="w"></span>
 
-       <span class="nx">client</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">mongo</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">options</span><span class="p">.</span><span class="nx">Client</span><span class="p">().</span><span class="nx">ApplyURI</span><span class="p">(</span><span class="nx">uri</span><span class="p">))</span>
-       <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-          <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-       <span class="p">}</span>
+<span class="w">       </span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">mongo</span><span class="p">.</span><span class="nx">Connect</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">options</span><span class="p">.</span><span class="nx">Client</span><span class="p">().</span><span class="nx">ApplyURI</span><span class="p">(</span><span class="nx">uri</span><span class="p">))</span><span class="w"></span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="p">}</span><span class="w"></span>
 
-       <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">Disconnect</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-             <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-          <span class="p">}</span>
-       <span class="p">}()</span>
+<span class="w">       </span><span class="k">defer</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Disconnect</span><span class="p">(</span><span class="nx">ctx</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">       </span><span class="p">}()</span><span class="w"></span>
 
-       <span class="c1">// Ping the primary</span>
-       <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">Ping</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span> <span class="nx">readpref</span><span class="p">.</span><span class="nx">Primary</span><span class="p">());</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-          <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-       <span class="p">}</span>
+<span class="w">       </span><span class="c1">// Ping the primary</span><span class="w"></span>
+<span class="w">       </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">Ping</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">readpref</span><span class="p">.</span><span class="nx">Primary</span><span class="p">());</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"></span>
+<span class="w">       </span><span class="p">}</span><span class="w"></span>
 
-       <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Successfully connected and pinged.&quot;</span><span class="p">)</span>
-    <span class="p">}</span>
+<span class="w">       </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Successfully connected and pinged.&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Pythonよりかなりソースコードがいるような気がした。もっと簡潔に書けるかもしれないが、今回、そこまでに追い付かないことにする。</p>
@@ -584,8 +648,8 @@ DB(eshop)、コレクション(user)、ドキュメントがローカルサー�
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="mongodb01.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -602,19 +666,17 @@ DB(eshop)、コレクション(user)、ドキュメントがローカルサー�
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By The Jupyter Book community<br/>
-        
-            &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
+  </p>
+</footer>
 </main>
 
 

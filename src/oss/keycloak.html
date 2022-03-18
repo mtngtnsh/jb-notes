@@ -37,17 +37,19 @@
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/src/oss/keycloak.html" />
     <link rel="shortcut icon" href="../../_static/icon.png"/>
@@ -349,7 +351,7 @@
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -380,7 +382,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -466,7 +468,96 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>midPoint + Keycloack + GitLab</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-keycloak-settings">
+   1. About keycloak settings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#starting-keycloak-with-docker">
+     1) Starting Keycloak with docker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#note-the-rs256-certification-of-master-realm">
+     2) Note the RS256 certification of master realm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-gitlab-client-and-modify-settings">
+     3) Create GitLab client and modify settings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modify-mappers">
+     4) Modify mappers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-gitlab-settings">
+   2. About GitLab settings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gitlab-config-yaml">
+     1) GitLab config yaml
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker-compose-f-xxx-yml-up-d">
+     2) docker-compose -f xxx.yml up -d
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-midpoint-settings">
+   3. About midPoint settings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#midpoint-config-yaml">
+     1) midPoint  config yaml
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-keycloak-connector-and-place-to-midpoint-home-directory">
+     2) Download Keycloak connector and place to midPoint home directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#midpoint-keycloak">
+     3) midpoint + keycloak
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#appendix">
+   4. Appendix
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="midpoint-keycloack-gitlab">
@@ -568,58 +659,58 @@ Assertion Consumer Service POST Binding URL: http://localhost:8929/users/auth/sa
 </div>
 <div class="section" id="gitlab-config-yaml">
 <h3>1) GitLab config yaml<a class="headerlink" href="#gitlab-config-yaml" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&#39;3.8&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span><span class="w"></span>
 
-<span class="nt">services</span><span class="p">:</span>
-  <span class="nt">web</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="s">&#39;gitlab/gitlab-ce:14.5.2-ce.0&#39;</span>
-    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
-    <span class="nt">environment</span><span class="p">:</span>
-      <span class="nt">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-        <span class="no">external_url &#39;http://localhost:8929&#39;</span>
-        <span class="no">gitlab_rails[&#39;gitlab_shell_ssh_port&#39;] = 2224</span>
-        <span class="no">mattermost_external_url &#39;http://localhost:8001&#39;</span>
-        <span class="no">gitlab_rails[&#39;omniauth_enabled&#39;] = true</span>
-        <span class="no">gitlab_rails[&#39;omniauth_allow_single_sign_on&#39;] = [&#39;saml&#39;]</span>
-        <span class="no">gitlab_rails[&#39;omniauth_block_auto_created_users&#39;] = false</span>
-        <span class="no">gitlab_rails[&#39;omniauth_auto_link_saml_user&#39;] = true</span>
-        <span class="no">gitlab_rails[&#39;omniauth_providers&#39;] = [</span>
-          <span class="no">{</span>
-            <span class="no">name: &#39;saml&#39;,</span>
-            <span class="no">label: &#39;Keycloak Login&#39;,</span>
-            <span class="no">groups_attribute: &#39;roles&#39;,</span>
-            <span class="no">args: {</span>
-              <span class="no">assertion_consumer_service_url: &#39;http://localhost:8929/users/auth/saml/callback&#39;,</span>
-              <span class="no">idp_sso_target_url: &#39;http://localhost:8080/auth/realms/master/protocol/saml&#39;,</span>
-              <span class="no">issuer: &#39;localhost:8929&#39;,</span>
-              <span class="no">idp_cert: &#39;-----BEGIN CERTIFICATE-----</span>
-                <span class="no">MIICmzCCAYMCBgF94oc1+TANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjExMjIyMTQyMjMxWhcNMzExMjIyMTQyNDExWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCfhUTZIhyOTtDkc5qWuJArk103NniXbPs21BdA+1Bs0/RqgbaKASt9CP7MigS/yvx4CuM5AoWM813Kd6IUP18aCJ55u28NUI6G7DfU42SV7qqp5yvn+Wf24Kjvd5pJz6079wI/3Eqd/yUnXPv43BBfb9CvJKSLWds51YKaGwT1FbYZYtb0D1NZg5a24YAFfG7RVl1SAZW6eimXPLgUiUMHOJlVgUPw+PFklEVbVTJMI8Iiy9EzDG6kenn3LZ9mndxtSY4cBMzrf0fKX/FUdEdoicnD2Fb3TQL9BL4McvUMdg60DVRL5106tkvQajCoQFAxfIlQO/DhpGXvSZ7+2IMlAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAISGthr3+kCe++JA1PVqhYkpNhF+EQflTe9iOq/EBJNtAZOV5FsIUx7BEOPKqeZwSseEgUsR/b33Ks7+TIeBC1nnHgvVr7wSBqRr/tN7EXXrWLPWtQOshizSezj2bJASEHOkMRl31WnHFhnN49eknxYH5PCLrYdeOxG4ICbd35EgZHMtaeIDB2NCYZvZAHq9m6mtqpI8e8AC+OtDHAupQZ33I8k/aegB1Z0NG+W6t3t1e7ywsuRN+ujQqMFMDRkgdGS/L2gZI/UmiP/biWGcpvK5qora+We/fkTbKYET8LZogjnYNgMkcTMVO2wODDXZviFjPTJp331pd7iMFtllQKs= </span>
-                <span class="no">-----END CERTIFICATE-----&#39;,</span>
-              <span class="no">name_identifier_format: &#39;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&#39;,</span>
-              <span class="no">attribute_statements: {</span>
-                <span class="no">first_name: [&#39;first_name&#39;],</span>
-                <span class="no">last_name: [&#39;last_name&#39;],</span>
-                <span class="no">username: [&#39;name&#39;],</span>
-                <span class="no">email: [&#39;email&#39;]</span>
-              <span class="no">}</span>
-            <span class="no">}</span>
-          <span class="no">}</span>
-        <span class="no">]</span>
-    <span class="nt">ports</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;8001:8001&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;2224:22&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;8929:8929&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;10080:80&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;10443:443&#39;</span>
-    <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gitlab_config:/etc/gitlab</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gitlab_logs:/var/log/gitlab</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gitlab_data:/var/opt/gitlab</span>
+<span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;gitlab/gitlab-ce:14.5.2-ce.0&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">GITLAB_OMNIBUS_CONFIG</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<span class="w">        </span><span class="no">external_url &#39;http://localhost:8929&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="no">gitlab_rails[&#39;gitlab_shell_ssh_port&#39;] = 2224</span><span class="w"></span>
+<span class="w">        </span><span class="no">mattermost_external_url &#39;http://localhost:8001&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="no">gitlab_rails[&#39;omniauth_enabled&#39;] = true</span><span class="w"></span>
+<span class="w">        </span><span class="no">gitlab_rails[&#39;omniauth_allow_single_sign_on&#39;] = [&#39;saml&#39;]</span><span class="w"></span>
+<span class="w">        </span><span class="no">gitlab_rails[&#39;omniauth_block_auto_created_users&#39;] = false</span><span class="w"></span>
+<span class="w">        </span><span class="no">gitlab_rails[&#39;omniauth_auto_link_saml_user&#39;] = true</span><span class="w"></span>
+<span class="w">        </span><span class="no">gitlab_rails[&#39;omniauth_providers&#39;] = [</span><span class="w"></span>
+<span class="w">          </span><span class="no">{</span><span class="w"></span>
+<span class="w">            </span><span class="no">name: &#39;saml&#39;,</span><span class="w"></span>
+<span class="w">            </span><span class="no">label: &#39;Keycloak Login&#39;,</span><span class="w"></span>
+<span class="w">            </span><span class="no">groups_attribute: &#39;roles&#39;,</span><span class="w"></span>
+<span class="w">            </span><span class="no">args: {</span><span class="w"></span>
+<span class="w">              </span><span class="no">assertion_consumer_service_url: &#39;http://localhost:8929/users/auth/saml/callback&#39;,</span><span class="w"></span>
+<span class="w">              </span><span class="no">idp_sso_target_url: &#39;http://localhost:8080/auth/realms/master/protocol/saml&#39;,</span><span class="w"></span>
+<span class="w">              </span><span class="no">issuer: &#39;localhost:8929&#39;,</span><span class="w"></span>
+<span class="w">              </span><span class="no">idp_cert: &#39;-----BEGIN CERTIFICATE-----</span><span class="w"></span>
+<span class="w">                </span><span class="no">MIICmzCCAYMCBgF94oc1+TANBgkqhkiG9w0BAQsFADARMQ8wDQYDVQQDDAZtYXN0ZXIwHhcNMjExMjIyMTQyMjMxWhcNMzExMjIyMTQyNDExWjARMQ8wDQYDVQQDDAZtYXN0ZXIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCfhUTZIhyOTtDkc5qWuJArk103NniXbPs21BdA+1Bs0/RqgbaKASt9CP7MigS/yvx4CuM5AoWM813Kd6IUP18aCJ55u28NUI6G7DfU42SV7qqp5yvn+Wf24Kjvd5pJz6079wI/3Eqd/yUnXPv43BBfb9CvJKSLWds51YKaGwT1FbYZYtb0D1NZg5a24YAFfG7RVl1SAZW6eimXPLgUiUMHOJlVgUPw+PFklEVbVTJMI8Iiy9EzDG6kenn3LZ9mndxtSY4cBMzrf0fKX/FUdEdoicnD2Fb3TQL9BL4McvUMdg60DVRL5106tkvQajCoQFAxfIlQO/DhpGXvSZ7+2IMlAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAISGthr3+kCe++JA1PVqhYkpNhF+EQflTe9iOq/EBJNtAZOV5FsIUx7BEOPKqeZwSseEgUsR/b33Ks7+TIeBC1nnHgvVr7wSBqRr/tN7EXXrWLPWtQOshizSezj2bJASEHOkMRl31WnHFhnN49eknxYH5PCLrYdeOxG4ICbd35EgZHMtaeIDB2NCYZvZAHq9m6mtqpI8e8AC+OtDHAupQZ33I8k/aegB1Z0NG+W6t3t1e7ywsuRN+ujQqMFMDRkgdGS/L2gZI/UmiP/biWGcpvK5qora+We/fkTbKYET8LZogjnYNgMkcTMVO2wODDXZviFjPTJp331pd7iMFtllQKs= </span><span class="w"></span>
+<span class="w">                </span><span class="no">-----END CERTIFICATE-----&#39;,</span><span class="w"></span>
+<span class="w">              </span><span class="no">name_identifier_format: &#39;urn:oasis:names:tc:SAML:2.0:nameid-format:persistent&#39;,</span><span class="w"></span>
+<span class="w">              </span><span class="no">attribute_statements: {</span><span class="w"></span>
+<span class="w">                </span><span class="no">first_name: [&#39;first_name&#39;],</span><span class="w"></span>
+<span class="w">                </span><span class="no">last_name: [&#39;last_name&#39;],</span><span class="w"></span>
+<span class="w">                </span><span class="no">username: [&#39;name&#39;],</span><span class="w"></span>
+<span class="w">                </span><span class="no">email: [&#39;email&#39;]</span><span class="w"></span>
+<span class="w">              </span><span class="no">}</span><span class="w"></span>
+<span class="w">            </span><span class="no">}</span><span class="w"></span>
+<span class="w">          </span><span class="no">}</span><span class="w"></span>
+<span class="w">        </span><span class="no">]</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;8001:8001&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;2224:22&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;8929:8929&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;10080:80&#39;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;10443:443&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitlab_config:/etc/gitlab</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitlab_logs:/var/log/gitlab</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitlab_data:/var/opt/gitlab</span><span class="w"></span>
 
-<span class="nt">volumes</span><span class="p">:</span>
-  <span class="nt">gitlab_config</span><span class="p">:</span>
-  <span class="nt">gitlab_logs</span><span class="p">:</span>
-  <span class="nt">gitlab_data</span><span class="p">:</span>
+<span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">gitlab_config</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">gitlab_logs</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">gitlab_data</span><span class="p">:</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -631,21 +722,21 @@ Assertion Consumer Service POST Binding URL: http://localhost:8929/users/auth/sa
 <h2>3. About midPoint settings<a class="headerlink" href="#about-midpoint-settings" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="midpoint-config-yaml">
 <h3>1) midPoint  config yaml<a class="headerlink" href="#midpoint-config-yaml" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3.8&quot;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.8&quot;</span><span class="w"></span>
 
-<span class="nt">services</span><span class="p">:</span>
-  <span class="nt">midpoint</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">evolveum/midpoint:${MP_VERSION:-4.4}-alpine</span>
-    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span> 
-    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">midpoint-4.4</span>
-    <span class="nt">ports</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;7001:8080&quot;</span>
-    <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">midpoint_home:/opt/midpoint/var</span>
+<span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">midpoint</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">evolveum/midpoint:${MP_VERSION:-4.4}-alpine</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">midpoint-4.4</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;7001:8080&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">midpoint_home:/opt/midpoint/var</span><span class="w"></span>
 
-<span class="nt">volumes</span><span class="p">:</span>
-  <span class="nt">midpoint_home</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">midpoint-4.4</span>
+<span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">midpoint_home</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">midpoint-4.4</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
@@ -669,13 +760,13 @@ Assertion Consumer Service POST Binding URL: http://localhost:8929/users/auth/sa
     <span class="nt">&lt;metadata&gt;</span>
         <span class="nt">&lt;modifyTimestamp&gt;</span>2021-12-23T02:12:54.417Z<span class="nt">&lt;/modifyTimestamp&gt;</span>
         <span class="nt">&lt;modifierRef</span> <span class="na">oid=</span><span class="s">&quot;00000000-0000-0000-0000-000000000002&quot;</span> <span class="na">relation=</span><span class="s">&quot;org:default&quot;</span> <span class="na">type=</span><span class="s">&quot;c:UserType&quot;</span><span class="nt">&gt;</span>
-            <span class="c">&lt;!-- administrator --&gt;</span>
+            <span class="cm">&lt;!-- administrator --&gt;</span>
         <span class="nt">&lt;/modifierRef&gt;</span>
         <span class="nt">&lt;modifyChannel&gt;</span>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user<span class="nt">&lt;/modifyChannel&gt;</span>
     <span class="nt">&lt;/metadata&gt;</span>
     <span class="nt">&lt;iteration&gt;</span>0<span class="nt">&lt;/iteration&gt;</span>
     <span class="nt">&lt;connectorRef</span> <span class="na">oid=</span><span class="s">&quot;b1764267-a0d3-473e-ab05-f0950817d157&quot;</span> <span class="na">relation=</span><span class="s">&quot;org:default&quot;</span> <span class="na">type=</span><span class="s">&quot;c:ConnectorType&quot;</span><span class="nt">&gt;</span>
-        <span class="c">&lt;!-- ConnId jp.openstandia.connector.keycloak.KeycloakConnector v1.1.2 --&gt;</span>
+        <span class="cm">&lt;!-- ConnId jp.openstandia.connector.keycloak.KeycloakConnector v1.1.2 --&gt;</span>
     <span class="nt">&lt;/connectorRef&gt;</span>
     <span class="nt">&lt;connectorConfiguration</span> <span class="na">xmlns:icfc=</span><span class="s">&quot;http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;icfc:configurationProperties</span> <span class="na">xmlns:gen364=</span><span class="s">&quot;http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/jp.openstandia.connector.connector-keycloak/jp.openstandia.connector.keycloak.KeycloakConnector&quot;</span><span class="nt">&gt;</span>
@@ -1207,8 +1298,8 @@ Assertion Consumer Service POST Binding URL: http://localhost:8929/users/auth/sa
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="midpoint.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1225,19 +1316,17 @@ Assertion Consumer Service POST Binding URL: http://localhost:8929/users/auth/sa
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By The Jupyter Book community<br/>
-        
-            &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
-      </p>
-    </div>
-  </footer>
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
+  </p>
+</footer>
 </main>
 
 
