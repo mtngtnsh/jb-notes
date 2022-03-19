@@ -1,5 +1,20 @@
 # iTerm2
 
+## zsh-syntax-highlighting
+
+1.Simply clone this repository and source the script
+
+```sh
+$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+$ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+```
+
+2.Enable syntax highlighting in the current interactive shell
+
+```sh
+$ source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
 ## Preferences
 
 ```json

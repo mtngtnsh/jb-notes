@@ -390,6 +390,11 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zsh-syntax-highlighting">
+   zsh-syntax-highlighting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#preferences">
    Preferences
   </a>
@@ -415,6 +420,11 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zsh-syntax-highlighting">
+   zsh-syntax-highlighting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#preferences">
    Preferences
   </a>
@@ -430,6 +440,18 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="iterm2">
 <h1>iTerm2<a class="headerlink" href="#iterm2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="zsh-syntax-highlighting">
+<h2>zsh-syntax-highlighting<a class="headerlink" href="#zsh-syntax-highlighting" title="Permalink to this headline">¶</a></h2>
+<p>1.Simply clone this repository and source the script</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+$ <span class="nb">echo</span> <span class="s2">&quot;source </span><span class="si">${</span><span class="p">(q-)PWD</span><span class="si">}</span><span class="s2">/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt; <span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span>/.zshrc
+</pre></div>
+</div>
+<p>2.Enable syntax highlighting in the current interactive shell</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+</pre></div>
+</div>
+</div>
 <div class="section" id="preferences">
 <h2>Preferences<a class="headerlink" href="#preferences" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
