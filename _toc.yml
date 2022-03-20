@@ -41,6 +41,7 @@ parts:
       - file: src/command/win
       - file: src/command/git
       - file: src/command/docker
+      - file: src/command/ffmpeg
   - caption: Dictionary
     numbered: False
     chapters:
