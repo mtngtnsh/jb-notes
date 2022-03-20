@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Git &#8212; Yuan&#39;s notes</title>
+    <title>FFmpeg &#8212; Yuan&#39;s notes</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,12 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/src/command/git.html" />
+    <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/src/command/ffmpeg.html" />
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Docker" href="docker.html" />
-    <link rel="prev" title="Windows" href="win.html" />
+    <link rel="next" title="Dict-en" href="../dict/en.html" />
+    <link rel="prev" title="Docker" href="docker.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -234,8 +234,8 @@ const thebe_selector_output = ".output, .cell_output"
    Windows
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="git.html">
    Git
   </a>
  </li>
@@ -244,8 +244,8 @@ const thebe_selector_output = ".output, .cell_output"
    Docker
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ffmpeg.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    FFmpeg
   </a>
  </li>
@@ -351,7 +351,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/src/command/git.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/src/command/ffmpeg.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -395,79 +395,9 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tag">
-   Tag
+  <a class="reference internal nav-link" href="#stream-copy">
+   stream copy
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-push-tag-to-remote-branch">
-     1. create &amp; push tag to remote branch
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#delete-local-remote-tag">
-     2. delete local &amp; remote tag
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#branch">
-   Branch
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#change-local-branch-name">
-     1. change local branch name
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#change-remote-branch-name">
-     2. change remote branch name
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pull-remote-branch">
-     3. pull remote branch
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clone">
-   Clone
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clone-from-specific-branch">
-     1. clone from specific branch
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rebase">
-   Rebase
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rebase-commits-squash-or-change-commit-message-reword">
-     1. rebase commits(squash) or change commit message(reword)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fetch">
-   Fetch
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-local-branch-forcefully">
-     1. Update local branch forcefully
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -479,7 +409,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Git</h1>
+                <h1>FFmpeg</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -490,79 +420,9 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#tag">
-   Tag
+  <a class="reference internal nav-link" href="#stream-copy">
+   stream copy
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#create-push-tag-to-remote-branch">
-     1. create &amp; push tag to remote branch
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#delete-local-remote-tag">
-     2. delete local &amp; remote tag
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#branch">
-   Branch
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#change-local-branch-name">
-     1. change local branch name
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#change-remote-branch-name">
-     2. change remote branch name
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pull-remote-branch">
-     3. pull remote branch
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clone">
-   Clone
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#clone-from-specific-branch">
-     1. clone from specific branch
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rebase">
-   Rebase
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rebase-commits-squash-or-change-commit-message-reword">
-     1. rebase commits(squash) or change commit message(reword)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fetch">
-   Fetch
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#update-local-branch-forcefully">
-     1. Update local branch forcefully
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -573,129 +433,12 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="git">
-<h1>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tag">
-<h2>Tag<a class="headerlink" href="#tag" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="create-push-tag-to-remote-branch">
-<h3>1. create &amp; push tag to remote branch<a class="headerlink" href="#create-push-tag-to-remote-branch" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git tag {tag_name}
-$ git push origin {tag_name}
+  <div class="tex2jax_ignore mathjax_ignore section" id="ffmpeg">
+<h1>FFmpeg<a class="headerlink" href="#ffmpeg" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stream-copy">
+<h2>stream copy<a class="headerlink" href="#stream-copy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ffmpeg -i <span class="s2">&quot;{input_file_url}&quot;</span> -c copy <span class="s2">&quot;{output_filename}&quot;</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="delete-local-remote-tag">
-<h3>2. delete local &amp; remote tag<a class="headerlink" href="#delete-local-remote-tag" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git tag -d {tag_name}
-$ git push origin --delete {tag_name}
-</pre></div>
-</div>
-<p><em>引用: <a class="reference external" href="https://www.r-staffing.co.jp/engineer/entry/20201120_1">第18話 便利なgit tagの使い方！コミットにタグをつけて管理しやすくしよう【連載】マンガでわかるGit ～コマンド編～</a></em></p>
-</div>
-</div>
-<div class="section" id="branch">
-<h2>Branch<a class="headerlink" href="#branch" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="change-local-branch-name">
-<h3>1. change local branch name<a class="headerlink" href="#change-local-branch-name" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -m {old_branch_name} {new_branch_name}
-// change current branch name
-$ git branch -m {new_branch_name}
-</pre></div>
-</div>
-</div>
-<div class="section" id="change-remote-branch-name">
-<h3>2. change remote branch name<a class="headerlink" href="#change-remote-branch-name" title="Permalink to this headline">¶</a></h3>
-<p>In fact, there is no change regarding the remote branch name.<br />
-It’s just to create a new branch with the same “git log”, and then delete old remote branch.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -m {old_branch_name} {new_branch_name}
-$ git push -u origin {current_branch_name}
-$ git push origin :{old_branch_name}
-</pre></div>
-</div>
-<p><strong>Example</strong><br />
-input-1:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>❯ git branch -m feature-tree master
-❯ git push -u origin master
-</pre></div>
-</div>
-<p>output-1:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Total</span> <span class="mi">0</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">0</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pack</span><span class="o">-</span><span class="n">reused</span> <span class="mi">0</span>
-<span class="n">remote</span><span class="p">:</span> 
-<span class="n">remote</span><span class="p">:</span> <span class="n">Create</span> <span class="n">a</span> <span class="n">pull</span> <span class="n">request</span> <span class="k">for</span> <span class="s1">&#39;master&#39;</span> <span class="n">on</span> <span class="n">GitHub</span> <span class="n">by</span> <span class="n">visiting</span><span class="p">:</span>
-<span class="n">remote</span><span class="p">:</span>      <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">mtngtnsh</span><span class="o">/</span><span class="bp">self</span><span class="o">-</span><span class="n">notes</span><span class="o">/</span><span class="n">pull</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">master</span>
-<span class="n">remote</span><span class="p">:</span> 
-<span class="n">To</span> <span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">mtngtnsh</span><span class="o">/</span><span class="bp">self</span><span class="o">-</span><span class="n">notes</span><span class="o">.</span><span class="n">git</span>
- <span class="o">*</span> <span class="p">[</span><span class="n">new</span> <span class="n">branch</span><span class="p">]</span>      <span class="n">master</span> <span class="o">-&gt;</span> <span class="n">master</span>
-<span class="n">Branch</span> <span class="s1">&#39;master&#39;</span> <span class="nb">set</span> <span class="n">up</span> <span class="n">to</span> <span class="n">track</span> <span class="n">remote</span> <span class="n">branch</span> <span class="s1">&#39;master&#39;</span> <span class="kn">from</span> <span class="s1">&#39;origin&#39;</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>input-2:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>❯ git push origin :feature-tree 
-</pre></div>
-</div>
-<p>output-2:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">To</span> <span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">mtngtnsh</span><span class="o">/</span><span class="bp">self</span><span class="o">-</span><span class="n">notes</span><span class="o">.</span><span class="n">git</span>
- <span class="o">-</span> <span class="p">[</span><span class="n">deleted</span><span class="p">]</span>         <span class="n">feature</span><span class="o">-</span><span class="n">tree</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="pull-remote-branch">
-<h3>3. pull remote branch<a class="headerlink" href="#pull-remote-branch" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -a
-$ git checkout {the_same_branchName_with_origin}
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Example</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>❯ git branch
-* main
-❯ git branch -a
-* main
-  remotes/origin/HEAD -&gt; origin/main
-  remotes/origin/feb
-  remotes/origin/main
-  remotes/origin/master
-❯ git checkout feb
-Switched to a new branch &#39;feb&#39;
-Branch &#39;feb&#39; set up to track remote branch &#39;feb&#39; from &#39;origin&#39;.
-❯ git branch
-* feb
-  main
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="clone">
-<h2>Clone<a class="headerlink" href="#clone" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="clone-from-specific-branch">
-<h3>1. clone from specific branch<a class="headerlink" href="#clone-from-specific-branch" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone -b {branch_name} https://...{repository_address}...
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="rebase">
-<h2>Rebase<a class="headerlink" href="#rebase" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="rebase-commits-squash-or-change-commit-message-reword">
-<h3>1. rebase commits(squash) or change commit message(reword)<a class="headerlink" href="#rebase-commits-squash-or-change-commit-message-reword" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git rebase -i HEAD~{n}
-&lt; edit commits to drop, squash, fixup.. &gt;
-&lt; edit commit messages &gt;
-$ git push origin {branch} -f
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="fetch">
-<h2>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="update-local-branch-forcefully">
-<h3>1. Update local branch forcefully<a class="headerlink" href="#update-local-branch-forcefully" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch origin master
-$ git reset --hard origin/master
-</pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -725,17 +468,17 @@ $ git reset --hard origin/master
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="win.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="docker.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Windows</p>
+            <p class="prev-next-title">Docker</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="docker.html" title="next page">
+    <a class='right-next' id="next-link" href="../dict/en.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Docker</p>
+        <p class="prev-next-title">Dict-en</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
