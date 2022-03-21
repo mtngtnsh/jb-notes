@@ -32,6 +32,8 @@ $ find /var/log -type f -print0 | xargs -0 grep {keyword}
 $ cat [-belnstuv] [file ...]
 ```
 
+::: {tip}
+
 ```
 DESCRIPTION
      The cat utility reads files sequentially, writing them to the standard output.  The file operands are
@@ -62,3 +64,31 @@ DESCRIPTION
              X; the delete character (octal 0177) prints as ‘^?’.  Non-ASCII characters (with the high bit set)
              are printed as ‘M-’ (for meta) followed by the character for the low 7 bits.
 ```
+
+:::
+
+## zip
+
+### Encryption
+
+- for example
+
+```sh
+$ zip -e -r {name_filedir}.zip {dir}/
+```
+
+::: {tip}
+```
+Encryption:  
+  -e        use standard (weak) PKZip 2.0 encryption, prompt for password  
+  -P pswd   use standard encryption, password is pswd
+
+Recursion:  
+  -r        recurse paths, include files in subdirs:  zip -r a path path ...  
+  -R        recurse current dir and match patterns:   zip -R a ptn ptn ...  
+  Use -i and -x with either to include or exclude paths  
+  Path root in archive starts at current dir, so if /a/b/c/file and  
+   current dir is /a/b, 'zip -r archive .' puts c/file in archive
+```
+
+:::

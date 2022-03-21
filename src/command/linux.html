@@ -409,6 +409,18 @@ const thebe_selector_output = ".output, .cell_output"
    cat
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zip">
+   zip
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encryption">
+     Encryption
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -443,6 +455,18 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#cat">
    cat
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zip">
+   zip
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encryption">
+     Encryption
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -484,6 +508,8 @@ $ find /var/log -type f -print0 <span class="p">|</span> xargs -0 grep <span cla
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat <span class="o">[</span>-belnstuv<span class="o">]</span> <span class="o">[</span>file ...<span class="o">]</span>
 </pre></div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DESCRIPTION
      The cat utility reads files sequentially, writing them to the standard output.  The file operands are
      processed in command-line order.  If file is a single dash (‘-’) or absent, cat reads from the standard
@@ -513,6 +539,34 @@ $ find /var/log -type f -print0 <span class="p">|</span> xargs -0 grep <span cla
              X; the delete character (octal 0177) prints as ‘^?’.  Non-ASCII characters (with the high bit set)
              are printed as ‘M-’ (for meta) followed by the character for the low 7 bits.
 </pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="zip">
+<h2>zip<a class="headerlink" href="#zip" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="encryption">
+<h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>for example</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ zip -e -r <span class="o">{</span>name_filedir<span class="o">}</span>.zip <span class="o">{</span>dir<span class="o">}</span>/
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Encryption</span><span class="p">:</span>  
+  <span class="o">-</span><span class="n">e</span>        <span class="n">use</span> <span class="n">standard</span> <span class="p">(</span><span class="n">weak</span><span class="p">)</span> <span class="n">PKZip</span> <span class="mf">2.0</span> <span class="n">encryption</span><span class="p">,</span> <span class="n">prompt</span> <span class="k">for</span> <span class="n">password</span>  
+  <span class="o">-</span><span class="n">P</span> <span class="n">pswd</span>   <span class="n">use</span> <span class="n">standard</span> <span class="n">encryption</span><span class="p">,</span> <span class="n">password</span> <span class="ow">is</span> <span class="n">pswd</span>
+
+<span class="n">Recursion</span><span class="p">:</span>  
+  <span class="o">-</span><span class="n">r</span>        <span class="n">recurse</span> <span class="n">paths</span><span class="p">,</span> <span class="n">include</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">subdirs</span><span class="p">:</span>  <span class="nb">zip</span> <span class="o">-</span><span class="n">r</span> <span class="n">a</span> <span class="n">path</span> <span class="n">path</span> <span class="o">...</span>  
+  <span class="o">-</span><span class="n">R</span>        <span class="n">recurse</span> <span class="n">current</span> <span class="nb">dir</span> <span class="ow">and</span> <span class="n">match</span> <span class="n">patterns</span><span class="p">:</span>   <span class="nb">zip</span> <span class="o">-</span><span class="n">R</span> <span class="n">a</span> <span class="n">ptn</span> <span class="n">ptn</span> <span class="o">...</span>  
+  <span class="n">Use</span> <span class="o">-</span><span class="n">i</span> <span class="ow">and</span> <span class="o">-</span><span class="n">x</span> <span class="k">with</span> <span class="n">either</span> <span class="n">to</span> <span class="n">include</span> <span class="ow">or</span> <span class="n">exclude</span> <span class="n">paths</span>  
+  <span class="n">Path</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">archive</span> <span class="n">starts</span> <span class="n">at</span> <span class="n">current</span> <span class="nb">dir</span><span class="p">,</span> <span class="n">so</span> <span class="k">if</span> <span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">/</span><span class="n">c</span><span class="o">/</span><span class="n">file</span> <span class="ow">and</span>  
+   <span class="n">current</span> <span class="nb">dir</span> <span class="ow">is</span> <span class="o">/</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">,</span> <span class="s1">&#39;zip -r archive .&#39;</span> <span class="n">puts</span> <span class="n">c</span><span class="o">/</span><span class="n">file</span> <span class="ow">in</span> <span class="n">archive</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
