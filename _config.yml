@@ -1,5 +1,6 @@
 # in _config.yml
 title: "Yuan's notes"
+author: ""
 # logo: src/public/icon.png
 execute:
   execute_notebooks: "off"
