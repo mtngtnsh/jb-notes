@@ -18,6 +18,7 @@ parts:
       - file: src/cloud/gcp01
       - file: src/cloud/gcp02
       - file: src/cloud/cheatsheet/awsDeveloper
+      - file: src/cloud/cheatsheet/awsSecurity
       - file: src/mindmap/m01-aws
   - caption: DB
     numbered: False
