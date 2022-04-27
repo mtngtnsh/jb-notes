@@ -198,7 +198,7 @@ Required Time: 1h30m
 
 - DNS name に記載してある A Record をコピーして、ブラウザ上で確認する。下記のように表示される。
 
-```txt
+```
  Welcome to Hangyuzs Server 1 
 ```
 
@@ -337,7 +337,7 @@ curl {Endpoint_IPv4_Address}
 
 - 下記の内容が返される。
 
-```txt
+```
 <html><h1> Welcome to Hangyuzs Server 1 </h1></html>
 ```
 

@@ -21,7 +21,7 @@
 
 - たとえば、gitlab と連携する際、sshKeys という属性を追加しようとすると、以下のように定義ファイルを作成する。
 
-```xsd
+```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <xsd:schema elementFormDefault="qualified"
