@@ -36,6 +36,7 @@ parts:
       - file: src/oss/keycloak
       - file: src/oss/portainer
       - file: src/oss/helm
+      - file: src/oss/kafka
   - caption: Command
     numbered: False
     chapters:
