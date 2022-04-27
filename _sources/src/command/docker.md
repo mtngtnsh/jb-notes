@@ -22,3 +22,19 @@ $ su - ${USER}
 $ groups
 $ sudo usermod -aG docker {username}
 ```
+
+## CLI
+
+### Mount
+
+```docker
+$ docker run \
+  --mount type=bind,source=/tmp,target=/usr
+```
+
+### Delete all containers
+
+```docker
+$ docker stop `docker ps -a -q`; docker rm `docker ps -a -q`
+$ docker stop $(docker ps -q); docker rm $(docker ps -q -a); docker rmi $(docker images -q) --force
+```

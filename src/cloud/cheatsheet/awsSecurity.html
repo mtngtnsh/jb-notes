@@ -1,0 +1,854 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>+ CheatSheet - AWS Security Specialty &#8212; Yuan&#39;s notes</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://mtngtnsh.github.io/jb-notes/src/cloud/cheatsheet/awsSecurity.html" />
+    <link rel="shortcut icon" href="../../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="+ MindMap-AWS" href="../../mindmap/m01-aws.html" />
+    <link rel="prev" title="+ CheatSheet - AWS Developer" href="awsDeveloper.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Yuan's notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   落穂拾い
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Language
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../language/golang01.html">
+   Golang
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../language/python.html">
+   Python
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Cloud
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../azure01.html">
+   Azure
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../aws.html">
+   AWS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../aws-vpc-end2end-connection.html">
+   AWS - How to implement end to end VPC Endpoint service
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../digitalocean01.html">
+   DigitalOcean
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcp01.html">
+   GCP - Associate Cloud Engineer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gcp02.html">
+   GCP - Professional Cloud Architect
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="awsDeveloper.html">
+   + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   + CheatSheet - AWS Security Specialty
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../mindmap/m01-aws.html">
+   + MindMap-AWS
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  DB
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../db/mongodb01.html">
+   MongoDB - Getting Started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../db/mongodb02.html">
+   MongoDB - Usage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../db/mongodb03.html">
+   MongoDB - Replication
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../db/mongodb04.html">
+   MongoDB - Sharding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../db/mysql.html">
+   MySQL
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  OSS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oss/kasm.html">
+   Kasm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oss/midpoint.html">
+   midPoint
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oss/keycloak.html">
+   midPoint + Keycloack + GitLab
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oss/portainer.html">
+   portainer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oss/helm.html">
+   Helm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../oss/kafka.html">
+   Kafka
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Command
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../command/mac.html">
+   MacOS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../command/linux.html">
+   Linux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../command/win.html">
+   Windows
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../command/git.html">
+   Git
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../command/docker.html">
+   Docker
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../command/ffmpeg.html">
+   FFmpeg
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dictionary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../dict/en.html">
+   Dict-en
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../dict/ja.html">
+   Dict-ja
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Settings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../settings/VSCode01.html">
+   VSCode
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../settings/PowerShell01.html">
+   PowerShell
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../settings/iterm2.html">
+   iTerm2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../settings/others.html">
+   Others
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../appendix/intr.html">
+   tips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../appendix/inde.html">
+   useful links
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/src/cloud/cheatsheet/awsSecurity.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mtngtnsh/jb-notes/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstraction">
+   Abstraction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iam">
+   1. IAM
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     IAMの機能
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     IAM の設計運用原則
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     IAM を利用した権限管理の原則
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permissions-boundary-iam">
+     パーミッションバウンダリー(Permissions Boundary): IAM の移譲権限を制限する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     IAM アクセスアナライザー: 信頼関係の設定の妥当性を確認しやすくするツール
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-directoryservice">
+     AWS DirectoryService
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kms-todo">
+   2. KMS(TODO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#s3-todo">
+   3. S3(TODO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vpc-todo">
+   4. VPC(TODO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloudwatch-todo">
+   5. CloudWatch(TODO)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>+ CheatSheet - AWS Security Specialty</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#abstraction">
+   Abstraction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iam">
+   1. IAM
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     IAMの機能
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     IAM の設計運用原則
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     IAM を利用した権限管理の原則
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#permissions-boundary-iam">
+     パーミッションバウンダリー(Permissions Boundary): IAM の移譲権限を制限する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     IAM アクセスアナライザー: 信頼関係の設定の妥当性を確認しやすくするツール
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aws-directoryservice">
+     AWS DirectoryService
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kms-todo">
+   2. KMS(TODO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#s3-todo">
+   3. S3(TODO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vpc-todo">
+   4. VPC(TODO)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cloudwatch-todo">
+   5. CloudWatch(TODO)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="cheatsheet-aws-security-specialty">
+<h1>+ CheatSheet - AWS Security Specialty<a class="headerlink" href="#cheatsheet-aws-security-specialty" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="abstraction">
+<h2>Abstraction<a class="headerlink" href="#abstraction" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>分野</p></th>
+<th class="text-align:left head"><p>概要</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>IAM</p></td>
+<td class="text-align:left"><p>AWS認証認可サービス、IDおよびアクセス管理の中心的な役割を果たす。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>KMS</p></td>
+<td class="text-align:left"><p>暗号化キーを管理するサービス。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>S3</p></td>
+<td class="text-align:left"><p>オンラインストレージサービス。</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>VPC</p></td>
+<td class="text-align:left"><p>仮想的なプライベートネットワークを構築するサービス。</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>CloudWatch</p></td>
+<td class="text-align:left"><p>AWSリソースとその上で実行するアプリをモニタリングするサービス。</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="iam">
+<h2>1. IAM<a class="headerlink" href="#iam" title="Permalink to this headline">¶</a></h2>
+<p>IAM は AWS リソースに対する認証認可の機能を司る。IAMを利用することで、AWSのユーザとグループを作成および管理し、アクセス権を使用して AWS リソースへのアクセスを許可及び拒否できる。</p>
+<div class="section" id="id1">
+<h3>IAMの機能<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>IAM ユーザ</p>
+<ul class="simple">
+<li><p>IAM ユーザのアクセスキーについて</p>
+<ul>
+<li><p>ID/Password</p></li>
+<li><p>AccessKey/SecretAccessKey</p>
+<ul>
+<li><p>AccessKey: AWS 外のリソースからコマンドインターフェース(CLI)やサードパーティ製のツールを通じて AWS を操作する際に利用する。</p></li>
+</ul>
+</li>
+<li><p>※キーペアが設定されている IAM ユーザに対して、IP アドレス等の利用制限をする</p></li>
+<li><p>※流出の被害を最小化するために、最小権限のみ付与する</p></li>
+<li><p>※キーペアをハードコーディングしないで済む方式、IAM ロールや Cognito で代替する</p></li>
+<li><p>※キーペアを利用する場合は、プラグラムに埋め込むのではなく環境変数に設定する</p></li>
+<li><p>※AWS 提供の機密情報を誤って commit することを防ぐ git-secrets を導入する</p></li>
+</ul>
+</li>
+<li><p>Ref:</p>
+<ul>
+<li><p><a class="reference external" href="https://qiita.com/pottava/items/4c602c97aacf10c058f1#%E6%96%B0%E8%A6%8F%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%A7%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B">クラウド破産しないように git-secrets を使う</a></p></li>
+<li><p><a class="reference external" href="https://qiita.com/jqtype/items/9196e047eddb53d07a91">git-secretsはじめました</a></p></li>
+</ul>
+</li>
+<li><p>IAM ユーザやアクセスキーの利用履歴を確認する</p>
+<ul>
+<li><p>IAM ユーザや IAM ロールのダッシュボードから、それぞれ最後にいつ使われたのか確認することができる。認証情報レポートからすべて IAM ユーザの利用状況を CSV 形式でダウンロードできる。</p></li>
+<li><p>Config Rules を利用することで自動でチェックすることも可能。</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IAM グループ</p>
+<ul class="simple">
+<li><p>同一の役割を持つ IAM ユーザをグループ化する機能。IAM ユーザ同様にアクセス権限を付与するができる。</p></li>
+<li><p>権限の付与方法について、管理ポリシーとインラインポリシーがある。</p></li>
+<li><p>インラインポリシーは、IAM ユーザ・IAM グループ間で共用することができない。基本的には管理ポリシーを利用しましょう。</p></li>
+</ul>
+</li>
+<li><p>IAM ポリシー</p>
+<ul class="simple">
+<li><p>JSON 形式で記述する。以下3つのルールがある。</p>
+<ul>
+<li><p>Action</p></li>
+<li><p>Resource</p></li>
+<li><p>Effect</p></li>
+</ul>
+</li>
+<li><p>AWS 管理ポリシー(AWS Managed Policies)とカスタマ管理ポリシー(Customer Managed Policies)、インラインポリシーについて</p>
+<ul>
+<li><p>インラインポリシーは、対象ごとに作成・付与するポリシーで、複数のユーザ・グループに付与することは<strong>できない</strong>。</p></li>
+<li><p>管理ポリシーは、1つのポリシーを複数のユーザやグループに適用することができる。</p></li>
+</ul>
+</li>
+<li><p>10種類の職務機能の AWS 管理ポリシー</p>
+<ul>
+<li><p>管理者</p></li>
+<li><p>Billing</p></li>
+<li><p>データベース管理者</p></li>
+<li><p>データサイエンティスト</p></li>
+<li><p>開発者パワーユーザ</p></li>
+<li><p>ネットワーク管理者</p></li>
+<li><p>セキュリティ監査人</p></li>
+<li><p>サポートユーザ</p></li>
+<li><p>システム管理者</p></li>
+<li><p>閲覧専用ユーザ</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IAM ロール</p>
+<ul>
+<li><p>ロールによる権限の委任の仕組み</p>
+<ul class="simple">
+<li><p>IAM ロールは、AWS のサービスやアプリに対して、一時的な AWS リソースの操作権限を与える仕組み。この操作権限の付与は、AWS Security Token Service(AWS STS)を利用し、一時的認証情報(Temporary security credential)を発行することにより実現している。</p></li>
+</ul>
+</li>
+<li><p>信頼関係の設定</p>
+<ul class="simple">
+<li><p>アクセス権限(Policy)以外に信頼関係(Principal)がある。信頼関係は、誰がそのロールを利用できるのかを指定するもの。基本的に、下記のPrincipalを編集して利用する。AWS のサービスであったり AD でログインしたユーザであったりと様々な指定方法がある。</p></li>
+</ul>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;Principal&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;Service&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ec2.amazonaws.com&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sts:AssumeRole&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>IAM の設計運用原則<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>ルートユーザの取り扱いについて</p>
+<ul>
+<li><p>ルートユーザのみで実行可能な操作(Admin 権限を付与した IAM ユーザでも、下記の操作はできない。)</p>
+<ul>
+<li><p>AWS アカウント全体の設定変更(ルートアカウントのメールアドレス/パスワード変更など)</p></li>
+<li><p>AWS サポートのプラン変更</p></li>
+<li><p>請求に関する設定</p></li>
+<li><p>AWS アカウントの停止</p></li>
+</ul>
+</li>
+<li><p>AWS アカウントを作ったら、まず初めに Admin 権限をもつ IAM ユーザを払い出し、それ以降の作業はこの IAM ユーザで行うようにする。ルートユーザは二要素認証をかけ、必要な時以外はルートユーザを使わないという運用を徹底する。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>IAM を利用した権限管理の原則<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>AWS アカウントのルートユーザアクセスキーをロックする</p></li>
+<li><p>個々の IAM ユーザの作成</p></li>
+<li><p>IAM ユーザへのアクセス許可を割り当てるためにグループを使用する</p></li>
+<li><p>最小権限を付与する</p></li>
+<li><p>AWS 管理ポリシーを使用したアクセス許可の使用開始</p></li>
+<li><p>インラインポリシーではなくカスタマ管理ポリシーを使用する</p></li>
+<li><p>アクセスレベルを使用して、IAM 権限を確認する</p></li>
+<li><p>ユーザの強力なパスワードポリシーを設定</p></li>
+<li><p>Amazon EC2 インスタンスで実行するアプリに対し、ロールを使用する</p></li>
+<li><p>ロールを使用したアクセス許可の委任</p></li>
+<li><p>アクセスキーを共有しない</p></li>
+<li><p>認証情報を定期的にローテーションする</p></li>
+<li><p>不要な認証情報を削除する</p></li>
+<li><p>追加セキュリティに対するポリシー条件を使用する</p></li>
+<li><p>AWS アカウントのアクティビティの監視</p></li>
+</ul>
+</div>
+<div class="section" id="permissions-boundary-iam">
+<h3>パーミッションバウンダリー(Permissions Boundary): IAM の移譲権限を制限する<a class="headerlink" href="#permissions-boundary-iam" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>IAM アクセスアナライザー: 信頼関係の設定の妥当性を確認しやすくするツール<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="aws-directoryservice">
+<h3>AWS DirectoryService<a class="headerlink" href="#aws-directoryservice" title="Permalink to this headline">¶</a></h3>
+<p>AWS 内でマネージド型の Microsoft Active Directory を利用するためのサービス。</p>
+<ul>
+<li><p>AWS における ActiveDirectory 関係のサービス一覧</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>分野</p></th>
+<th class="text-align:left head"><p>概要</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>AWS Managed Microsoft AD</p></td>
+<td class="text-align:left"><p>AWS 上にマネージド型の Microsoft AD を構築するサービス</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Simple AD</p></td>
+<td class="text-align:left"><p>Linux-Samba Active Directory で構築されたマネージド型ディレクトリサービス</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>AD Connector</p></td>
+<td class="text-align:left"><p>既存の AD に対してリダイレクトする AD のプロキシサービス</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>オンプレミスとの接続パターン</p>
+<ul class="simple">
+<li><p>AD Connector を使って既存の AD に対して認証プロキシとして動作させる</p></li>
+<li><p>Managed Microsoft AD を構築し既存の AD と双方向の推移的信頼関係を構築する</p></li>
+</ul>
+</li>
+</ul>
+<p>一般的に、VPC を利用して VPN や専用線接続をする。使い分けの違いは、想定のアクセス規模であったり耐障害性である。</p>
+</div>
+</div>
+<div class="section" id="kms-todo">
+<h2>2. KMS(TODO)<a class="headerlink" href="#kms-todo" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="s3-todo">
+<h2>3. S3(TODO)<a class="headerlink" href="#s3-todo" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="vpc-todo">
+<h2>4. VPC(TODO)<a class="headerlink" href="#vpc-todo" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cloudwatch-todo">
+<h2>5. CloudWatch(TODO)<a class="headerlink" href="#cloudwatch-todo" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./src/cloud/cheatsheet"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="awsDeveloper.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">+ CheatSheet - AWS Developer</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../mindmap/m01-aws.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">+ MindMap-AWS</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+        &copy; Copyright 2021-2022 by Yuan Zhang.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

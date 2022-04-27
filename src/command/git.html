@@ -129,6 +129,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws-vpc-end2end-connection.html">
+   AWS - How to implement end to end VPC Endpoint service
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../cloud/digitalocean01.html">
    DigitalOcean
   </a>
@@ -146,6 +151,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
    + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsSecurity.html">
+   + CheatSheet - AWS Security Specialty
   </a>
  </li>
  <li class="toctree-l1">
@@ -210,6 +220,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../oss/portainer.html">
    portainer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/helm.html">
+   Helm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kafka.html">
+   Kafka
   </a>
  </li>
 </ul>
@@ -458,6 +478,18 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reset">
+   Reset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reset-head-index-and-working-tree">
+     1. reset HEAD, index and working tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fetch">
    Fetch
   </a>
@@ -465,6 +497,33 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#update-local-branch-forcefully">
      1. Update local branch forcefully
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fech-all-remote-branches">
+     2. Fech all remote branches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stash">
+   Stash
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stash-the-work">
+     1. Stash the work
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-stashes">
+     2. Apply stashes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-branch-from-a-stash">
+     3. Create a branch from a stash
     </a>
    </li>
   </ul>
@@ -553,6 +612,18 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reset">
+   Reset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reset-head-index-and-working-tree">
+     1. reset HEAD, index and working tree
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#fetch">
    Fetch
   </a>
@@ -560,6 +631,33 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#update-local-branch-forcefully">
      1. Update local branch forcefully
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fech-all-remote-branches">
+     2. Fech all remote branches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stash">
+   Stash
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stash-the-work">
+     1. Stash the work
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apply-stashes">
+     2. Apply stashes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-branch-from-a-stash">
+     3. Create a branch from a stash
     </a>
    </li>
   </ul>
@@ -688,12 +786,50 @@ $ git push origin {branch} -f
 </div>
 </div>
 </div>
+<div class="section" id="reset">
+<h2>Reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reset-head-index-and-working-tree">
+<h3>1. reset HEAD, index and working tree<a class="headerlink" href="#reset-head-index-and-working-tree" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git reset --hard HEAD^
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="fetch">
 <h2>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="update-local-branch-forcefully">
 <h3>1. Update local branch forcefully<a class="headerlink" href="#update-local-branch-forcefully" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git fetch origin master
 $ git reset --hard origin/master
+</pre></div>
+</div>
+</div>
+<div class="section" id="fech-all-remote-branches">
+<h3>2. Fech all remote branches<a class="headerlink" href="#fech-all-remote-branches" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -r | grep -v &#39;\-&gt;&#39; | while read remote; do git branch --track &quot;${remote#origin/}&quot; &quot;$remote&quot;; done
+$ git fetch --all
+$ git pull --all
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="stash">
+<h2>Stash<a class="headerlink" href="#stash" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stash-the-work">
+<h3>1. Stash the work<a class="headerlink" href="#stash-the-work" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git stash
+</pre></div>
+</div>
+</div>
+<div class="section" id="apply-stashes">
+<h3>2. Apply stashes<a class="headerlink" href="#apply-stashes" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git stash apply
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-branch-from-a-stash">
+<h3>3. Create a branch from a stash<a class="headerlink" href="#create-a-branch-from-a-stash" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git stash branch {branch_name}
 </pre></div>
 </div>
 </div>

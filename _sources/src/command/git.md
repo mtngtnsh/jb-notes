@@ -114,6 +114,14 @@ $ git rebase -i HEAD~{n}
 $ git push origin {branch} -f
 ```
 
+## Reset
+
+### 1. reset HEAD, index and working tree
+
+```
+$ git reset --hard HEAD^
+```
+
 ## Fetch
 
 ### 1. Update local branch forcefully
@@ -121,4 +129,32 @@ $ git push origin {branch} -f
 ```
 $ git fetch origin master
 $ git reset --hard origin/master
+```
+
+### 2. Fech all remote branches
+
+```
+$ git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+$ git fetch --all
+$ git pull --all
+```
+
+## Stash
+
+### 1. Stash the work
+
+```
+$ git stash
+```
+
+### 2. Apply stashes
+
+```
+$ git stash apply
+```
+
+### 3. Create a branch from a stash
+
+```
+$ git stash branch {branch_name}
 ```

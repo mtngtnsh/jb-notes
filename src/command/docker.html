@@ -129,6 +129,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/aws-vpc-end2end-connection.html">
+   AWS - How to implement end to end VPC Endpoint service
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../cloud/digitalocean01.html">
    DigitalOcean
   </a>
@@ -146,6 +151,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../cloud/cheatsheet/awsDeveloper.html">
    + CheatSheet - AWS Developer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../cloud/cheatsheet/awsSecurity.html">
+   + CheatSheet - AWS Security Specialty
   </a>
  </li>
  <li class="toctree-l1">
@@ -210,6 +220,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../oss/portainer.html">
    portainer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/helm.html">
+   Helm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../oss/kafka.html">
+   Kafka
   </a>
  </li>
 </ul>
@@ -411,6 +431,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli">
+   CLI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mount">
+     Mount
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delete-all-containers">
+     Delete all containers
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -448,6 +485,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli">
+   CLI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mount">
+     Mount
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delete-all-containers">
+     Delete all containers
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -479,6 +533,23 @@ $ sudo systemctl status docker
 $ su - <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
 $ groups
 $ sudo usermod -aG docker <span class="o">{</span>username<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cli">
+<h2>CLI<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mount">
+<h3>Mount<a class="headerlink" href="#mount" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span>$ docker run <span class="se">\</span>
+  --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>/tmp,target<span class="o">=</span>/usr
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-all-containers">
+<h3>Delete all containers<a class="headerlink" href="#delete-all-containers" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span>$ docker stop <span class="sb">`</span>docker ps -a -q<span class="sb">`</span><span class="p">;</span> docker rm <span class="sb">`</span>docker ps -a -q<span class="sb">`</span>
+$ docker stop <span class="k">$(</span>docker ps -q<span class="k">)</span><span class="p">;</span> docker rm <span class="k">$(</span>docker ps -q -a<span class="k">)</span><span class="p">;</span> docker rmi <span class="k">$(</span>docker images -q<span class="k">)</span> --force
 </pre></div>
 </div>
 </div>
