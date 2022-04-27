@@ -13,6 +13,7 @@ parts:
     chapters: 
       - file: src/cloud/azure01
       - file: src/cloud/aws
+      - file: src/cloud/aws-vpc-end2end-connection
       - file: src/cloud/digitalocean01
       - file: src/cloud/gcp01
       - file: src/cloud/gcp02
