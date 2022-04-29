@@ -540,6 +540,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>Python 3.8.x 以降</p></li>
 </ul>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">adal</span>
 <span class="kn">import</span> <span class="nn">cryptography.x509</span>
 <span class="kn">import</span> <span class="nn">cryptography.hazmat.primitives</span>
@@ -603,6 +605,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="python">
 <h2>デモ2(Python): プールを再作成する(定期的に実行可)<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
 <p>前提としては、再作成プールの定義ファイルは別途で用意すること。*.jsonや *.j2でも可。
@@ -617,6 +620,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <div class="section" id="id1">
 <h3>1. オートスケールで設定しているプールに対して、オートスケールを無効にする<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
 <span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
 
@@ -640,8 +645,11 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="id2">
 <h3>2. 稼働しているプールをリサイズする(プール数を0に指定してリサイズ)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
 <span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
 <span class="n">RESIZE_NODE_NUM</span> <span class="o">=</span> <span class="mi">0</span>
@@ -668,8 +676,11 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="steady">
 <h3>3. 割り当て状態が steady になるまで待つ<a class="headerlink" href="#steady" title="Permalink to this headline">¶</a></h3>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
 <span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
 <span class="n">POLLING_COUNT</span> <span class="o">=</span> <span class="mi">5</span>
@@ -692,8 +703,11 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="id3">
 <h3>4. プールを削除する<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
 <span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
 
@@ -708,8 +722,11 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="id4">
 <h3>5-1. プールの作成: プール定義ファイルの値を取得して整形する<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
 <span class="c1"># 共通の定義を&#39;common-config&#39;に定義、異なる部分は、プール名で分けて定義する</span>
 <span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
@@ -816,8 +833,11 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="id5">
 <h3>5-2. プールの作成: 複数プールをまとめて作成する<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="dropdown admonition note">
+<p class="admonition-title">Note</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)</span>
 <span class="n">target_pool_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;p_id1&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">,</span> <span class="s2">&quot;p_id2&quot;</span><span class="p">:</span> <span class="n">proc_code0</span><span class="p">}</span>
 
@@ -832,6 +852,7 @@ const thebe_selector_output = ".output, .cell_output"
         <span class="c1"># プールを作成</span>
         <span class="n">batch_service</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">target_pool_config</span><span class="p">[</span><span class="n">p_id</span><span class="p">])</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>

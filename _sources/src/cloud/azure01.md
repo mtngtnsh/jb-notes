@@ -6,6 +6,8 @@
 
 - Python 3.8.x 以降
 
+::: {note}
+:class: dropdown
 ```
 import adal
 import cryptography.x509
@@ -69,6 +71,8 @@ def create_batch_service(tenant_id, client_id, cert_path, batch_url, proxies=Non
     return azure.batch.BatchServiceClient(credential, batch_url)
 ```
 
+:::
+
 ## デモ2(Python): プールを再作成する(定期的に実行可)
 
 前提としては、再作成プールの定義ファイルは別途で用意すること。*.jsonや *.j2でも可。
@@ -84,6 +88,8 @@ def create_batch_service(tenant_id, client_id, cert_path, batch_url, proxies=Non
 
 ### 1. オートスケールで設定しているプールに対して、オートスケールを無効にする
 
+::: {note}
+:class: dropdown
 ```
 # 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)
 target_pool_dict = {"p_id1": proc_code0, "p_id2": proc_code0}
@@ -107,8 +113,12 @@ def _disable_auto_scale(batch_service, target_pool_dict):
         auto_scale_flag = batch_service.pool.get(p_id).enable_auto_scale
 ```
 
+:::
+
 ### 2. 稼働しているプールをリサイズする(プール数を0に指定してリサイズ)
 
+::: {note}
+:class: dropdown
 ```
 # 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)
 target_pool_dict = {"p_id1": proc_code0, "p_id2": proc_code0}
@@ -135,8 +145,12 @@ def _resize_pools(batch_service, target_pool_dict):
         batch_service.pool.resize(p_id, resize_option)
 ```
 
+:::
+
 ### 3. 割り当て状態が steady になるまで待つ
 
+::: {note}
+:class: dropdown
 ```
 # 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)
 target_pool_dict = {"p_id1": proc_code0, "p_id2": proc_code0}
@@ -159,8 +173,12 @@ def _resize_until_steady(batch_service, target_pool_dict):
             ...
 ```
 
+:::
+
 ### 4. プールを削除する
 
+::: {note}
+:class: dropdown
 ```
 # 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)
 target_pool_dict = {"p_id1": proc_code0, "p_id2": proc_code0}
@@ -175,8 +193,12 @@ def _delete_pools(batch_service, target_pool_dict):
 
 ```
 
+:::
+
 ### 5-1. プールの作成: プール定義ファイルの値を取得して整形する
 
+::: {note}
+:class: dropdown
 ```
 # 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)
 # 共通の定義を'common-config'に定義、異なる部分は、プール名で分けて定義する
@@ -283,8 +305,12 @@ def _format_pools_config(target_pool_dict, pool_config):
 
 ```
 
+:::
+
 ### 5-2. プールの作成: 複数プールをまとめて作成する
 
+::: {note}
+:class: dropdown
 ```
 # 複数プールの場合に適応(proc_codeはプールの処理状態を表す値にセットする、本デモはその部分を省略する)
 target_pool_dict = {"p_id1": proc_code0, "p_id2": proc_code0}
@@ -300,3 +326,5 @@ def _create_pools(batch_service, target_pool_dict, target_pool_config, pool_conf
         # プールを作成
         batch_service.pool.id.add(target_pool_config[p_id])
 ```
+
+:::
