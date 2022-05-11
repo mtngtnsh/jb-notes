@@ -1,5 +1,25 @@
 # Kubernetes
 
+## How to install Kubernetes(kubeadm, kubectl & kubelet)?
+
+### Installation(Ubuntu 20.04)
+
+```sh
+apt-get update && apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+```
+
+```sh
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get install -y kubelet kubeadm kubectl
+```
+
+```sh
+apt-mark hold kubelet kubeadm kubectl
+```
+
 ## Delete namespace
 
 ```

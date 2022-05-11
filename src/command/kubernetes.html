@@ -420,6 +420,18 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-install-kubernetes-kubeadm-kubectl-kubelet">
+   How to install Kubernetes(kubeadm, kubectl &amp; kubelet)?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-ubuntu-20-04">
+     Installation(Ubuntu 20.04)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#delete-namespace">
    Delete namespace
   </a>
@@ -467,6 +479,18 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-install-kubernetes-kubeadm-kubectl-kubelet">
+   How to install Kubernetes(kubeadm, kubectl &amp; kubelet)?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation-ubuntu-20-04">
+     Installation(Ubuntu 20.04)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#delete-namespace">
    Delete namespace
   </a>
@@ -504,6 +528,25 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="kubernetes">
 <h1>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-install-kubernetes-kubeadm-kubectl-kubelet">
+<h2>How to install Kubernetes(kubeadm, kubectl &amp; kubelet)?<a class="headerlink" href="#how-to-install-kubernetes-kubeadm-kubectl-kubelet" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation-ubuntu-20-04">
+<h3>Installation(Ubuntu 20.04)<a class="headerlink" href="#installation-ubuntu-20-04" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-get update <span class="o">&amp;&amp;</span> apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg <span class="p">|</span> apt-key add -
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cat <span class="s">&lt;&lt;EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list</span>
+<span class="s">deb https://apt.kubernetes.io/ kubernetes-xenial main</span>
+<span class="s">EOF</span>
+apt-get install -y kubelet kubeadm kubectl
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>apt-mark hold kubelet kubeadm kubectl
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="delete-namespace">
 <h2>Delete namespace<a class="headerlink" href="#delete-namespace" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">delete</span> <span class="n">namespace</span> <span class="p">{</span><span class="n">ns_name</span><span class="p">}</span>
