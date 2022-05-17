@@ -456,6 +456,33 @@ const thebe_selector_output = ".output, .cell_output"
      * retrieve solution stack names from ListAvailableSolutionStacks API
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-access-key">
+     2-2 Update access key
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-a-new-access-key">
+       create a new access key
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configure-new-access-key">
+       configure new access key
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#try-to-access-s3-with-new-configuration">
+       try to access s3 with new configuration
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete-old-access-key">
+       delete old access key
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -514,6 +541,33 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal nav-link" href="#retrieve-solution-stack-names-from-listavailablesolutionstacks-api">
      * retrieve solution stack names from ListAvailableSolutionStacks API
     </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update-access-key">
+     2-2 Update access key
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#create-a-new-access-key">
+       create a new access key
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configure-new-access-key">
+       configure new access key
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#try-to-access-s3-with-new-configuration">
+       try to access s3 with new configuration
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete-old-access-key">
+       delete old access key
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -648,6 +702,39 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><a class="reference external" href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Ref: Elastic Beanstalk supported platforms</a></p>
+</div>
+<div class="section" id="update-access-key">
+<h3>2-2 Update access key<a class="headerlink" href="#update-access-key" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="create-a-new-access-key">
+<h4>create a new access key<a class="headerlink" href="#create-a-new-access-key" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">iam</span> <span class="n">create</span><span class="o">-</span><span class="n">access</span><span class="o">-</span><span class="n">key</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-new-access-key">
+<h4>configure new access key<a class="headerlink" href="#configure-new-access-key" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">configure</span>
+<span class="n">aws</span> <span class="n">iam</span> <span class="n">update</span><span class="o">-</span><span class="n">access</span><span class="o">-</span><span class="n">key</span> <span class="o">--</span><span class="n">access</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="nb">id</span> <span class="p">{</span><span class="n">OLD_ACCESS_KEY</span><span class="p">}</span> <span class="o">--</span><span class="n">status</span> <span class="n">Inactive</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">name</span> <span class="p">{</span><span class="n">user_name</span><span class="p">}</span>
+<span class="n">aws</span> <span class="n">iam</span> <span class="n">update</span><span class="o">-</span><span class="n">access</span><span class="o">-</span><span class="n">key</span> <span class="o">--</span><span class="n">access</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="nb">id</span> <span class="p">{</span><span class="n">NEW_ACCESS_KEY</span><span class="p">}</span> <span class="o">--</span><span class="n">status</span> <span class="n">Active</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">name</span> <span class="p">{</span><span class="n">user_name</span><span class="p">}</span>
+<span class="n">cat</span> <span class="o">.</span><span class="n">aws</span><span class="o">/</span><span class="n">config</span>
+<span class="n">cat</span> <span class="o">.</span><span class="n">aws</span><span class="o">/</span><span class="n">credentials</span>
+<span class="n">aws</span> <span class="n">configure</span> <span class="nb">list</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="try-to-access-s3-with-new-configuration">
+<h4>try to access s3 with new configuration<a class="headerlink" href="#try-to-access-s3-with-new-configuration" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">s3</span> <span class="n">ls</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-old-access-key">
+<h4>delete old access key<a class="headerlink" href="#delete-old-access-key" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">iam</span> <span class="n">delete</span><span class="o">-</span><span class="n">access</span><span class="o">-</span><span class="n">key</span> <span class="o">--</span><span class="n">access</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="nb">id</span> <span class="p">{</span><span class="n">OLD_ACCESS_KEY</span><span class="p">}</span> <span class="o">--</span><span class="n">user</span><span class="o">-</span><span class="n">name</span> <span class="n">zhang</span><span class="o">.</span><span class="n">yuan</span>
+</pre></div>
+</div>
+<p><em>Ref:<a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#rotating_access_keys_cli">Rotating access keys (AWS CLI)</a></em></p>
+</div>
 </div>
 </div>
 </div>
