@@ -121,3 +121,36 @@ aws elasticbeanstalk list-available-solution-stacks
 :::
 
 [Ref: Elastic Beanstalk supported platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+
+### 2-2 Update access key
+
+#### create a new access key
+
+```
+aws iam create-access-key
+```
+
+#### configure new access key
+
+```
+aws configure
+aws iam update-access-key --access-key-id {OLD_ACCESS_KEY} --status Inactive --user-name {user_name}
+aws iam update-access-key --access-key-id {NEW_ACCESS_KEY} --status Active --user-name {user_name}
+cat .aws/config
+cat .aws/credentials
+aws configure list
+```
+
+#### try to access s3 with new configuration
+
+```
+aws s3 ls
+```
+
+#### delete old access key
+
+```
+aws iam delete-access-key --access-key-id {OLD_ACCESS_KEY} --user-name zhang.yuan
+```
+
+*Ref:[Rotating access keys (AWS CLI)](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#rotating_access_keys_cli)*
