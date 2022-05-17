@@ -21,14 +21,14 @@ selfnotessというバケットを作成した。
 
 ## 2. AWS CLI
 
-### * retrieve solution stack names from ListAvailableSolutionStacks API
+### 2-1 retrieve solution stack names from ListAvailableSolutionStacks API
 
 ```
 aws elasticbeanstalk list-available-solution-stacks
 ```
 
-::: {tip} Output - Example
-
+::: {tip}
+:class: dropdown
 ```
 {
     "SolutionStacks": [
