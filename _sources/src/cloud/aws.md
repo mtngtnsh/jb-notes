@@ -27,8 +27,8 @@ selfnotessというバケットを作成した。
 aws elasticbeanstalk list-available-solution-stacks
 ```
 
-::: {tip} Output - Example
-
+::: {note} Example
+:class: dropdown
 ```
 {
     "SolutionStacks": [
