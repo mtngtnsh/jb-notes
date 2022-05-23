@@ -150,7 +150,7 @@ aws s3 ls
 #### delete old access key
 
 ```
-aws iam delete-access-key --access-key-id {OLD_ACCESS_KEY} --user-name zhang.yuan
+aws iam delete-access-key --access-key-id {OLD_ACCESS_KEY} --user-name {user_name}
 ```
 
 *Ref:[Rotating access keys (AWS CLI)](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#rotating_access_keys_cli)*
