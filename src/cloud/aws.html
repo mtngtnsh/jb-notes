@@ -483,6 +483,28 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manage-key-pairs">
+     2-3 Manage key pairs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#list-of-key-pairs">
+       list of key pairs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#show-the-detail-of-existed-key-pair">
+       show the detail of existed key pair
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete-unnecessary-key-pair">
+       delete unnecessary key pair
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -565,6 +587,28 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#delete-old-access-key">
        delete old access key
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#manage-key-pairs">
+     2-3 Manage key pairs
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#list-of-key-pairs">
+       list of key pairs
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#show-the-detail-of-existed-key-pair">
+       show the detail of existed key pair
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delete-unnecessary-key-pair">
+       delete unnecessary key pair
       </a>
      </li>
     </ul>
@@ -733,6 +777,27 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p><em>Ref:<a class="reference external" href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#rotating_access_keys_cli">Rotating access keys (AWS CLI)</a></em></p>
+</div>
+</div>
+<div class="section" id="manage-key-pairs">
+<h3>2-3 Manage key pairs<a class="headerlink" href="#manage-key-pairs" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="list-of-key-pairs">
+<h4>list of key pairs<a class="headerlink" href="#list-of-key-pairs" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ec2</span> <span class="n">describe</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">pairs</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="show-the-detail-of-existed-key-pair">
+<h4>show the detail of existed key pair<a class="headerlink" href="#show-the-detail-of-existed-key-pair" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ec2</span> <span class="n">describe</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">pairs</span> <span class="o">--</span><span class="n">key</span><span class="o">-</span><span class="n">name</span> <span class="p">{</span><span class="n">KeyPair_NAME</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-unnecessary-key-pair">
+<h4>delete unnecessary key pair<a class="headerlink" href="#delete-unnecessary-key-pair" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ec2</span> <span class="n">delete</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">pair</span> <span class="o">--</span><span class="n">key</span><span class="o">-</span><span class="n">name</span> <span class="p">{</span><span class="n">KeyPair_NAME</span><span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
