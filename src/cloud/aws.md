@@ -150,7 +150,27 @@ aws s3 ls
 #### delete old access key
 
 ```
-aws iam delete-access-key --access-key-id {OLD_ACCESS_KEY} --user-name zhang.yuan
+aws iam delete-access-key --access-key-id {OLD_ACCESS_KEY} --user-name {user_name}
 ```
 
 *Ref:[Rotating access keys (AWS CLI)](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#rotating_access_keys_cli)*
+
+### 2-3 Manage key pairs
+
+#### list of key pairs
+
+```
+aws ec2 describe-key-pairs
+```
+
+#### show the detail of existed key pair
+
+```
+aws ec2 describe-key-pairs --key-name {KeyPair_NAME}
+```
+
+#### delete unnecessary key pair
+
+```
+aws ec2 delete-key-pair --key-name {KeyPair_NAME}
+```
