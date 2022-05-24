@@ -812,7 +812,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="get-account-id">
 <h3>2-4 Get Account ID<a class="headerlink" href="#get-account-id" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $(aws sts get-caller-identity) | awk &#39;{print $5}&#39; | sed &#39;s/&quot;//g&#39; | sed &#39;s/,//g&#39; | pbcopy
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $(aws sts get-caller-identity) | awk &#39;{print $5}&#39; | sed -e &#39;s/&quot;//g&#39; -e &#39;s/,//g&#39; | pbcopy
 </pre></div>
 </div>
 </div>

@@ -178,5 +178,5 @@ aws ec2 delete-key-pair --key-name {KeyPair_NAME}
 ### 2-4 Get Account ID
 
 ```
-echo $(aws sts get-caller-identity) | awk '{print $5}' | sed 's/"//g' | sed 's/,//g' | pbcopy
+echo $(aws sts get-caller-identity) | awk '{print $5}' | sed -e 's/"//g' -e 's/,//g' | pbcopy
 ```
