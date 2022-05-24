@@ -505,6 +505,11 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-account-id">
+     2-4 Get Account ID
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -612,6 +617,11 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-account-id">
+     2-4 Get Account ID
+    </a>
    </li>
   </ul>
  </li>
@@ -798,6 +808,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ec2</span> <span class="n">delete</span><span class="o">-</span><span class="n">key</span><span class="o">-</span><span class="n">pair</span> <span class="o">--</span><span class="n">key</span><span class="o">-</span><span class="n">name</span> <span class="p">{</span><span class="n">KeyPair_NAME</span><span class="p">}</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="get-account-id">
+<h3>2-4 Get Account ID<a class="headerlink" href="#get-account-id" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $(aws sts get-caller-identity) | awk &#39;{print $5}&#39; | sed &#39;s/&quot;//g&#39; | sed &#39;s/,//g&#39; | pbcopy
+</pre></div>
 </div>
 </div>
 </div>
