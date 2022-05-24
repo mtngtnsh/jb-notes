@@ -1,27 +1,8 @@
 # AWS
 
-## 1. AWS S3 だけで静的コンテンツを配信する
+## 1. AWS CLI
 
-### a. S3 バケットを作成する
-
-selfnotessというバケットを作成した。  
-..省略..
-
-### b. self-notes の dist の内容を S3 バケットに配置する(public 状態に変更)
-
-![s3 bucket directory](../img/cloud-publicly_accessible_suituation.png)
-
-### c. アクセスする
-
-![access succeeded](../img/cloud-success.png)
-
-### d. おまけ: CloudFront + Route53 + S3で独自ドメインを追加して配信する方法も試した
-
-[AWS Certificate Manager](https://us-west-2.console.aws.amazon.com/acm/home?region=us-west-2#/firstrun/)
-
-## 2. AWS CLI
-
-### 2-1 retrieve solution stack names from ListAvailableSolutionStacks API
+### 1.1. Retrieve solution stack names from ListAvailableSolutionStacks API
 
 ```
 aws elasticbeanstalk list-available-solution-stacks
@@ -122,7 +103,7 @@ aws elasticbeanstalk list-available-solution-stacks
 
 [Ref: Elastic Beanstalk supported platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 
-### 2-2 Update access key
+### 1.2. Update access key
 
 #### create a new access key
 
@@ -155,7 +136,7 @@ aws iam delete-access-key --access-key-id {OLD_ACCESS_KEY} --user-name {user_nam
 
 *Ref:[Rotating access keys (AWS CLI)](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_access-keys.html#rotating_access_keys_cli)*
 
-### 2-3 Manage key pairs
+### 1.3. Manage key pairs
 
 #### list of key pairs
 
@@ -174,3 +155,28 @@ aws ec2 describe-key-pairs --key-name {KeyPair_NAME}
 ```
 aws ec2 delete-key-pair --key-name {KeyPair_NAME}
 ```
+
+### 1.4. Get Account ID
+
+```
+echo $(aws sts get-caller-identity) | awk '{print $5}' | sed -e 's/"//g' -e 's/,//g' | pbcopy
+```
+
+## 2. AWS S3 だけで静的コンテンツを配信する
+
+### 2.1. S3 バケットを作成する
+
+selfnotessというバケットを作成した。  
+..省略..
+
+### 2.2. self-notes の dist の内容を S3 バケットに配置する(public 状態に変更)
+
+![s3 bucket directory](../img/cloud-publicly_accessible_suituation.png)
+
+### 2.3. アクセスする
+
+![access succeeded](../img/cloud-success.png)
+
+### 2.4. おまけ: CloudFront + Route53 + S3で独自ドメインを追加して配信する方法も試した
+
+[AWS Certificate Manager](https://us-west-2.console.aws.amazon.com/acm/home?region=us-west-2#/firstrun/)
