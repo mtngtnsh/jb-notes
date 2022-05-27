@@ -122,3 +122,50 @@ Server:
 ```
 
 :::
+
+## uninstall local java env
+
+### 1. find out version of java
+
+- use this command
+
+```
+/usr/libexec/java_home -V
+```
+
+::: {tip}
+
+```
+~ /usr/libexec/java_home -V
+Matching Java Virtual Machines (1):
+    17.0.1 (x86_64) "Oracle Corporation" - "OpenJDK 17.0.1" /Users/{user_name}/Library/Java/JavaVirtualMachines/openjdk-17.0.1/Contents/Home
+/Users/{user_name}/Library/Java/JavaVirtualMachines/openjdk-17.0.1/Contents/Home
+```
+
+:::
+
+- copy the path of java_home
+
+```
+/Users/{user_name}/Library/Java/JavaVirtualMachines/openjdk-17.0.1/
+```
+
+### 2. uninstall it
+
+- remove it
+
+```
+sudo rm -rf /Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk
+```
+
+- confirm result
+
+::: {tip}
+
+```
+~ java -version
+The operation couldn’t be completed. Unable to locate a Java Runtime.
+Please visit http://www.java.com for information on installing Java.
+```
+
+:::

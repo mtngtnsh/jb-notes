@@ -446,6 +446,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uninstall-local-java-env">
+   uninstall local java env
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-out-version-of-java">
+     1. find out version of java
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uninstall-it">
+     2. uninstall it
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -489,6 +506,23 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
      colima インストール後
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uninstall-local-java-env">
+   uninstall local java env
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#find-out-version-of-java">
+     1. find out version of java
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#uninstall-it">
+     2. uninstall it
     </a>
    </li>
   </ul>
@@ -617,6 +651,53 @@ Server:
  docker-init:
   Version:          0.19.0
   GitCommit:
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="uninstall-local-java-env">
+<h2>uninstall local java env<a class="headerlink" href="#uninstall-local-java-env" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="find-out-version-of-java">
+<h3>1. find out version of java<a class="headerlink" href="#find-out-version-of-java" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>use this command</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">libexec</span><span class="o">/</span><span class="n">java_home</span> <span class="o">-</span><span class="n">V</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">~</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">libexec</span><span class="o">/</span><span class="n">java_home</span> <span class="o">-</span><span class="n">V</span>
+<span class="n">Matching</span> <span class="n">Java</span> <span class="n">Virtual</span> <span class="n">Machines</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="mf">17.0.1</span> <span class="p">(</span><span class="n">x86_64</span><span class="p">)</span> <span class="s2">&quot;Oracle Corporation&quot;</span> <span class="o">-</span> <span class="s2">&quot;OpenJDK 17.0.1&quot;</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="p">{</span><span class="n">user_name</span><span class="p">}</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Java</span><span class="o">/</span><span class="n">JavaVirtualMachines</span><span class="o">/</span><span class="n">openjdk</span><span class="o">-</span><span class="mf">17.0.1</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="n">Home</span>
+<span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="p">{</span><span class="n">user_name</span><span class="p">}</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Java</span><span class="o">/</span><span class="n">JavaVirtualMachines</span><span class="o">/</span><span class="n">openjdk</span><span class="o">-</span><span class="mf">17.0.1</span><span class="o">/</span><span class="n">Contents</span><span class="o">/</span><span class="n">Home</span>
+</pre></div>
+</div>
+</div>
+<ul class="simple">
+<li><p>copy the path of java_home</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="p">{</span><span class="n">user_name</span><span class="p">}</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Java</span><span class="o">/</span><span class="n">JavaVirtualMachines</span><span class="o">/</span><span class="n">openjdk</span><span class="o">-</span><span class="mf">17.0.1</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="uninstall-it">
+<h3>2. uninstall it<a class="headerlink" href="#uninstall-it" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>remove it</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Java</span><span class="o">/</span><span class="n">JavaVirtualMachines</span><span class="o">/</span><span class="n">jdk1</span><span class="mf">.8.0_92</span><span class="o">.</span><span class="n">jdk</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>confirm result</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>~ java -version
+The operation couldn’t be completed. Unable to locate a Java Runtime.
+Please visit http://www.java.com for information on installing Java.
 </pre></div>
 </div>
 </div>
