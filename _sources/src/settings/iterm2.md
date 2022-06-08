@@ -17,6 +17,8 @@ $ source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## Preferences
 
+::: {note}
+:class: dropdown
 ```json
 {
   "Custom Directory" : "No",
@@ -444,3 +446,5 @@ $ source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   }
 }
 ```
+
+:::
