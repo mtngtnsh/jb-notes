@@ -17,8 +17,6 @@ brew install --cask font-<Font-Name>-nerd-font
 
 ### settings.json
 
-::: {note}
-:class: dropdown
 ```
 {
     ...
@@ -43,6 +41,8 @@ brew install --cask font-<Font-Name>-nerd-font
 
 ### settings.json
 
+::: {note}
+:class: dropdown
 ```
 {
     ...
