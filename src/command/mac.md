@@ -169,3 +169,11 @@ Please visit http://www.java.com for information on installing Java.
 ```
 
 :::
+
+## install direnv(homebrew)
+
+```sh
+brew install direnv
+eval "$(direnv hook zsh)"
+source ~/.zshrc
+```
