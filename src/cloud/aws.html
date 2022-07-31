@@ -483,6 +483,11 @@ const thebe_selector_output = ".output, .cell_output"
      1.4. Get Account ID
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-list-of-amazon-linux-2-ami-imageid">
+     1.5 Get list of Amazon Linux 2 AMI ImageId
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -594,6 +599,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#get-account-id">
      1.4. Get Account ID
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-list-of-amazon-linux-2-ami-imageid">
+     1.5 Get list of Amazon Linux 2 AMI ImageId
     </a>
    </li>
   </ul>
@@ -793,6 +803,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="get-account-id">
 <h3>1.4. Get Account ID<a class="headerlink" href="#get-account-id" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>echo $(aws sts get-caller-identity) | awk &#39;{print $5}&#39; | sed -e &#39;s/&quot;//g&#39; -e &#39;s/,//g&#39; | pbcopy
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-list-of-amazon-linux-2-ami-imageid">
+<h3>1.5 Get list of Amazon Linux 2 AMI ImageId<a class="headerlink" href="#get-list-of-amazon-linux-2-ami-imageid" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">aws</span> <span class="n">ssm</span> <span class="n">get</span><span class="o">-</span><span class="n">parameters</span><span class="o">-</span><span class="n">by</span><span class="o">-</span><span class="n">path</span> <span class="o">--</span><span class="n">path</span> <span class="s2">&quot;/aws/service/ami-amazon-linux-latest&quot;</span> <span class="o">--</span><span class="n">region</span> <span class="n">us</span><span class="o">-</span><span class="n">east</span><span class="o">-</span><span class="mi">1</span> <span class="o">--</span><span class="n">query</span> <span class="s1">&#39;Parameters[:].[Name,Value]&#39;</span> <span class="o">--</span><span class="n">output</span> <span class="n">table</span>
 </pre></div>
 </div>
 </div>

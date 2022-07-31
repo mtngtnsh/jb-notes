@@ -162,6 +162,12 @@ aws ec2 delete-key-pair --key-name {KeyPair_NAME}
 echo $(aws sts get-caller-identity) | awk '{print $5}' | sed -e 's/"//g' -e 's/,//g' | pbcopy
 ```
 
+### 1.5 Get list of Amazon Linux 2 AMI ImageId
+
+```
+aws ssm get-parameters-by-path --path "/aws/service/ami-amazon-linux-latest" --region us-east-1 --query 'Parameters[:].[Name,Value]' --output table
+```
+
 ## 2. AWS S3 だけで静的コンテンツを配信する
 
 ### 2.1. S3 バケットを作成する
